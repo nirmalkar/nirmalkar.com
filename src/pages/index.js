@@ -9,20 +9,25 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
-    <>
+    <div className="home-layout">
       <Seo title="Home | Portfolio" />
       <Link to="/blog">Blogs</Link>
-      <Bio />
-      <StaticImage
-        src="../images/profile-pic.jpg"
-        width={800}
-        height={800}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt="Hemant Nirmalkar"
-        style={{ marginBottom: `1.45rem` }}
-      />
-    </>
+      <div className="h-grid">
+        <div>
+          <Bio />
+        </div>
+        <div className="h-grid-item-img">
+          <StaticImage
+            src="../images/profile-pic.jpg"
+            height={600}
+            quality={95}
+            formats={["auto", "webp", "avif"]}
+            alt="Hemant Nirmalkar"
+            style={{ borderRadius: "50%" }}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -32,20 +32,11 @@ const Bio = () => {
 
   return (
     <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.jpg"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
       {author?.name && (
         <p>
-          <span>Hi,</span> I am <strong>{author.name}</strong>{" "}
-          {author?.summary || null}
+          <div className="intro-primary">Hi,</div>
+          <div className="intro-primary">I am {author.name}</div>{" "}
+          <div className="intro-secondary">{author?.summary || null}</div>
         </p>
       )}
     </div>

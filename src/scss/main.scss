@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;800;900&display=swap");
+
+// normalize CSS across browsers
+@import "./normalize.scss";
+
+// custom CSS styles
+@import "./style.scss";
+
+// components styles
+@import "./components/index.scss";
+
+// pages styles
+@import "./pages/home.scss";

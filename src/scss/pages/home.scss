@@ -1,0 +1,24 @@
+.home-layout {
+  font-family: "Roboto Slab", serif;
+  width: 70%;
+  margin: 0 auto;
+  .h-grid {
+    padding: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    .h-grid-item-img {
+      text-align: right;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .h-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .home-layout {
+      width: 100%;
+    }
+  }
+}
