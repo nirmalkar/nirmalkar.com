@@ -26,24 +26,19 @@ function NavigationBar() {
                     />
                 )}
             </div>
-            <div className="nav-links">
-                <Link className="nav" activeClassName="nav-active" to="/">
-                    Home
-                </Link>
-                <Link className="nav" activeClassName="nav-active" to="/about">
-                    About
-                </Link>
-                <Link className="nav" activeClassName="nav-active" to="/blog">
-                    Blogs
-                </Link>
-                <Link
-                    className="nav"
-                    activeClassName="nav-active"
-                    to="/contact"
-                >
-                    Contact
-                </Link>
-            </div>
+
+            <Link className="nav" activeClassName="nav-active" to="/">
+                Home
+            </Link>
+            <Link className="nav" activeClassName="nav-active" to="/about">
+                About
+            </Link>
+            <Link className="nav" activeClassName="nav-active" to="/blog">
+                Blogs
+            </Link>
+            <Link className="nav" activeClassName="nav-active" to="/contact">
+                Contact
+            </Link>
         </div>
     )
 }
