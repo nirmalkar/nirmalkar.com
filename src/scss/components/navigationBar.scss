@@ -1,0 +1,17 @@
+.navigation {
+    width: 30%;
+    padding: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-evenly;
+    a {
+        color: #555;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #222;
+    }
+    .nav-active {
+        color: #222;
+    }
+}
