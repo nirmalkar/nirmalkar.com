@@ -11,7 +11,7 @@ module.exports = {
             twitter: `https://twitter.com/nirmalkar_`,
             instagram: `https://www.instagram.com/monty_davinci/`,
             linkedIn: `https://www.linkedin.com/in/nirmalkar/`,
-            twitter: `https://github.com/nirmalkar`,
+            github: `https://github.com/nirmalkar`,
         },
     },
     plugins: [

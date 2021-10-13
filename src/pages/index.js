@@ -1,13 +1,14 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import SocialIcons from "../components/socialIcons"
 
 import Bio from "../components/Bio"
 import NavigationBar from "../components/NavigationBar"
 import Seo from "../components/Seo"
 
 const BlogIndex = ({ data, location }) => {
-    const siteTitle = data.site.siteMetadata?.title || `Title`
+    // const siteTitle = data.site.siteMetadata?.title || `Title`
 
     return (
         <>
@@ -17,6 +18,7 @@ const BlogIndex = ({ data, location }) => {
                 <div className="h-grid">
                     <div>
                         <Bio />
+                        <SocialIcons />
                     </div>
                     <div className="h-grid-item-img">
                         <StaticImage

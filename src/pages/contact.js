@@ -1,7 +1,7 @@
 import React from "react"
 
 import NavigationBar from "../components/NavigationBar"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
 
 function Contact() {
     return (

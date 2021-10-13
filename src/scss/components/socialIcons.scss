@@ -1,0 +1,17 @@
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        padding: 0.2rem;
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+        cursor: pointer;
+    }
+}
