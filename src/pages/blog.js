@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import BlogLayout from "../components/bloglayout"
-import Seo from "../components/seo"
+import BlogLayout from "../components/BlogLayout"
+import Seo from "../components/Seo"
+import NavigationBar from "../components/NavigationBar"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
     if (posts.length === 0) {
         return (
             <BlogLayout location={location} title={siteTitle}>
-                <Seo title="All posts" />
+                <Seo title="Blog Posts" />
                 <p>
                     No blog posts found. Add markdown posts to "content/blog"
                     (or the directory you specified for the
@@ -24,7 +24,8 @@ const BlogIndex = ({ data, location }) => {
 
     return (
         <>
-            <Seo title="All posts" />
+            <Seo title="Blog Posts" />
+            <NavigationBar />
             <ol style={{ listStyle: `none` }}>
                 {posts.map(post => {
                     const title = post.frontmatter.title || post.fields.slug

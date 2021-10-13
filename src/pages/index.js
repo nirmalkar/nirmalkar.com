@@ -2,9 +2,9 @@ import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Bio from "../components/bio"
-import NavigationBar from "../components/navigationBar"
-import Seo from "../components/seo"
+import Bio from "../components/Bio"
+import NavigationBar from "../components/NavigationBar"
+import Seo from "../components/Seo"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
