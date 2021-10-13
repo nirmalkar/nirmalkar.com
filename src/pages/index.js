@@ -18,7 +18,9 @@ const BlogIndex = ({ data, location }) => {
                 <div className="h-grid">
                     <div>
                         <Bio />
-                        <SocialIcons />
+                        <div className="socialIcons">
+                            <SocialIcons />
+                        </div>
                     </div>
                     <div className="h-grid-item-img">
                         <StaticImage

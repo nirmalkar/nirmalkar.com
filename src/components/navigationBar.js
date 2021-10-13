@@ -1,23 +1,51 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import CloseMenu from "../images/close1.png"
+import Menu from "../images/menu2.png"
 
-function navigationBar() {
+function NavigationBar() {
+    const [isMenuShown, setIsMenuShown] = useState(false)
     return (
         <div className="navigation">
-            <Link activeClassName="nav-active" to="/">
-                Home
-            </Link>
-            <Link activeClassName="nav-active" to="/about">
-                About
-            </Link>
-            <Link activeClassName="nav-active" to="/blog">
-                Blogs
-            </Link>
-            <Link activeClassName="nav-active" to="/contact">
-                Contact
-            </Link>
+            <div className="nav-mobile">
+                {isMenuShown ? (
+                    <img
+                        onClick={() => setIsMenuShown(!isMenuShown)}
+                        className="nav-img-close"
+                        src={CloseMenu}
+                        alt="Logo"
+                        style={{ width: "2rem" }}
+                    />
+                ) : (
+                    <img
+                        onClick={() => setIsMenuShown(!isMenuShown)}
+                        className="nav-img"
+                        src={Menu}
+                        alt="Logo"
+                        style={{ width: "2.2rem" }}
+                    />
+                )}
+            </div>
+            <div className="nav-links">
+                <Link className="nav" activeClassName="nav-active" to="/">
+                    Home
+                </Link>
+                <Link className="nav" activeClassName="nav-active" to="/about">
+                    About
+                </Link>
+                <Link className="nav" activeClassName="nav-active" to="/blog">
+                    Blogs
+                </Link>
+                <Link
+                    className="nav"
+                    activeClassName="nav-active"
+                    to="/contact"
+                >
+                    Contact
+                </Link>
+            </div>
         </div>
     )
 }
 
-export default navigationBar
+export default NavigationBar
