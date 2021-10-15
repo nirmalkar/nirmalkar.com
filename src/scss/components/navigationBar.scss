@@ -1,52 +1,70 @@
 .navigation {
-    width: 30%;
-    padding: 1.5rem;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-evenly;
-    a {
-        color: #555;
-        text-decoration: none;
+    .nav-container {
+        width: 30%;
+        padding: 1.5rem;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-evenly;
+        a {
+            color: #555;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #222;
+        }
+        .nav-active {
+            color: #222;
+        }
     }
-    a:hover {
-        color: #222;
-    }
-    .nav-active {
-        color: #222;
+    .nav-mobile {
+        display: none;
     }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 801px) {
-    .navigation {
+    .nav-container {
         display: none;
     }
 }
 
 @media screen and (max-width: 800px) {
     .navigation {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        display: inline;
+        .nav-container {
+            display: none;
+            top: 0;
+            left: 0;
+        }
         .nav-mobile {
+            display: block;
             .nav-img-close {
-                position: absolute;
-                background-color: #fff;
+                margin-left: 3.2%;
+                margin-top: 2.8%;
             }
             .nav-img {
-                position: absolute;
-                top: 1.4rem;
-                left: -0.1em;
-                background-color: #fff;
+                margin-left: 2.8%;
+                margin-top: 2.2%;
             }
         }
-        .nav-links {
+        .nav {
+            display: none;
+        }
+        .nav-links-mob {
+            position: absolute;
+            top: 2.8rem;
+            left: 0rem;
             display: flex;
             flex-direction: column;
-            position: absolute;
-            top: 3.4rem;
-            .nav {
-                content: "";
+            background-color: rgba($color: #000, $alpha: 0.9);
+            border-radius: 5px;
+            padding: 0rem 10% 5% 10%;
+            z-index: 99;
+            .nav-block {
+                color: #777;
+                text-decoration: none;
+                margin: 1rem 0rem;
+            }
+            .nav-active {
+                color: #fff;
             }
         }
     }

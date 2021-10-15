@@ -34,7 +34,11 @@ function SocialIcons() {
                     />
                 </div>
             </a>
-            <a href="social.linkedIn" target="_blank" rel="noreferrer">
+            <a
+                href="https://www.instagram.com/monty_davinci/"
+                target="_blank"
+                rel="noreferrer"
+            >
                 <div className="icon">
                     <StaticImage
                         src="../images/social-icons/ig.png"

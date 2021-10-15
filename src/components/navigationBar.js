@@ -5,39 +5,55 @@ import Menu from "../images/menu2.png"
 
 function NavigationBar() {
     const [isMenuShown, setIsMenuShown] = useState(false)
+    console.log(isMenuShown)
     return (
         <div className="navigation">
-            <div className="nav-mobile">
+            <div
+                onClick={() => setIsMenuShown(!isMenuShown)}
+                className="nav-mobile"
+            >
                 {isMenuShown ? (
-                    <img
-                        onClick={() => setIsMenuShown(!isMenuShown)}
-                        className="nav-img-close"
-                        src={CloseMenu}
-                        alt="Logo"
-                        style={{ width: "2rem" }}
-                    />
+                    <div className="nav-img-close">
+                        <img
+                            src={CloseMenu}
+                            alt="Logo"
+                            style={{ width: "2rem" }}
+                        />
+                    </div>
                 ) : (
-                    <img
-                        onClick={() => setIsMenuShown(!isMenuShown)}
-                        className="nav-img"
-                        src={Menu}
-                        alt="Logo"
-                        style={{ width: "2.2rem" }}
-                    />
+                    <div className="nav-img">
+                        <img
+                            src={Menu}
+                            alt="Logo"
+                            style={{ width: "2.2rem" }}
+                        />
+                    </div>
                 )}
             </div>
-            <div className="nav-links">
-                <Link className="nav" activeClassName="nav-active" to="/">
+            <div className={!isMenuShown ? "nav-container" : "nav-links-mob"}>
+                <Link
+                    className={!isMenuShown ? "" : "nav-block"}
+                    activeClassName="nav-active"
+                    to="/"
+                >
                     Home
                 </Link>
-                <Link className="nav" activeClassName="nav-active" to="/about">
+                <Link
+                    className={!isMenuShown ? "" : "nav-block"}
+                    activeClassName="nav-active"
+                    to="/about"
+                >
                     About
                 </Link>
-                <Link className="nav" activeClassName="nav-active" to="/blog">
+                <Link
+                    className={!isMenuShown ? "" : "nav-block"}
+                    activeClassName="nav-active"
+                    to="/blog"
+                >
                     Blogs
                 </Link>
                 <Link
-                    className="nav"
+                    className={!isMenuShown ? "" : "nav-block"}
                     activeClassName="nav-active"
                     to="/contact"
                 >
