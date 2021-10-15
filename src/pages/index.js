@@ -6,12 +6,15 @@ import SocialIcons from "../components/socialIcons"
 import Bio from "../components/Bio"
 import NavigationBar from "../components/NavigationBar"
 import Seo from "../components/Seo"
+import { ThemeContext } from "../context/ThemeContext"
+import Jokes from "../components/Jokes"
 
 const BlogIndex = ({ data, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
+    const { dark, setIsDark } = React.useContext(ThemeContext)
 
     return (
-        <>
+        <div className={dark ? "darkMode" : ""}>
             <Seo title="Home | Portfolio" />
             <NavigationBar />
             <div className="home-layout">
@@ -33,8 +36,11 @@ const BlogIndex = ({ data, location }) => {
                         />
                     </div>
                 </div>
+                <div className="joke-container">
+                    <Jokes />
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 

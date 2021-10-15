@@ -1,5 +1,4 @@
 .home-layout {
-    // font-family: "Roboto Slab", serif;
     width: 70%;
     position: absolute;
     top: 40%;
@@ -15,6 +14,9 @@
         .h-grid-item-img {
             text-align: right;
         }
+    }
+    .joke-container {
+        width: 60%;
     }
 }
 @media screen and (max-width: 1200px) and (min-width: 801px) {
@@ -44,6 +46,12 @@
         .socialIcons {
             display: flex;
             justify-content: center;
+        }
+        .joke-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 3rem;
         }
     }
 }

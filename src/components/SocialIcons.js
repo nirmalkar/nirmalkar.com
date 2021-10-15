@@ -1,37 +1,28 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+
+import Instagram from "../images/social-icons/ig.svg"
+import Github from "../images/social-icons/gh.svg"
+import LinkedIn from "../images/social-icons/in.svg"
 
 function SocialIcons() {
     const icons = (
         <>
-            <div className="icon">
-                <a
-                    href="https://www.linkedin.com/in/nirmalkar/"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <StaticImage
-                        src="../images/social-icons/in.png"
-                        height={24}
-                        quality={100}
-                        formats={["auto", "webp", "avif"]}
-                        alt="linkedIn"
-                    />
-                </a>
-            </div>
+            <a
+                href="https://www.linkedin.com/in/nirmalkar/"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <div className="icon">
+                    <img src={LinkedIn} alt="LinkedIn" />
+                </div>
+            </a>
             <a
                 href="https://github.com/nirmalkar"
                 target="_blank"
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <StaticImage
-                        src="../images/social-icons/gh.png"
-                        height={24}
-                        quality={100}
-                        formats={["auto", "webp", "avif"]}
-                        alt="github"
-                    />
+                    <img src={Github} alt="Github" />
                 </div>
             </a>
             <a
@@ -40,13 +31,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <StaticImage
-                        src="../images/social-icons/ig.png"
-                        height={24}
-                        quality={100}
-                        formats={["auto", "webp", "avif"]}
-                        alt="instagram"
-                    />
+                    <img src={Instagram} alt="instagram" />
                 </div>
             </a>
         </>

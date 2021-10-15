@@ -1,0 +1,48 @@
+.joke {
+    width: 40%;
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    color: #333;
+    font-family: "Fira Code", monospace;
+    .joke-title {
+        font-size: 1.2;
+        font-weight: 600;
+        margin-bottom: 2%;
+        display: inline-block;
+    }
+    .refresh-btn {
+        position: absolute;
+        top: -5%;
+        left: 36%;
+        width: 1.8rem;
+        height: 1.8rem;
+        padding: 0.2rem;
+        border-radius: 5px;
+        background: inherit;
+        color: inherit;
+        box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+        cursor: pointer;
+        .refresh-btn-img {
+            position: absolute;
+            width: 1.4rem;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .joke {
+        width: 80%;
+        position: absolute;
+        padding-bottom: 10%;
+        text-overflow: ellipsis;
+        .refresh-btn {
+            top: -5%;
+            left: 65%;
+            .refresh-btn-img {
+                position: absolute;
+                width: 1.4rem;
+            }
+        }
+    }
+}
