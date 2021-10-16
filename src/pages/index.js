@@ -11,13 +11,13 @@ import Jokes from "../components/Jokes"
 
 const BlogIndex = ({ data, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
-    const { dark, setIsDark } = React.useContext(ThemeContext)
-
+    const { dark, setIsDarkMode } = React.useContext(ThemeContext)
     return (
         <div className={dark ? "darkMode" : ""}>
             <Seo title="Home | Portfolio" />
             <NavigationBar />
             <div className="home-layout">
+                <button onClick={() => setIsDarkMode()}>Switch Theme</button>
                 <div className="h-grid">
                     <div>
                         <Bio />
