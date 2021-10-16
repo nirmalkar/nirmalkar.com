@@ -8,8 +8,9 @@ function Jokes() {
     const [fetchNewJoke, setFetchNewJoke] = useState(1)
     useEffect(() => {
         async function fetchData() {
-            const a = await axios.get("https://v2.jokeapi.dev/joke/Programming")
-            setJoke(a.data)
+            const a = await fetch("https://v2.jokeapi.dev/joke/Programming")
+            const data = await a.json()
+            setJoke(data)
         }
         fetchData()
         return () => {}
