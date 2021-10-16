@@ -1,0 +1,14 @@
+.contact-form-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form {
+        width: 25%;
+        margin-top: 5%;
+        padding: 1.5rem;
+        background-color: #fff;
+        box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react"
+import ContactFrom from "../components/ContactFrom"
 
 import NavigationBar from "../components/NavigationBar"
 import Seo from "../components/Seo"
@@ -8,7 +9,9 @@ function Contact() {
         <>
             <Seo title="Contact" />
             <NavigationBar />
-            <h1>Contact</h1>
+            <h1>
+                <ContactFrom />
+            </h1>
         </>
     )
 }

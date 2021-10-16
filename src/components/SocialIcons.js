@@ -1,8 +1,9 @@
 import React from "react"
 
-import Instagram from "../images/social-icons/ig.svg"
-import Github from "../images/social-icons/gh.svg"
-import LinkedIn from "../images/social-icons/in.svg"
+import Instagram from "../images/social-icons/ig.js"
+import Github from "../images/social-icons/gh.js"
+import LinkedIn from "../images/social-icons/in.js"
+import Twitter from "../images/social-icons/t.js"
 
 function SocialIcons() {
     const icons = (
@@ -13,7 +14,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <img src={LinkedIn} alt="LinkedIn" />
+                    <LinkedIn color={"#231f20"} />
                 </div>
             </a>
             <a
@@ -22,7 +23,16 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <img src={Github} alt="Github" />
+                    <Github color={"#231f20"} />
+                </div>
+            </a>
+            <a
+                href="https://twitter.com/nirmalkar_"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <div className="icon">
+                    <Twitter color={"#231f20"} />
                 </div>
             </a>
             <a
@@ -31,7 +41,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <img src={Instagram} alt="instagram" />
+                    <Instagram color={"#231f20"} />
                 </div>
             </a>
         </>
