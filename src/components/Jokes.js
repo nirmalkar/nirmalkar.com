@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react"
-import axios from "axios"
 
-import Refresh from "../images/refresh.svg"
+import Refresh from "../images/refresh.js"
+import { ThemeContext } from "../context/ThemeContext"
 
 function Jokes() {
     const [joke, setJoke] = useState({})
     const [fetchNewJoke, setFetchNewJoke] = useState(1)
+    const { isDark } = React.useContext(ThemeContext)
     useEffect(() => {
         async function fetchData() {
-            const a = await fetch("https://v2.jokeapi.dev/joke/Programming")
-            const data = await a.json()
-            setJoke(data)
+            try {
+                const a = await fetch("https://v2.jokeapi.dev/joke/Programming")
+                const data = await a.json()
+                setJoke(data)
+            } catch (e) {
+                console.log(e)
+            }
         }
         fetchData()
         return () => {}
@@ -29,14 +34,22 @@ function Jokes() {
         }
     }
     return (
-        <div className="joke">
-            <div className="joke-title">Let's Laugh</div>
+        <div
+            className="joke"
+            style={!isDark ? { color: "rgb(199, 199, 199)" } : {}}
+        >
+            <div className={!isDark ? "joke-title-dark" : "joke-title"}>
+                Let's Laugh
+            </div>
             <div
                 title="Click me for new joke"
                 className="refresh-btn"
                 onClick={() => setFetchNewJoke(fetchNewJoke + 1)}
             >
-                <img className="refresh-btn-img" src={Refresh} alt="Refresh" />
+                <Refresh
+                    color={!isDark ? "rgb(223, 222, 222)" : "#231f20"}
+                    width={"1.1rem"}
+                />
             </div>
             {joke && getJoke(joke)}
         </div>

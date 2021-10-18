@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import CloseMenu from "../images/close1.png"
 import Menu from "../images/menu2.png"
+import { ThemeContext } from "../context/ThemeContext"
 
 function NavigationBar() {
     const [isMenuShown, setIsMenuShown] = useState(false)
-    console.log(isMenuShown)
+    const { isDark } = React.useContext(ThemeContext)
     return (
         <div className="navigation">
             <div
@@ -32,29 +33,53 @@ function NavigationBar() {
             </div>
             <div className={!isMenuShown ? "nav-container" : "nav-links-mob"}>
                 <Link
-                    className={!isMenuShown ? "" : "nav-block"}
-                    activeClassName="nav-active"
+                    className={
+                        !isMenuShown
+                            ? !isDark
+                                ? "link-dark"
+                                : "link-light"
+                            : "nav-block"
+                    }
+                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
                     to="/"
                 >
                     Home
                 </Link>
                 <Link
-                    className={!isMenuShown ? "" : "nav-block"}
-                    activeClassName="nav-active"
+                    className={
+                        !isMenuShown
+                            ? !isDark
+                                ? "link-dark"
+                                : "link-light"
+                            : "nav-block"
+                    }
+                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
                     to="/about"
                 >
                     About
                 </Link>
                 <Link
-                    className={!isMenuShown ? "" : "nav-block"}
-                    activeClassName="nav-active"
+                    className={
+                        !isMenuShown
+                            ? !isDark
+                                ? "link-dark"
+                                : "link-light"
+                            : "nav-block"
+                    }
+                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
                     to="/blog"
                 >
                     Blogs
                 </Link>
                 <Link
-                    className={!isMenuShown ? "" : "nav-block"}
-                    activeClassName="nav-active"
+                    className={
+                        !isMenuShown
+                            ? !isDark
+                                ? "link-dark"
+                                : "link-light"
+                            : "nav-block"
+                    }
+                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
                     to="/contact"
                 >
                     Contact

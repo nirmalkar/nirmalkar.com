@@ -8,16 +8,17 @@ import NavigationBar from "../components/Navigation"
 import Seo from "../components/SiteSeo"
 import { ThemeContext } from "../context/ThemeContext"
 import Jokes from "../components/Jokes"
+import Theme from "../components/Theme"
 
 const BlogIndex = ({ data, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
-    const { dark, setIsDarkMode } = React.useContext(ThemeContext)
+    const { idDark, setIsDarkMode } = React.useContext(ThemeContext)
     return (
-        <div className={dark ? "darkMode" : ""}>
+        <div>
+            <Theme />
             <Seo title="Home | Portfolio" />
             <NavigationBar />
             <div className="home-layout">
-                <button onClick={() => setIsDarkMode()}>Switch Theme</button>
                 <div className="h-grid">
                     <div>
                         <Bio />

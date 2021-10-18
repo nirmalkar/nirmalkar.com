@@ -4,8 +4,10 @@ import Instagram from "../images/social-icons/ig.js"
 import Github from "../images/social-icons/gh.js"
 import LinkedIn from "../images/social-icons/in.js"
 import Twitter from "../images/social-icons/t.js"
+import { ThemeContext } from "../context/ThemeContext.js"
 
 function SocialIcons() {
+    const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
     const icons = (
         <>
             <a
@@ -14,7 +16,9 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <LinkedIn color={"#231f20"} />
+                    <LinkedIn
+                        color={!isDark ? "rgb(240, 240, 240)" : "#231f20"}
+                    />
                 </div>
             </a>
             <a
@@ -23,7 +27,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Github color={"#231f20"} />
+                    <Github color={!isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
             <a
@@ -32,7 +36,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Twitter color={"#231f20"} />
+                    <Twitter color={!isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
             <a
@@ -41,7 +45,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Instagram color={"#231f20"} />
+                    <Instagram color={!isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
         </>

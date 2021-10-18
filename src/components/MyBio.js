@@ -7,8 +7,10 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { ThemeContext } from "../context/ThemeContext"
 
 const Bio = () => {
+    const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
     const data = useStaticQuery(graphql`
         query BioQuery {
             site {
@@ -33,9 +35,25 @@ const Bio = () => {
         <div className="bio">
             {author?.name && (
                 <div>
-                    <div className="intro-primary">Hi,</div>
-                    <div className="intro-primary">I am {author.name}</div>{" "}
-                    <div className="intro-secondary">
+                    <div
+                        className={
+                            !isDark ? "intro-primary-dark" : "intro-primary"
+                        }
+                    >
+                        Hi,
+                    </div>
+                    <div
+                        className={
+                            !isDark ? "intro-primary-dark" : "intro-primary"
+                        }
+                    >
+                        I am {author.name}
+                    </div>{" "}
+                    <div
+                        className={
+                            !isDark ? "intro-secondary-dark" : "intro-secondary"
+                        }
+                    >
                         {author?.summary || null}
                     </div>
                 </div>
