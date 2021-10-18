@@ -3,9 +3,9 @@ import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import SocialIcons from "../components/socialIcons"
 
-import Bio from "../components/Bio"
-import NavigationBar from "../components/NavigationBar"
-import Seo from "../components/Seo"
+import Bio from "../components/MyBio"
+import NavigationBar from "../components/Navigation"
+import Seo from "../components/SiteSeo"
 import { ThemeContext } from "../context/ThemeContext"
 import Jokes from "../components/Jokes"
 

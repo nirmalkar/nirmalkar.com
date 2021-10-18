@@ -1,7 +1,7 @@
 import React from "react"
 
-import Seo from "../components/Seo"
-import NavigationBar from "../components/NavigationBar"
+import Seo from "../components/SiteSeo"
+import NavigationBar from "../components/Navigation"
 
 function About() {
     return (

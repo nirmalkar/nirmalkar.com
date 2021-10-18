@@ -1,8 +1,8 @@
 import React from "react"
 import ContactFrom from "../components/ContactFrom"
 
-import NavigationBar from "../components/NavigationBar"
-import Seo from "../components/Seo"
+import NavigationBar from "../components/Navigation"
+import Seo from "../components/SiteSeo"
 
 function Contact() {
     return (

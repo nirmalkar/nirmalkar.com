@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import BlogLayout from "../components/BlogLayout"
-import Seo from "../components/Seo"
-import NavigationBar from "../components/NavigationBar"
+import BlogLayout from "../components/LayoutBlog"
+import Seo from "../components/SiteSeo"
+import NavigationBar from "../components/Navigation"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
