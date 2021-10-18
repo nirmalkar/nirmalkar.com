@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import SocialIcons from "../components/socialIcons"
+import SocialIcons from "../components/Social"
 
 import Bio from "../components/MyBio"
 import NavigationBar from "../components/Navigation"
