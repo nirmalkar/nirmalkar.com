@@ -30,7 +30,7 @@ function Jokes() {
     }
     return (
         <div className="joke">
-            <div className="joke-title">Let's Laugh together</div>
+            <div className="joke-title">Let's Laugh</div>
             <div
                 title="Click me for new joke"
                 className="refresh-btn"
