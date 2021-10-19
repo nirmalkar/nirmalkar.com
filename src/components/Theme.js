@@ -1,7 +1,7 @@
 import React from "react"
 
 import Sun from "../images/Sun.js"
-import Moon from "../images/Moon.svg"
+import Moon from "../images/moon.svg"
 import { ThemeContext } from "../context/ThemeContext"
 
 function Theme() {
