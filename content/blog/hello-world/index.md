@@ -1,231 +1,94 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+title: How to set up your mac like a pro (as a developer)
+date: "2021-10-19T22:12:03.284Z"
 description: "Hello World"
 ---
 
+<!--
 This is my first post on my new fake blog! How exciting!
 
 I'm sure I'll write a lot more interesting things in the future.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+Oh, and here's a great quote from this Wikipedia on -->
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
+<!-- [salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg). -->
+
+<!-- > A salted duck egg is a Chinese preserved food product made by soaking duck
 > eggs in brine, or packing each egg in damp, salted charcoal. In Asian
 > supermarkets, these eggs are sometimes sold covered in a thick layer of salted
 > charcoal paste. The eggs may also be sold with the salted paste removed,
 > wrapped in plastic, and vacuum packed. From the salt curing process, the
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+> firm-textured, round yolk that is bright orange-red in color. -->
 
-![Chinese Salty Egg](./salty_egg.jpg)
+![Chinese Salty Egg](https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=625&q=10)
 
-You can also write code blocks here!
+**Let's start with IDE**
 
-```js
-const saltyDuckEgg = "chinese preserved food product"
+-   I personally like vs code as my default IDE. It has a large set of extensions, BTW VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow.
+-   Download vscode: follow this link to download visual studio code.
+
+[https://code.visualstudio.com/docs?dv=osx](https://code.visualstudio.com/docs?dv=osx)
+
+I**nstall vscode to the path**
+
+-   Launch VS Code.
+-   Open the **Command Palette** (Cmd+Shift+P) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
+
+**Homebrew**
+
+-   Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple's operating system macOS as well as Linux.
+-   Run this command on your terminal.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-| Number | Title                                    | Year |
-| :----- | :--------------------------------------- | ---: |
-| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
-| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
-| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
+### Do you think your terminal looks ugly and boring?
 
-[View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
+then install Iterm replacement for a terminal with zsh.
 
-This is a paragraph.
+**Terminal Application(iterm)**
 
-    This is a paragraph.
+-   iTerm is a replacement for Terminal. Currently, iterm2 is available
+-   to install it using brew:
 
-# Header 1
-
-## Header 2
-
-    Header 1
-    ========
-
-    Header 2
-    --------
-
-# Header 1
-
-## Header 2
-
-### Header 3
-
-#### Header 4
-
-##### Header 5
-
-###### Header 6
-
-    # Header 1
-    ## Header 2
-    ### Header 3
-    #### Header 4
-    ##### Header 5
-    ###### Header 6
-
-# Header 1
-
-## Header 2
-
-### Header 3
-
-#### Header 4
-
-##### Header 5
-
-###### Header 6
-
-    # Header 1 #
-    ## Header 2 ##
-    ### Header 3 ###
-    #### Header 4 ####
-    ##### Header 5 #####
-    ###### Header 6 ######
-
-> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-    > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-> ## This is a header.
->
-> 1. This is the first list item.
-> 2. This is the second list item.
->
-> Here's some example code:
->
->     Markdown.generate();
-
-    > ## This is a header.
-    > 1. This is the first list item.
-    > 2. This is the second list item.
-    >
-    > Here's some example code:
-    >
-    >     Markdown.generate();
-
--   Red
--   Green
--   Blue
-
-*   Red
-*   Green
-*   Blue
-
--   Red
--   Green
--   Blue
-
-```markdown
--   Red
--   Green
--   Blue
-
-*   Red
-*   Green
-*   Blue
-
--   Red
--   Green
--   Blue
+```bash
+brew install --cask iterm2
 ```
 
--   `code goes` here in this line
--   **bold** goes here
+-   download and install iterm terminal
+    [https://iterm2.com/downloads.html](https://iterm2.com/downloads.html)
 
-```markdown
--   `code goes` here in this line
--   **bold** goes here
+**Zshell**
+
+-   The Z shell is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh.
+-   run this command on you terminal.
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
 ```
 
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
+-   then run this command on your terminal to install zsh.
 
-```markdown
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
+```bash
+brew install zsh
 ```
 
-1. `code goes` here in this line
-1. **bold** goes here
+**OhMyZsh**
 
-```markdown
-1. `code goes` here in this line
-1. **bold** goes here
+-   Oh My Zsh is an open-source, community-driven framework for managing your Zsh configuration.
+-   It comes bundled with thousands of helpful functions, helpers, plugins and themes.
+
+-   copy and run this command on your terminal
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Paragraph:
+-   open the file on vs code
 
-    Code
-
-<!-- -->
-
-    Paragraph:
-
-        Code
-
----
-
----
-
----
-
----
-
----
-
-    * * *
-
-    ***
-
-    *****
-
-    - - -
-
-    ---------------------------------------
-
-This is [an example](http://example.com "Example") link.
-
-[This link](http://example.com) has no title attr.
-
-This is [an example][id] reference-style link.
-
-[id]: http://example.com "Optional Title"
-
-    This is [an example](http://example.com "Example") link.
-
-    [This link](http://example.com) has no title attr.
-
-    This is [an example] [id] reference-style link.
-
-    [id]: http://example.com "Optional Title"
-
-_single asterisks_
-
-_single underscores_
-
-**double asterisks**
-
-**double underscores**
-
-    *single asterisks*
-
-    _single underscores_
-
-    **double asterisks**
-
-    __double underscores__
-
-This paragraph has some `code` in it.
-
-    This paragraph has some `code` in it.
-
-![Alt Text](https://placehold.it/200x50 "Image Title")
-
-    ![Alt Text](https://placehold.it/200x50 "Image Title")
+```bash
+code ~/.zshrc
+```
