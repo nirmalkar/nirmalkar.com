@@ -6,6 +6,7 @@ import Seo from "../components/SiteSeo"
 import NavigationBar from "../components/Navigation"
 import { ThemeContext } from "../context/ThemeContext"
 import { navigate } from "@reach/router"
+import Theme from "../components/Theme"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -29,6 +30,7 @@ const BlogIndex = ({ data, location }) => {
         <>
             <Seo title="Blog Posts" />
             <NavigationBar />
+            <Theme />
             <div className="blog-list-container">
                 <ol className="blog-list-container-ol">
                     {posts.map(post => {
@@ -58,7 +60,7 @@ const BlogIndex = ({ data, location }) => {
                                                     className={
                                                         isDark
                                                             ? "blog-color-dark-headline"
-                                                            : ""
+                                                            : "blog-color-light-headLine"
                                                     }
                                                 >
                                                     {title}
@@ -68,7 +70,7 @@ const BlogIndex = ({ data, location }) => {
                                                 className={
                                                     isDark
                                                         ? "blog-color-dark-text"
-                                                        : ""
+                                                        : "blog-color-light-text"
                                                 }
                                             >
                                                 {post.frontmatter.date}
@@ -79,7 +81,7 @@ const BlogIndex = ({ data, location }) => {
                                                 className={
                                                     isDark
                                                         ? "blog-color-dark-text"
-                                                        : ""
+                                                        : "blog-color-light-text"
                                                 }
                                                 dangerouslySetInnerHTML={{
                                                     __html:
