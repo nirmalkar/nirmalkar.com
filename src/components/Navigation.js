@@ -35,12 +35,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? !isDark
+                            ? isDark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
                     to="/"
                 >
                     Home
@@ -48,12 +48,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? !isDark
+                            ? isDark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
                     to="/about"
                 >
                     About
@@ -61,12 +61,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? !isDark
+                            ? isDark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
                     to="/blog"
                 >
                     Blogs
@@ -74,12 +74,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? !isDark
+                            ? isDark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={!isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
                     to="/contact"
                 >
                     Contact

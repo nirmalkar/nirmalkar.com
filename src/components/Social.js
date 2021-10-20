@@ -17,7 +17,7 @@ function SocialIcons() {
             >
                 <div className="icon">
                     <LinkedIn
-                        color={!isDark ? "rgb(240, 240, 240)" : "#231f20"}
+                        color={isDark ? "rgb(240, 240, 240)" : "#231f20"}
                     />
                 </div>
             </a>
@@ -27,7 +27,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Github color={!isDark ? "#fff" : "#231f20"} />
+                    <Github color={isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
             <a
@@ -36,7 +36,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Twitter color={!isDark ? "#fff" : "#231f20"} />
+                    <Twitter color={isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
             <a
@@ -45,7 +45,7 @@ function SocialIcons() {
                 rel="noreferrer"
             >
                 <div className="icon">
-                    <Instagram color={!isDark ? "#fff" : "#231f20"} />
+                    <Instagram color={isDark ? "#fff" : "#231f20"} />
                 </div>
             </a>
         </>

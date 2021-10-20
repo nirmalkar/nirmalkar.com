@@ -5,6 +5,7 @@ import BlogLayout from "../components/LayoutBlog"
 import Seo from "../components/SiteSeo"
 import NavigationBar from "../components/Navigation"
 import { ThemeContext } from "../context/ThemeContext"
+import { navigate } from "@reach/router"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -33,61 +34,65 @@ const BlogIndex = ({ data, location }) => {
                     {posts.map(post => {
                         const title = post.frontmatter.title || post.fields.slug
                         return (
-                            <li
-                                key={post.fields.slug}
-                                className="blog-list-item"
+                            <Link
+                                className="blog-post-link"
+                                to={post.fields.slug}
+                                itemProp="url"
                             >
-                                <article
-                                    className="post-list-item"
-                                    itemScope
-                                    itemType="http://schema.org/Article"
+                                <li
+                                    onClick={() =>
+                                        navigate(`${post.fields.slug}`)
+                                    }
+                                    key={post.fields.slug}
+                                    className="blog-list-item"
                                 >
-                                    <header>
-                                        <h2>
-                                            <Link
-                                                to={post.fields.slug}
-                                                itemProp="url"
-                                            >
+                                    <article
+                                        className="post-list-item"
+                                        itemScope
+                                        itemType="http://schema.org/Article"
+                                    >
+                                        <header>
+                                            <h2>
                                                 <span
                                                     itemProp="headline"
                                                     className={
                                                         isDark
-                                                            ? ""
-                                                            : "blog-color-dark-headline"
+                                                            ? "blog-color-dark-headline"
+                                                            : ""
                                                     }
                                                 >
                                                     {title}
                                                 </span>
-                                            </Link>
-                                        </h2>
-                                        <small
-                                            className={
-                                                isDark
-                                                    ? ""
-                                                    : "blog-color-dark-text"
-                                            }
-                                        >
-                                            {post.frontmatter.date}
-                                        </small>
-                                    </header>
-                                    <section>
-                                        <p
-                                            className={
-                                                isDark
-                                                    ? ""
-                                                    : "blog-color-dark-text"
-                                            }
-                                            dangerouslySetInnerHTML={{
-                                                __html:
-                                                    post.frontmatter
-                                                        .description ||
-                                                    post.excerpt,
-                                            }}
-                                            itemProp="description"
-                                        />
-                                    </section>
-                                </article>
-                            </li>
+                                            </h2>
+                                            <small
+                                                className={
+                                                    isDark
+                                                        ? "blog-color-dark-text"
+                                                        : ""
+                                                }
+                                            >
+                                                {post.frontmatter.date}
+                                            </small>
+                                        </header>
+                                        <section>
+                                            <p
+                                                className={
+                                                    isDark
+                                                        ? "blog-color-dark-text"
+                                                        : ""
+                                                }
+                                                dangerouslySetInnerHTML={{
+                                                    __html:
+                                                        post.frontmatter
+                                                            .description ||
+                                                        post.excerpt,
+                                                }}
+                                                itemProp="description"
+                                            />
+                                        </section>
+                                    </article>
+                                </li>
+                            </Link>
                         )
                     })}
                 </ol>

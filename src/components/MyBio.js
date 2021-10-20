@@ -37,21 +37,21 @@ const Bio = () => {
                 <div>
                     <div
                         className={
-                            !isDark ? "intro-primary-dark" : "intro-primary"
+                            isDark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         Hi,
                     </div>
                     <div
                         className={
-                            !isDark ? "intro-primary-dark" : "intro-primary"
+                            isDark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         I am {author.name}
                     </div>{" "}
                     <div
                         className={
-                            !isDark ? "intro-secondary-dark" : "intro-secondary"
+                            isDark ? "intro-secondary-dark" : "intro-secondary"
                         }
                     >
                         {author?.summary || null}

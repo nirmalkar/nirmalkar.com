@@ -8,7 +8,7 @@ function Theme() {
     const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
     return (
         <div className="theme-button-container">
-            {!isDark ? (
+            {isDark ? (
                 <div className="theme-btn-sun" onClick={() => setIsDarkMode()}>
                     <Sun />
                 </div>

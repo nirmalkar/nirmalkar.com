@@ -10,9 +10,8 @@ export const ThemeProvider = ({ children }) => {
         ? JSON.parse(localStorage.getItem("isDark"))
         : window.matchMedia("(prefers-color-scheme: dark)").matches === true
     const [isDark, setIsDark] = useState(getIsDarkFrmLocalStorage)
-    console.log(getIsDarkFrmLocalStorage, typeof isDark)
     useEffect(() => {
-        if (!isDark === true) {
+        if (isDark === true) {
             body.style.background = "#313239"
         } else {
             body.style.background = "#fff"
@@ -21,7 +20,7 @@ export const ThemeProvider = ({ children }) => {
     const setIsDarkMode = () => {
         localStorage.setItem("isDark", !isDark)
         setIsDark(!isDark)
-        if (!isDark === true) {
+        if (isDark === true) {
             body.style.background = "#fff"
         } else {
             body.style.background = "#313239"

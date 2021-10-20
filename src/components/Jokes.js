@@ -36,9 +36,9 @@ function Jokes() {
     return (
         <div
             className="joke"
-            style={!isDark ? { color: "rgb(199, 199, 199)" } : {}}
+            style={isDark ? { color: "rgb(199, 199, 199)" } : {}}
         >
-            <div className={!isDark ? "joke-title-dark" : "joke-title"}>
+            <div className={isDark ? "joke-title-dark" : "joke-title"}>
                 Let's Laugh
             </div>
             <div
@@ -47,7 +47,7 @@ function Jokes() {
                 onClick={() => setFetchNewJoke(fetchNewJoke + 1)}
             >
                 <Refresh
-                    color={!isDark ? "rgb(223, 222, 222)" : "#231f20"}
+                    color={isDark ? "rgb(223, 222, 222)" : "#231f20"}
                     width={"1.1rem"}
                 />
             </div>
