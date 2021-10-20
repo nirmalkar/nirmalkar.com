@@ -196,7 +196,9 @@ li > ul {
     margin-left: var(--spacing-8);
     margin-top: calc(var(--spacing-8) / 2);
 }
-
+ol li {
+    list-style-type: none;
+}
 blockquote {
     color: var(--color-text-light);
     margin-left: calc(-1 * var(--spacing-6));

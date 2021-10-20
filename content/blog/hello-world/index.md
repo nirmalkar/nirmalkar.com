@@ -1,7 +1,7 @@
 ---
 title: How to set up your mac like a pro (as a developer)
 date: "2021-10-19T22:12:03.284Z"
-description: "Hello World"
+description: "Development Setup for mac-book"
 ---
 
 <!--

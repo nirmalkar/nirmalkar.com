@@ -4,9 +4,11 @@ import { Link, graphql } from "gatsby"
 import BlogLayout from "../components/LayoutBlog"
 import Seo from "../components/SiteSeo"
 import NavigationBar from "../components/Navigation"
+import { ThemeContext } from "../context/ThemeContext"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
+    const { isDark } = React.useContext(ThemeContext)
     const posts = data.allMarkdownRemark.nodes
 
     if (posts.length === 0) {
@@ -27,11 +29,14 @@ const BlogIndex = ({ data, location }) => {
             <Seo title="Blog Posts" />
             <NavigationBar />
             <div className="blog-list-container">
-                <ol style={{ listStyle: `none` }}>
+                <ol className="blog-list-container-ol">
                     {posts.map(post => {
                         const title = post.frontmatter.title || post.fields.slug
                         return (
-                            <li key={post.fields.slug}>
+                            <li
+                                key={post.fields.slug}
+                                className="blog-list-item"
+                            >
                                 <article
                                     className="post-list-item"
                                     itemScope
@@ -43,15 +48,35 @@ const BlogIndex = ({ data, location }) => {
                                                 to={post.fields.slug}
                                                 itemProp="url"
                                             >
-                                                <span itemProp="headline">
+                                                <span
+                                                    itemProp="headline"
+                                                    className={
+                                                        isDark
+                                                            ? ""
+                                                            : "blog-color-dark-headline"
+                                                    }
+                                                >
                                                     {title}
                                                 </span>
                                             </Link>
                                         </h2>
-                                        <small>{post.frontmatter.date}</small>
+                                        <small
+                                            className={
+                                                isDark
+                                                    ? ""
+                                                    : "blog-color-dark-text"
+                                            }
+                                        >
+                                            {post.frontmatter.date}
+                                        </small>
                                     </header>
                                     <section>
                                         <p
+                                            className={
+                                                isDark
+                                                    ? ""
+                                                    : "blog-color-dark-text"
+                                            }
                                             dangerouslySetInnerHTML={{
                                                 __html:
                                                     post.frontmatter

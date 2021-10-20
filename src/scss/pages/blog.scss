@@ -1,23 +1,60 @@
 .blog-list-container {
-    display: flex;
-    justify-content: center;
-    .post-list-item {
-        margin-bottom: var(--spacing-8);
-        margin-top: var(--spacing-8);
-    }
+    padding: 5%;
+    .blog-list-container-ol {
+        display: flex;
+        flex-direction: row;
+        .post-list-item {
+            margin-bottom: var(--spacing-8);
+            margin-top: var(--spacing-8);
+        }
 
-    .post-list-item p {
-        margin-bottom: var(--spacing-0);
-    }
+        .post-list-item p {
+            margin-bottom: var(--spacing-0);
+        }
 
-    .post-list-item h2 {
-        font-size: var(--fontSize-4);
-        color: var(--color-primary);
-        margin-bottom: var(--spacing-2);
-        margin-top: var(--spacing-0);
-    }
+        .post-list-item h2 {
+            font-size: var(--fontSize-4);
+            color: #333;
+            margin-bottom: var(--spacing-2);
+            margin-top: var(--spacing-0);
+        }
 
-    .post-list-item header {
-        margin-bottom: var(--spacing-4);
+        .post-list-item header {
+            margin-bottom: var(--spacing-4);
+        }
+        .blog-list-item {
+            border-radius: 5px;
+            box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+            padding: 1rem 2rem;
+            width: 25%;
+            margin: 1rem;
+        }
+        .blog-color-dark-headline {
+            color: rgb(223, 222, 222);
+        }
+        .blog-color-dark-text {
+            color: rgb(199, 199, 199);
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .blog-list-container {
+        padding: 5%;
+        .blog-list-container-ol {
+            .blog-list-item {
+                border-radius: 5px;
+                box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+                padding: 1rem 2rem;
+                width: 90%;
+                margin: 1rem;
+            }
+            display: block;
+            .blog-color-dark-headline {
+                color: rgb(223, 222, 222);
+            }
+            .blog-color-dark-text {
+                color: rgb(199, 199, 199);
+            }
+        }
     }
 }

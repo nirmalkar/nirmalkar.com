@@ -3,10 +3,12 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/LayoutBlog"
 import Seo from "../components/SiteSeo"
+import { ThemeContext } from "../context/ThemeContext"
 
 const BlogPostTemplate = ({ data, location }) => {
     const post = data.markdownRemark
     const siteTitle = data.site.siteMetadata?.title || `Title`
+    const { isDark } = React.useContext(ThemeContext)
     const { previous, next } = data
 
     return (
@@ -20,7 +22,7 @@ const BlogPostTemplate = ({ data, location }) => {
                 itemScope
                 itemType="http://schema.org/Article"
             >
-                <header>
+                <header className={isDark ? "" : ""}>
                     <h1 itemProp="headline">{post.frontmatter.title}</h1>
                     <p>{post.frontmatter.date}</p>
                 </header>
