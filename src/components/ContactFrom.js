@@ -1,7 +1,9 @@
 import React, { useState } from "react"
+import { ThemeContext } from "../context/ThemeContext"
 
 function ContactFrom() {
     const [fromData, setFormData] = useState({})
+    const { isDark } = React.useContext(ThemeContext)
     const submitContactForm = () => {}
     const inputHandler = e => {
         setFormData({
@@ -10,10 +12,14 @@ function ContactFrom() {
     }
     return (
         <div className="contact-form-container">
-            <form className="form" onSubmit={() => submitContactForm()}>
+            <form
+                className={isDark ? "form-dark" : "form"}
+                onSubmit={() => submitContactForm()}
+            >
                 <div>
-                    <label for="name">Name</label>
                     <input
+                        placeholder="Name"
+                        className="name"
                         required
                         value={fromData.name}
                         id="name"
@@ -21,8 +27,9 @@ function ContactFrom() {
                     />
                 </div>
                 <div>
-                    <label for="email">Email</label>
                     <input
+                        placeholder="Email"
+                        className="email"
                         required
                         value={fromData.email}
                         id="email"
@@ -30,10 +37,16 @@ function ContactFrom() {
                     />
                 </div>
                 <div>
-                    <label for="message">Message</label>
-                    <textarea id="message" onChange={e => inputHandler(e)} />
+                    <textarea
+                        placeholder="Message"
+                        className="text-area"
+                        id="message"
+                        onChange={e => inputHandler(e)}
+                    />
                 </div>
-                <button>Submit</button>
+                <button className="submit" type="submit">
+                    Submit
+                </button>
             </form>
         </div>
     )
