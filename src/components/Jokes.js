@@ -41,7 +41,7 @@ function Jokes() {
             <div className={isDark ? "joke-title-dark" : "joke-title"}>
                 Let's Laugh
             </div>
-            <div
+            <button
                 title="Click me for new joke"
                 className="refresh-btn"
                 onClick={() => setFetchNewJoke(fetchNewJoke + 1)}
@@ -50,7 +50,7 @@ function Jokes() {
                     color={isDark ? "rgb(223, 222, 222)" : "#231f20"}
                     width={"1.1rem"}
                 />
-            </div>
+            </button>
             {joke && getJoke(joke)}
         </div>
     )

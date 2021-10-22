@@ -29,11 +29,15 @@
         border-radius: 5px;
         background: inherit;
         color: inherit;
-        box-shadow: -1px -1px 3px #dddddd, 1px 1px 3px #ffffff;
+        box-shadow: -1px -1px 3px #cac9c9, 1px 1px 3px #cac9c9;
         cursor: pointer;
+        border: none;
         .refresh-btn-img {
             position: absolute;
             width: 1.1rem;
+        }
+        &:focus {
+            border: 0.1px solid #b6b6b6;
         }
     }
 }

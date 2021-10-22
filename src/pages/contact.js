@@ -11,9 +11,9 @@ function Contact() {
             <Seo title="Contact" />
             <NavigationBar />
             <Theme />
-            <h1>
+            <div>
                 <ContactFrom />
-            </h1>
+            </div>
         </>
     )
 }
