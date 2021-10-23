@@ -9,6 +9,8 @@ import Home from "../images/home.js"
 function NavigationBar() {
     const [isMenuShown, setIsMenuShown] = useState(false)
     const { isDark } = React.useContext(ThemeContext)
+    const path = window.location.pathname
+
     return (
         <div className="navigation">
             <div
@@ -42,10 +44,18 @@ function NavigationBar() {
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={e => console.log("herere", e)}
                     to="/"
                 >
-                    <Home color={isDark ? "#fff" : "#231f20"} />
+                    <Home
+                        color={
+                            (isDark && path) === "/"
+                                ? "#fff"
+                                : isDark
+                                ? "rgb(199, 199, 199)"
+                                : "#231f20"
+                        }
+                    />
                 </Link>
                 <Link
                     className={

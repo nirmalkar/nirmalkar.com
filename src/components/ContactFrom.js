@@ -90,7 +90,10 @@ function ContactFrom() {
                         onChange={e => inputHandler(e)}
                     />
                 </div>
-                <button className="submit" type="submit">
+                <button
+                    className={isDark ? "submit-dark" : "submit"}
+                    type="submit"
+                >
                     Submit
                 </button>
             </form>

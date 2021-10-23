@@ -1,3 +1,17 @@
+.submit-btn {
+    font-family: inherit;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 2%;
+    border: none;
+    background-color: #666;
+    color: #fff;
+    border-radius: 5px;
+}
+.submit-dark {
+    @extend .submit-btn;
+    border: 1px solid rgb(194, 187, 187);
+}
 .input-on-focus {
     outline: none !important;
     border: 1.5px solid #313239;
@@ -34,14 +48,7 @@
         @extend .input-on-focus;
     }
     .submit {
-        font-family: inherit;
-        width: 100%;
-        font-size: 1.2rem;
-        padding: 2%;
-        border: none;
-        background-color: #666;
-        color: #fff;
-        border-radius: 5px;
+        @extend .submit-btn;
         border: 1px solid #313239;
     }
 }
