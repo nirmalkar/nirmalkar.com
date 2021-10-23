@@ -76,7 +76,9 @@ export const pageQuery = graphql`
                 title
             }
         }
-        markdownRemark(id: { eq: $id }) {
+        markdownRemark(
+            id: { eq: $id, ne: "28d223e7-7150-59c4-99c8-96f619e4efc3" }
+        ) {
             id
             excerpt(pruneLength: 160)
             html

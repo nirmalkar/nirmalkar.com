@@ -42,6 +42,31 @@
     }
 }
 
+@media screen and (max-width: 1400px) and (min-width: 1000px) {
+    .joke {
+        .refresh-btn {
+            top: -3%;
+            left: 60%;
+        }
+    }
+}
+@media screen and (max-width: 1000px) and (min-width: 900px) {
+    .joke {
+        .refresh-btn {
+            top: -3%;
+            left: 55%;
+        }
+    }
+}
+@media screen and (max-width: 900px) and (min-width: 801px) {
+    .joke {
+        .refresh-btn {
+            top: -3%;
+            left: 55%;
+        }
+    }
+}
+
 @media screen and (max-width: 800px) {
     .joke {
         width: 80%;
@@ -50,11 +75,45 @@
         text-overflow: ellipsis;
         .refresh-btn {
             top: -3%;
-            left: 45%;
+            left: 35%;
             .refresh-btn-img {
                 position: absolute;
                 width: 1.1rem;
             }
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .joke {
+        .refresh-btn {
+            top: -1%;
+            left: 28%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .joke {
+        .refresh-btn {
+            top: -1%;
+            left: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .joke {
+        .refresh-btn {
+            top: -1%;
+            left: 50%;
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .joke {
+        .refresh-btn {
+            top: -1%;
+            left: 75%;
         }
     }
 }

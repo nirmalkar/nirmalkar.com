@@ -16,3 +16,15 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 1400px) and (min-width: 801px) {
+    .social-icons {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .social-icons {
+        width: 70%;
+    }
+}

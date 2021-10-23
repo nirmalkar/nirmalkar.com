@@ -6,17 +6,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     // Define a template for blog post
     const blogPost = path.resolve(`./src/templates/blog-post.js`)
+    const aboutMe = path.resolve(`./src/templates/about-me.js`)
 
     // Get all markdown blog posts sorted by date
     const result = await graphql(
         `
             {
                 allMarkdownRemark(
-                    sort: { fields: [frontmatter___date], order: ASC }
-                    limit: 1000
+                    filter: { frontmatter: { title: { ne: "About Me" } } }
+                    sort: { fields: frontmatter___title, order: ASC }
                 ) {
                     nodes {
                         id
+                        frontmatter {
+                            title
+                        }
                         fields {
                             slug
                         }

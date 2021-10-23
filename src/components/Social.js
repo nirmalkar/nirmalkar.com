@@ -7,7 +7,7 @@ import Twitter from "../images/social-icons/t.js"
 import { ThemeContext } from "../context/ThemeContext.js"
 
 function SocialIcons() {
-    const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
+    const { isDark } = React.useContext(ThemeContext)
     const icons = (
         <>
             <a

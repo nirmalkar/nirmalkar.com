@@ -10,7 +10,7 @@ import { ThemeContext } from "../context/ThemeContext"
 import Jokes from "../components/Jokes"
 import Theme from "../components/Theme"
 
-const BlogIndex = ({ data, location }) => {
+const NirmalkarIndex = ({ data, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
     const { idDark, setIsDarkMode } = React.useContext(ThemeContext)
     return (
@@ -45,7 +45,7 @@ const BlogIndex = ({ data, location }) => {
     )
 }
 
-export default BlogIndex
+export default NirmalkarIndex
 
 export const pageQuery = graphql`
     query {
