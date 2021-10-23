@@ -8,8 +8,7 @@ export const ThemeProvider = ({ children }) => {
     const body = document.querySelector("body")
     const getIsDarkFrmLocalStorage = localStorage.getItem("isDark")
         ? JSON.parse(localStorage.getItem("isDark"))
-        : false
-    // window.matchMedia("(prefers-color-scheme: dark)").matches === true
+        : window.matchMedia("(prefers-color-scheme: dark)").matches === true
     const [isDark, setIsDark] = useState(getIsDarkFrmLocalStorage)
     useEffect(() => {
         if (isDark === true) {

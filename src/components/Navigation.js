@@ -49,12 +49,11 @@ function NavigationBar() {
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={e => console.log("herere", e)}
                     to="/"
                 >
                     <Home
                         color={
-                            (isDark && path) === "/"
+                            (isDark && path) === "/" || (isMenuShown && !isDark)
                                 ? "#fff"
                                 : isDark
                                 ? "rgb(199, 199, 199)"

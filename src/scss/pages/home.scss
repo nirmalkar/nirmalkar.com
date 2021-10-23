@@ -40,8 +40,26 @@
         width: 100%;
         .h-grid {
             display: grid;
-            gap: 1rem;
+            gap: 2.5rem;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .socialIcons {
+            display: flex;
+            justify-content: center;
+        }
+        .joke-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 3rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .home-layout {
+        .h-grid {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
         }
         .socialIcons {
             display: flex;

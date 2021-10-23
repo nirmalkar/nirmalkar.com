@@ -3,6 +3,7 @@
     width: 40%;
     position: absolute;
     font-size: 0.9rem;
+    left: 0;
     font-weight: lighter;
     color: #333;
     font-family: "Fira Code", monospace;
@@ -22,7 +23,7 @@
     .refresh-btn {
         position: absolute;
         top: -5%;
-        left: 35%;
+        left: 30%;
         width: 1.5rem;
         height: 1.5rem;
         padding: 0.2rem;
@@ -41,41 +42,55 @@
         }
     }
 }
+@media screen and (max-width: 1600px) and (min-width: 1400px) {
+    .joke {
+        width: 50%;
+        .refresh-btn {
+            top: -3%;
+            left: 30%;
+        }
+    }
+}
 
 @media screen and (max-width: 1400px) and (min-width: 1000px) {
     .joke {
+        width: 50%;
         .refresh-btn {
             top: -3%;
-            left: 60%;
+            left: 40%;
         }
     }
 }
 @media screen and (max-width: 1000px) and (min-width: 900px) {
     .joke {
+        width: 50%;
         .refresh-btn {
             top: -3%;
-            left: 55%;
+            left: 35%;
         }
     }
 }
 @media screen and (max-width: 900px) and (min-width: 801px) {
     .joke {
+        width: 50%;
         .refresh-btn {
             top: -3%;
-            left: 55%;
+            left: 40%;
         }
     }
 }
 
 @media screen and (max-width: 800px) {
     .joke {
-        width: 80%;
+        width: 100%;
         position: absolute;
         padding-bottom: 10%;
+        margin-top: 1rem;
         text-overflow: ellipsis;
         .refresh-btn {
+            padding: 0.14rem;
             top: -3%;
-            left: 35%;
+            left: 20%;
             .refresh-btn-img {
                 position: absolute;
                 width: 1.1rem;
@@ -87,7 +102,7 @@
     .joke {
         .refresh-btn {
             top: -1%;
-            left: 28%;
+            left: 25%;
         }
     }
 }
@@ -96,24 +111,24 @@
     .joke {
         .refresh-btn {
             top: -1%;
-            left: 40%;
+            left: 30%;
         }
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     .joke {
         .refresh-btn {
             top: -1%;
-            left: 50%;
+            left: 35%;
         }
     }
 }
 @media screen and (max-width: 400px) {
     .joke {
         .refresh-btn {
-            top: -1%;
-            left: 75%;
+            top: -2%;
+            left: 45%;
         }
     }
 }

@@ -10,6 +10,7 @@
 }
 .submit-dark {
     @extend .submit-btn;
+    padding: 1rem;
     border: 1px solid rgb(194, 187, 187);
 }
 .input-on-focus {
@@ -81,12 +82,12 @@
     }
     .contact-form-container {
         .form-dark {
-            width: 90%;
+            width: 50%;
             height: 70vh;
             @extend .fields-padding-tablet;
         }
         .form {
-            width: 90%;
+            width: 50%;
             height: 70vh;
             @extend .fields-padding-tablet;
         }
@@ -105,13 +106,24 @@
     }
     .contact-form-container {
         .form-dark {
-            width: 90%;
+            width: 80%;
             height: 80vh;
         }
         .form {
-            width: 90%;
+            width: 70%;
             height: 80vh;
             @extend .fields-padding-mobile;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .contact-form-container {
+        .form-dark {
+            width: 80%;
+        }
+        .form {
+            width: 90%;
         }
     }
 }
