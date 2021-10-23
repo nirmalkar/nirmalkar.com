@@ -6,10 +6,15 @@ import Menu from "../images/menu2.png"
 import CloseMenu from "../images/close1.png"
 import Home from "../images/home.js"
 
+const isBrowser = typeof window !== "undefined"
+
 function NavigationBar() {
     const [isMenuShown, setIsMenuShown] = useState(false)
     const { isDark } = React.useContext(ThemeContext)
-    const path = window.location.pathname
+    let path
+    if (isBrowser) {
+        path = window.location.pathname
+    }
 
     return (
         <div className="navigation">
