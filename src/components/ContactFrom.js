@@ -1,6 +1,8 @@
-import axios from "contentful-management/node_modules/axios"
 import React, { useState } from "react"
+import axios from "contentful-management/node_modules/axios"
+
 import { ThemeContext } from "../context/ThemeContext"
+import toast, { Toaster } from "react-hot-toast"
 
 function ContactFrom() {
     const [fromData, setFormData] = useState({})
@@ -36,7 +38,7 @@ function ContactFrom() {
         })
             .then(r => {
                 handleServerResponse(true, "Thanks!", form)
-                console.log(r)
+                toast.success("we'll get back to you soon!")
             })
             .catch(r => {
                 handleServerResponse(false, r.response.data.error, form)
@@ -45,11 +47,7 @@ function ContactFrom() {
     }
     return (
         <div className="contact-form-container">
-            {serverState.status && (
-                <p className={!serverState.status.ok ? "errorMsg" : ""}>
-                    {serverState.status.msg}
-                </p>
-            )}
+            <Toaster />
             <form
                 className={isDark ? "form-dark" : "form"}
                 onSubmit={e => submitContactForm(e)}
@@ -80,7 +78,7 @@ function ContactFrom() {
                 </div>
                 <div>
                     <textarea
-                        placeholder="Message"
+                        placeholder="How can we help?"
                         className="text-area"
                         name="message"
                         required

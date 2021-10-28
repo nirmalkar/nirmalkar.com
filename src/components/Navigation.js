@@ -61,7 +61,7 @@ function NavigationBar() {
                         }
                     />
                 </Link>
-                <Link
+                {/* <Link
                     className={
                         !isMenuShown
                             ? isDark
@@ -73,7 +73,7 @@ function NavigationBar() {
                     to="/blog"
                 >
                     Blog
-                </Link>
+                </Link> */}
                 <Link
                     className={
                         !isMenuShown

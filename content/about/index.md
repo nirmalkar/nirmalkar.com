@@ -23,9 +23,9 @@ There was this bag where I used to put all my stuff. My mother called it **Garba
 
 **I really enjoyed teaching kids** but that's not it, after a long gap of 3 years I decided to get back to my stream (IT).
 
-And I came to Bangalore, It wasn't peace of cake for me after a huge gap but after two months of being here working hard and failing interviews, I got an internship in a startup as a javascript developer.
+And I came to Bangalore, After a long gap It wasn't a cakewalk but after two months of working hard and failing interviews, I got an internship in a startup as a javascript developer.
 
-one of my friends told me "Bangalore kisi ko nirash nahi karta"(Bangalore doesn't disappoint anyone), and he was told by another friend of his. I am telling you if you are someone wanna start a Tech career it is one of the best places to be.
+one of my friends told me "Bangalore kisi ko nirash nahi karta"(Bangalore doesn't disappoint anyone), and he was told by another friend of his. I am telling you if you are someone who wanna start a Tech career it is one of the best places to be.
 
 Current days I am in Bangalore **working with an Incredible EdTech company,** **learning, and sharing.**
 
