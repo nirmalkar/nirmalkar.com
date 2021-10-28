@@ -17,7 +17,7 @@ I have pursued my Bachelor's in information technology 👨🏼‍💻.
 
 As a child, I always liked to play with small electronic stuff. I was more of an indoor kid in the earlier days busy creating my own toys 🪀.
 
-There was this bag where I used to put all my stuff. My mother called it **Garbage Bag** 😂 well that's the story of all of us, isn't it?
+There was this bag where I used to put all my stuff. My mother called it **Garbage Bag** and always trying to get rid of it 😂 well that's the story of all of us, isn't it?
 
 **After college,** **I took a drop for a few years to Prepare for State Civil Service** but that didn't work out very well I end up being a Teacher.
 
