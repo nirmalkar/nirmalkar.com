@@ -16,7 +16,7 @@ const NirmalkarIndex = ({ data, location }) => {
     return (
         <div>
             <Theme />
-            <Seo title="Home | Portfolio" />
+            <Seo title="Home" />
             <NavigationBar />
             <div className="home-layout">
                 <div className="h-grid">
