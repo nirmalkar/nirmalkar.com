@@ -27,7 +27,7 @@ And I came to Bangalore, After a long gap It wasn't a cakewalk but after two mon
 
 one of my friends told me "Bangalore kisi ko nirash nahi karta"(Bangalore doesn't disappoint anyone), and he was told by another friend of his. I am telling you if you are someone who wanna start a Tech career it is one of the best places to be.
 
-Current days I am in Bangalore **working with an Incredible EdTech company,** **learning, and sharing.**
+Current days I am in Bangalore **working with an Awesome EdTech company,** **learning, and sharing.**
 
 That's it, Folks.
 
