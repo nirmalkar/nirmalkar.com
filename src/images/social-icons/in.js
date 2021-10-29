@@ -1,8 +1,12 @@
 import React from "react"
 
-const InIcon = ({ color }) => {
+const InIcon = ({ color, width }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+        <svg
+            width={width}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+        >
             <path
                 stroke={color === "#231f20" ? "#666" : color}
                 fill={color}

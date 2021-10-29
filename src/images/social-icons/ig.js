@@ -1,10 +1,11 @@
 import React from "react"
-const IgIcon = ({ color }) => {
+const IgIcon = ({ color, width }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
             viewBox="0 0 40 40"
+            width={width}
         >
             <path
                 fill={color}

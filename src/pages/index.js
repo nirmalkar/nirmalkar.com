@@ -33,6 +33,7 @@ const NirmalkarIndex = ({ data, location }) => {
                             quality={95}
                             formats={["auto", "webp", "avif"]}
                             alt="Hemant Nirmalkar"
+                            imgStyle={{ borderRadius: "50%" }}
                             style={{ borderRadius: "50%" }}
                         />
                     </div>

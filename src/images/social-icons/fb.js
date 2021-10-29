@@ -1,8 +1,12 @@
 import React from "react"
 
-const FbIcon = () => {
+const FbIcon = ({ width }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg
+            width={width}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
             <g data-name="&lt;Group&gt;">
                 <path
                     fill="none"
