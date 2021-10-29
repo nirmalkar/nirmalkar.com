@@ -26,11 +26,11 @@ function Jokes() {
             return (
                 <>
                     <div>{joke.setup}</div>
-                    <div>{joke.delivery}</div>
+                    <div>{joke.delivery}&#128514;</div>
                 </>
             )
         } else {
-            return <div>{joke.joke}</div>
+            return <div>{joke.joke} &#128514;</div>
         }
     }
     return (
@@ -51,7 +51,7 @@ function Jokes() {
                     width={"1.1rem"}
                 />
             </button>
-            {joke && getJoke(joke)}
+            <div>{joke && getJoke(joke)}</div>
         </div>
     )
 }
