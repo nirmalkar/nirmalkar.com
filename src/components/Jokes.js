@@ -7,6 +7,7 @@ function Jokes() {
     const [joke, setJoke] = useState({})
     const [fetchNewJoke, setFetchNewJoke] = useState(1)
     const { isDark } = React.useContext(ThemeContext)
+    console.log("theme issue", isDark)
     useEffect(() => {
         async function fetchData() {
             try {

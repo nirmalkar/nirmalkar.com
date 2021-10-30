@@ -8,6 +8,7 @@ import { ThemeContext } from "../context/ThemeContext.js"
 
 function SocialIcons() {
     const { isDark } = React.useContext(ThemeContext)
+    console.log("theme issue", isDark)
     const icons = (
         <>
             <a

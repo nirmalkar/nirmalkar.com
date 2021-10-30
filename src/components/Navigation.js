@@ -15,7 +15,7 @@ function NavigationBar() {
     if (isBrowser) {
         path = window.location.pathname
     }
-
+    console.log("theme issue", isDark)
     return (
         <div className="navigation">
             <div

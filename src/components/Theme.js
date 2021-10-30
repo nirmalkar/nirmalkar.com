@@ -6,6 +6,7 @@ import { ThemeContext } from "../context/ThemeContext"
 
 function Theme() {
     const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
+    console.log("theme issue", isDark)
     return (
         <div className="theme-button-container">
             {isDark ? (
