@@ -10,6 +10,11 @@ export const ThemeProvider = ({ children }) => {
         ? JSON.parse(localStorage.getItem("isDark"))
         : window.matchMedia("(prefers-color-scheme: dark)").matches === true
     const [isDark, setIsDark] = useState(getIsDarkFrmLocalStorage)
+
+    useEffect(() => {
+        setIsDark(getIsDarkFrmLocalStorage)
+    }, [getIsDarkFrmLocalStorage])
+
     useEffect(() => {
         if (isDark === true) {
             body.style.background = "#313239"
