@@ -10,7 +10,13 @@ import { ThemeContext } from "../context/ThemeContext"
 function About({ data, location }) {
     const post = data?.allMarkdownRemark.nodes[0]
     const siteTitle = data.site.siteMetadata?.title || `Title`
+    const [dark, setDark] = React.useState(false)
     const { isDark } = React.useContext(ThemeContext)
+
+    React.useEffect(() => {
+        setDark(isDark)
+    }, [isDark])
+
     return (
         <>
             <Seo title="About" />
@@ -19,16 +25,14 @@ function About({ data, location }) {
             <BlogLayout location={location} title={siteTitle}>
                 <div className="post-container">
                     <article
-                        className={isDark ? "post-dark" : ""}
+                        className={dark ? "post-dark" : ""}
                         itemScope
                         itemType="http://schema.org/Article"
                     >
                         <header>
                             <h1
                                 className={
-                                    isDark
-                                        ? "post-heading-dark"
-                                        : "post-heading"
+                                    dark ? "post-heading-dark" : "post-heading"
                                 }
                                 itemProp="headline"
                             >

@@ -10,12 +10,17 @@ const isBrowser = typeof window !== "undefined"
 
 function NavigationBar() {
     const [isMenuShown, setIsMenuShown] = useState(false)
+    const [dark, setDark] = React.useState(false)
     const { isDark } = React.useContext(ThemeContext)
     let path
     if (isBrowser) {
         path = window.location.pathname
     }
-    console.log("theme issue", isDark)
+
+    React.useEffect(() => {
+        setDark(isDark)
+    }, [isDark])
+
     return (
         <div className="navigation">
             <div
@@ -44,7 +49,7 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? isDark
+                            ? dark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
@@ -53,9 +58,9 @@ function NavigationBar() {
                 >
                     <Home
                         color={
-                            (isDark && path) === "/" || (isMenuShown && !isDark)
+                            (dark && path) === "/" || (isMenuShown && !dark)
                                 ? "#fff"
-                                : isDark
+                                : dark
                                 ? "rgb(199, 199, 199)"
                                 : "#231f20"
                         }
@@ -64,12 +69,12 @@ function NavigationBar() {
                 {/* <Link
                     className={
                         !isMenuShown
-                            ? isDark
+                            ? dark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={dark ? "nav-active-dark" : "nav-active"}
                     to="/blog"
                 >
                     Blog
@@ -77,12 +82,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? isDark
+                            ? dark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={dark ? "nav-active-dark" : "nav-active"}
                     to="/about"
                 >
                     About
@@ -90,12 +95,12 @@ function NavigationBar() {
                 <Link
                     className={
                         !isMenuShown
-                            ? isDark
+                            ? dark
                                 ? "link-dark"
                                 : "link-light"
                             : "nav-block"
                     }
-                    activeClassName={isDark ? "nav-active-dark" : "nav-active"}
+                    activeClassName={dark ? "nav-active-dark" : "nav-active"}
                     to="/contact"
                 >
                     Contact

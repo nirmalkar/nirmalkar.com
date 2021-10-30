@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { ThemeContext } from "../context/ThemeContext"
 
 const Bio = () => {
-    const [state, setState] = React.useState(false)
+    const [dark, setDark] = React.useState(false)
     const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
     const data = useStaticQuery(graphql`
         query BioQuery {
@@ -32,30 +32,30 @@ const Bio = () => {
     const author = data.site.siteMetadata?.author
     // const social = data.site.siteMetadata?.social
     React.useEffect(() => {
-        setState(isDark)
+        setDark(isDark)
     }, [isDark])
-    console.log("theme issue", isDark)
+
     return (
         <div className="bio">
             {author?.name && (
                 <div>
                     <div
                         className={
-                            !state ? "intro-primary" : "intro-primary-dark"
+                            dark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         Hi,
                     </div>
                     <div
                         className={
-                            !state ? "intro-primary" : "intro-primary-dark"
+                            dark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         I am {author.name}
                     </div>{" "}
                     <div
                         className={
-                            !state ? "intro-secondary" : "intro-secondary-dark"
+                            dark ? "intro-secondary-dark" : "intro-secondary"
                         }
                     >
                         {author?.summary || null}

@@ -10,8 +10,13 @@ import Theme from "../components/Theme"
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
+    const [dark, setDark] = React.useState(false)
     const { isDark } = React.useContext(ThemeContext)
     const posts = data.allMarkdownRemark.nodes
+
+    React.useEffect(() => {
+        setDark(isDark)
+    }, [isDark])
 
     if (posts.length === 0) {
         return (
@@ -58,7 +63,7 @@ const BlogIndex = ({ data, location }) => {
                                                 <span
                                                     itemProp="headline"
                                                     className={
-                                                        isDark
+                                                        dark
                                                             ? "blog-color-dark-headline"
                                                             : "blog-color-light-headLine"
                                                     }
@@ -68,7 +73,7 @@ const BlogIndex = ({ data, location }) => {
                                             </h2>
                                             <small
                                                 className={
-                                                    isDark
+                                                    dark
                                                         ? "blog-color-dark-text"
                                                         : "blog-color-light-text"
                                                 }
@@ -79,7 +84,7 @@ const BlogIndex = ({ data, location }) => {
                                         <section>
                                             <p
                                                 className={
-                                                    isDark
+                                                    dark
                                                         ? "blog-color-dark-text"
                                                         : "blog-color-light-text"
                                                 }
