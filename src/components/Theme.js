@@ -6,9 +6,15 @@ import { ThemeContext } from "../context/ThemeContext"
 
 function Theme() {
     const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
+    const [dark, setDark] = React.useState(false)
+
+    React.useEffect(() => {
+        setDark(isDark)
+    }, [isDark])
+
     return (
         <div className="theme-button-container">
-            {isDark ? (
+            {dark ? (
                 <div className="theme-btn-sun" onClick={() => setIsDarkMode()}>
                     <Sun />
                 </div>

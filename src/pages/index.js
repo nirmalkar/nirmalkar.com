@@ -12,7 +12,6 @@ import Theme from "../components/Theme"
 
 const NirmalkarIndex = ({ data, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
-    const { idDark, setIsDarkMode } = React.useContext(ThemeContext)
     return (
         <div>
             <Theme />

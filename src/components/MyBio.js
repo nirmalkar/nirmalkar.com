@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { ThemeContext } from "../context/ThemeContext"
 
 const Bio = () => {
+    const [dark, setDark] = React.useState(false)
     const { isDark, setIsDarkMode } = React.useContext(ThemeContext)
     const data = useStaticQuery(graphql`
         query BioQuery {
@@ -30,6 +31,9 @@ const Bio = () => {
     // Set these values by editing "siteMetadata" in gatsby-config.js
     const author = data.site.siteMetadata?.author
     // const social = data.site.siteMetadata?.social
+    React.useEffect(() => {
+        setDark(isDark)
+    }, [isDark])
 
     return (
         <div className="bio">
@@ -37,21 +41,21 @@ const Bio = () => {
                 <div>
                     <div
                         className={
-                            isDark ? "intro-primary-dark" : "intro-primary"
+                            dark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         Hi,
                     </div>
                     <div
                         className={
-                            isDark ? "intro-primary-dark" : "intro-primary"
+                            dark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
                         I am {author.name}
                     </div>{" "}
                     <div
                         className={
-                            isDark ? "intro-secondary-dark" : "intro-secondary"
+                            dark ? "intro-secondary-dark" : "intro-secondary"
                         }
                     >
                         {author?.summary || null}
