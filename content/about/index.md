@@ -7,7 +7,7 @@ slug: "about"
 
 Hey there! I am **Hemant** AKA **Monty**. 👋🏼
 
-Let's start with the very beginning I was born 🤱🏼 in **Bilaspur** (2nd capital of **Chhattisgarh**). As my father is a central government employee we got to live in different places. We were always surrounded by people from each direction of the country ⬅️⬆️⬇️➡️.
+Let's start with the very beginning I was born 🤱🏼 in **Bilaspur** (2nd capital of **Chhattisgarh**). As my father is a central government employee we had to live in different places. We were always surrounded by people from each direction of the country ⬅️⬆️⬇️➡️.
 
 There is a beautiful thing about living in different places you get to learn about these magnificent cultures and traditions and I love it.
 
@@ -19,15 +19,15 @@ As a child, I always liked to play with small electronic stuff. I was more of an
 
 There was this bag where I used to put all my stuff. My mother called it **Garbage Bag** and always trying to get rid of it 😂 well that's the story of all of us, isn't it?
 
-**After college,** **I took a drop for a few years to Prepare for State Civil Service** but that didn't work out very well I end up being a Teacher.
+**After college,** **I took a drop for a few years to Prepare for the State Civil Services** and I was a teacher for a while.
 
-**I really enjoyed teaching kids** but that's not it, after a long gap of 3 years I decided to get back to my stream (IT).
+**I really enjoyed teaching kids** but that's not it, after a long gap I decided to get back to my stream (IT).
 
-And I came to Bangalore, After a long gap It wasn't a cakewalk but after two months of working hard and failing interviews, I got an internship in a startup as a javascript developer.
+I came to Bangalore and got an internship in a startup as a javascript developer. There I worked on some projects and took full responsibility for FE development for an Edtech Project.
 
-one of my friends told me "Bangalore kisi ko nirash nahi karta"(Bangalore doesn't disappoint anyone), and he was told by another friend of his. I am telling you if you are someone who wanna start a Tech career it is one of the best places to be.
+Then I worked with a Productivity and Engagement Management company, where I developed some cool features like employee Engagement Analytics, chart representation for goals and okr, etc.
 
-Current days I am in Bangalore **working with an Awesome EdTech company,** **learning, and sharing.**
+Currently, I am in Bangalore **working with an Awesome EdTech company,** **learning, and sharing.**
 
 That's it, Folks.
 
