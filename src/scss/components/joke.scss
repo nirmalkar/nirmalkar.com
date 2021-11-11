@@ -1,3 +1,16 @@
+.refresh-btn-style {
+    position: absolute;
+    top: -5%;
+    left: 30%;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+    background: inherit;
+    color: inherit;
+    cursor: pointer;
+    border: none;
+}
 .joke {
     padding: 0rem 2rem;
     width: 40%;
@@ -21,18 +34,20 @@
         display: inline-block;
     }
     .refresh-btn {
-        position: absolute;
-        top: -5%;
-        left: 30%;
-        width: 1.5rem;
-        height: 1.5rem;
-        padding: 0.2rem;
-        border-radius: 5px;
-        background: inherit;
-        color: inherit;
+        @extend .refresh-btn-style;
         box-shadow: -1px -1px 3px #cac9c9, 1px 1px 3px #cac9c9;
-        cursor: pointer;
-        border: none;
+        .refresh-btn-img {
+            position: absolute;
+            width: 1.1rem;
+        }
+        &:focus {
+            border: 0.1px solid #b6b6b6;
+        }
+    }
+
+    .refresh-btn-dark {
+        @extend .refresh-btn-style;
+        box-shadow: -1px -1px 3px #484a53, 1px 1px 3px #484a53;
         .refresh-btn-img {
             position: absolute;
             width: 1.1rem;

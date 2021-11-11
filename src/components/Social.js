@@ -21,10 +21,10 @@ function SocialIcons() {
                 target="_blank"
                 rel="noreferrer"
             >
-                <div className="icon">
+                <div className={dark ? "icon-dark" : "icon"}>
                     <LinkedIn
                         width={"100"}
-                        color={dark ? "rgb(240, 240, 240)" : "#231f20"}
+                        color={dark ? "#C7C7C7" : "#231f20"}
                     />
                 </div>
             </a>
@@ -33,8 +33,11 @@ function SocialIcons() {
                 target="_blank"
                 rel="noreferrer"
             >
-                <div className="icon">
-                    <Github width={"100"} color={dark ? "#fff" : "#231f20"} />
+                <div className={dark ? "icon-dark" : "icon"}>
+                    <Github
+                        width={"100"}
+                        color={dark ? "#C7C7C7" : "#231f20"}
+                    />
                 </div>
             </a>
             <a
@@ -42,8 +45,11 @@ function SocialIcons() {
                 target="_blank"
                 rel="noreferrer"
             >
-                <div className="icon">
-                    <Twitter width={"100"} color={dark ? "#fff" : "#231f20"} />
+                <div className={dark ? "icon-dark" : "icon"}>
+                    <Twitter
+                        width={"100"}
+                        color={dark ? "#C7C7C7" : "#231f20"}
+                    />
                 </div>
             </a>
             <a
@@ -51,10 +57,10 @@ function SocialIcons() {
                 target="_blank"
                 rel="noreferrer"
             >
-                <div className="icon">
+                <div className={dark ? "icon-dark" : "icon"}>
                     <Instagram
                         width={"100"}
-                        color={dark ? "#fff" : "#231f20"}
+                        color={dark ? "#C7C7C7" : "#231f20"}
                     />
                 </div>
             </a>

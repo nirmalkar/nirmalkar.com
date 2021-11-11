@@ -32,24 +32,28 @@ function Jokes() {
             return (
                 <>
                     <div>{joke.setup}</div>
-                    <div>{joke.delivery}&#128514;</div>
+                    <div>
+                        {joke.delivery}{" "}
+                        {joke.delivery ? <span>&#128514;</span> : ""}
+                    </div>
                 </>
             )
         } else {
-            return <div>{joke.joke} &#128514;</div>
+            return (
+                <div>
+                    {joke.joke} {joke.joke ? <span>&#128514;</span> : ""}
+                </div>
+            )
         }
     }
     return (
-        <div
-            className="joke"
-            style={dark ? { color: "rgb(199, 199, 199)" } : {}}
-        >
+        <div className="joke" style={dark ? { color: "#C7C7C7" } : {}}>
             <div className={dark ? "joke-title-dark" : "joke-title"}>
                 Let's Laugh
             </div>
             <button
                 title="Click me for new joke"
-                className="refresh-btn"
+                className={dark ? "refresh-btn-dark" : "refresh-btn"}
                 onClick={() => setFetchNewJoke(fetchNewJoke + 1)}
             >
                 <Refresh
