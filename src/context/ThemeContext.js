@@ -16,6 +16,7 @@ export const ThemeProvider = ({ children }) => {
     }, [getIsDarkFrmLocalStorage])
 
     useEffect(() => {
+        body.style.transition = "600ms linear"
         if (isDark === true) {
             body.style.background = "#313239"
         } else {
