@@ -25,9 +25,9 @@ There was this bag where I used to put all my stuff. My mother called it **Garba
 
 I came to Bangalore and got an internship in a startup as a javascript developer. There I worked on some projects and took full responsibility for FE development for an Edtech Project.
 
-Then I worked with a Productivity and Engagement Management company, where I developed some cool features like employee Engagement Analytics, chart representation for goals and okr, etc.
+Then I worked for a Productivity and Engagement Management company, where I developed some cool features like employee Engagement Analytics, chart representation for goals and okr, etc.
 
-Currently, I am in Bangalore **working with an Awesome EdTech company,** **learning, and sharing.**
+Currently, I am in Bangalore **working for an Awesome EdTech company,** **learning, and sharing.**
 
 That's it, Folks.
 
