@@ -37,9 +37,7 @@ const NirmalkarIndex = ({ data, location }) => {
                         />
                     </div>
                 </div>
-                <div className="joke-container">
-                    <Jokes />
-                </div>
+                <div className="joke-container">{/* <Jokes /> */}</div>
             </div>
         </div>
     )
