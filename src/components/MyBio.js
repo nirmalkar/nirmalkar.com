@@ -44,15 +44,8 @@ const Bio = () => {
                             dark ? "intro-primary-dark" : "intro-primary"
                         }
                     >
-                        Hi,
+                        Hi, <br /> I'm {author.name}
                     </div>
-                    <div
-                        className={
-                            dark ? "intro-primary-dark" : "intro-primary"
-                        }
-                    >
-                        I am {author.name}
-                    </div>{" "}
                     <div
                         className={
                             dark ? "intro-secondary-dark" : "intro-secondary"
