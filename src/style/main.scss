@@ -5,6 +5,8 @@
 @import "base/reset";
 @import "base/typography";
 
+@import "components/navigation";
+
 @import "layout/header";
 @import "layout/footer";
 @import "layout/sidebar";
@@ -12,6 +14,7 @@
 @import "pages/home";
 @import "pages/about";
 @import "pages/contact";
+@import "pages/404";
 
 @import "themes/theme";
 @import "themes/admin";
