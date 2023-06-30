@@ -1,15 +1,15 @@
+@import "normalize";
 @import "abstracts/variables";
 @import "abstracts/functions";
 @import "abstracts/mixins";
+@import "responsive";
 
 @import "base/reset";
 @import "base/typography";
 
 @import "components/navigation";
 
-@import "layout/header";
-@import "layout/footer";
-@import "layout/sidebar";
+@import "layout/index";
 
 @import "pages/home";
 @import "pages/about";

@@ -1,0 +1,13 @@
+.footer {
+  height: 50px;
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+
+footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}

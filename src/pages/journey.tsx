@@ -7,7 +7,7 @@ interface HomeProps {}
 const Home: FC<HomeProps> = () => {
   return (
     <div>
-      <Layout></Layout>
+      <Layout>Journey page!</Layout>
     </div>
   );
 };

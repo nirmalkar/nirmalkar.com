@@ -1,5 +1,11 @@
 .nav-container {
   display: flex;
-  gap: 5%;
-  justify-content: center;
+  gap: 7px;
+  justify-content: right;
+  color: white;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
