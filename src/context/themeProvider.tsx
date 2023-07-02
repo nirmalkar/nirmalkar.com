@@ -15,7 +15,9 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider: React.FC = ({ children }) => {
-  const [themeName, setThemeName] = useState<ThemeName>("light");
+  const [themeName, setThemeName] = useState<ThemeName>(
+    getUserPreferredTheme()
+  );
   const theme = themes[themeName];
 
   useEffect(() => {
@@ -24,6 +26,16 @@ export const ThemeProvider: React.FC = ({ children }) => {
       setThemeName(storedTheme as ThemeName);
     }
   }, []);
+
+  function getUserPreferredTheme() {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
+    }
+    return "light";
+  }
 
   const toggleTheme = () => {
     const newThemeName = themeName === "light" ? "dark" : "light";

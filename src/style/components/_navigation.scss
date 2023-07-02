@@ -1,11 +1,27 @@
-.nav-container {
+@mixin nav-container {
   display: flex;
   gap: 7px;
   justify-content: right;
   color: white;
 }
 
-a {
-  color: #fff;
-  text-decoration: none;
+.nav-container-light {
+  @include nav-container;
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  span {
+    color: #333;
+  }
+}
+.nav-container-dark {
+  @include nav-container;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  span {
+    color: #fff;
+  }
 }

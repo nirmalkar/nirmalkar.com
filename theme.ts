@@ -4,20 +4,12 @@ const lightTheme = {
     primary: "#F5F5F5",
     secondary: "#fff",
   },
-  fonts: {
-    body: "Arial, sans-serif",
-    heading: "Helvetica, sans-serif",
-  },
 };
 
 const darkTheme = {
   colors: {
     primary: "#121212",
     secondary: "#0000FF",
-  },
-  fonts: {
-    body: "Verdana, sans-serif",
-    heading: "Courier New, monospace",
   },
 };
 
