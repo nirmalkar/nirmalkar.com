@@ -1,8 +1,9 @@
 // theme.ts
 const lightTheme = {
   colors: {
-    primary: "#F5F5F5",
+    primary: "#ffffff",
     secondary: "#fff",
+    dotsColor: "#CDCDCD",
   },
 };
 
@@ -10,6 +11,7 @@ const darkTheme = {
   colors: {
     primary: "#121212",
     secondary: "#0000FF",
+    dotsColor: "#333",
   },
 };
 

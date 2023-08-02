@@ -8,13 +8,19 @@ interface Props {
 }
 const Layout: React.FC<Props> = (props: Props) => {
   const { theme, toggleTheme } = React.useContext(ThemeContext);
-  console.log(toggleTheme, "here is the toggle theme!");
+  const { dotsColor } = theme?.colors;
   const { children } = props;
   return (
     <div
       className="layout"
       id="wrapper"
-      style={{ background: theme.colors.primary }}
+      style={{
+        backgroundColor: theme.colors.primary,
+        backgroundImage: `radial-gradient(${dotsColor} 10%, transparent 11%), radial-gradient(${dotsColor} 10%, transparent 11%)`,
+        backgroundSize: "10px 10px",
+        backgroundPosition: "0 0, 30px 30px",
+        backgroundRepeat: "repeat",
+      }}
     >
       <Header />
       <main>
