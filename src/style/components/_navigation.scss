@@ -3,6 +3,7 @@
   gap: 7px;
   justify-content: right;
   color: white;
+  flex-flow: row wrap;
 }
 
 .nav-container-light {
@@ -24,4 +25,8 @@
   span {
     color: #fff;
   }
+}
+
+.nav-icon {
+  font-family: "Abril Fatface", cursive;
 }

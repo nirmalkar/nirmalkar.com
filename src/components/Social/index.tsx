@@ -1,16 +1,42 @@
 import React from "react";
-
+import { ThemeContext } from "../../context/themeProvider";
+import Icon from "../../images/SocalIcons";
 interface SocialProps {}
-
+const social = [
+  {
+    name: "github",
+    link: "https://github.com/nirmalkar",
+  },
+  {
+    name: "linkedin",
+    link: "https://www.linkedin.com/in/nirmalkar/",
+  },
+  {
+    name: "instagram",
+    link: "https://instagram.com/monty_davinci",
+  },
+  {
+    name: "twitter",
+    link: "https://twitter.com/nirmalkar_",
+  },
+];
 const Social: React.FC<SocialProps> = () => {
+  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+
+  const { secondary, oppositePrimary } = theme?.colors;
   return (
-    <div>
-      <div>
-        <a href="https://twitter.com/nirmalkar_">twitter</a>
-        <a href="https://github.com/nirmalkar">github</a>
-        <a href="https://codepen.io/nirmalkar">codepen</a>
-        <a href="https://www.linkedin.com/in/nirmalkar/">likedin</a>
-      </div>
+    <div className="social-container">
+      {social.map((social) => (
+        <a
+          href={social.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social"
+          style={{ backgroundColor: secondary }}
+        >
+          <Icon fill={oppositePrimary} name={social.name} />
+        </a>
+      ))}
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.social-container {
+  display: flex;
+  gap: 0.5rem;
+  .social {
+    width: 2rem;
+    height: 2rem;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

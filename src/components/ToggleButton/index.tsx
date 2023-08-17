@@ -25,7 +25,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     }
   };
   return (
-    <div>
+    <div className="toggle-button-container">
       <input
         onChange={handleToggle}
         type="checkbox"

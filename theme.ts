@@ -2,16 +2,18 @@
 const lightTheme = {
   colors: {
     primary: "#ffffff",
-    secondary: "#fff",
-    dotsColor: "#CDCDCD",
+    secondary: "#E5E4E2",
+    oppositePrimary: "#121212",
+    oppositeSecondary: "#222",
   },
 };
 
 const darkTheme = {
   colors: {
     primary: "#121212",
-    secondary: "#0000FF",
-    dotsColor: "#333",
+    secondary: "#222",
+    oppositePrimary: "#ffffff",
+    oppositeSecondary: "#E5E4E2",
   },
 };
 
