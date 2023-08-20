@@ -28,7 +28,6 @@ const Nav: FC<NavProps> = () => {
   const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
   return (
     <div className={`nav-container-${themeName}`}>
-      <div className="nav-icon">N</div>
       <Links {...{ navLinks, themeName }} />
       <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
     </div>

@@ -23,7 +23,7 @@ const social = [
 const Social: React.FC<SocialProps> = () => {
   const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
 
-  const { secondary, oppositePrimary } = theme?.colors;
+  const { secondary, oppositeSecondary } = theme?.colors;
   return (
     <div className="social-container">
       {social.map((social) => (
@@ -34,7 +34,7 @@ const Social: React.FC<SocialProps> = () => {
           className="social"
           style={{ backgroundColor: secondary }}
         >
-          <Icon fill={oppositePrimary} name={social.name} />
+          <Icon fill={oppositeSecondary} name={social.name} />
         </a>
       ))}
     </div>
