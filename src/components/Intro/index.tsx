@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeContext } from "../../context/themeProvider";
 interface IntroProps {}
 const Intro: React.FC<IntroProps> = () => {
-  const { theme, toggleTheme } = React.useContext(ThemeContext);
+  const { theme } = React.useContext(ThemeContext);
   const { oppositeSecondary } = theme?.colors;
   return (
     <section className="intro-container" style={{ color: oppositeSecondary }}>

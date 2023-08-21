@@ -26,7 +26,7 @@ const Layout: React.FC<Props> = (props: Props) => {
       <main>
         <section className="content">{children}</section>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
