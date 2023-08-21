@@ -4,9 +4,9 @@
 }
 
 .checkbox-label {
-  background-color: #111;
-  width: 35px;
-  height: 12px;
+  background-color: #333333;
+  width: 28px;
+  height: 10px;
   border-radius: 50px;
   position: relative;
   padding: 5px;
@@ -16,18 +16,10 @@
   align-items: center;
 }
 
-.fa-moon {
-  color: #f1c40f;
-}
-
-.fa-sun {
-  color: #f39c12;
-}
-
 .checkbox-label .ball {
   background-color: #fff;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -36,24 +28,5 @@
 }
 
 .checkbox:checked + .checkbox-label .ball {
-  transform: translateX(21px);
-}
-
-/*  Support me if you like it */
-.support {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-.support a {
-  color: #292c35;
-  font-size: 32px;
-  backface-visibility: hidden;
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.support a:hover {
-  transform: scale(1.1);
+  transform: translateX(16px);
 }

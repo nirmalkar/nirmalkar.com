@@ -6,7 +6,7 @@ header {
   font-family: "Inter", sans-serif;
   .header-icon {
     position: absolute;
-    top: 0.8rem;
+    top: 0.5rem;
     font-family: "Abril Fatface";
     font-size: 24px;
     background-color: greenyellow;
@@ -16,5 +16,10 @@ header {
     text-align: center;
     line-height: 2.4rem;
     cursor: pointer;
+  }
+  .toggle-button {
+    position: absolute;
+    right: 3%;
+    top: 2%;
   }
 }

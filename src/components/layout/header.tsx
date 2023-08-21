@@ -2,9 +2,18 @@ import React from "react";
 import Navigation from "../Navigation";
 import { navigate } from "gatsby";
 import { ThemeContext } from "../../context/themeProvider";
+import ToggleButton from "../ToggleButton";
+import { playSound } from "../../utils/playSound";
 
-const Header: React.FC = () => {
-  const { theme, toggleTheme } = React.useContext(ThemeContext);
+const Header: React.FC = (props) => {
+  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+  const headerIconClick = () => {
+    const path = typeof window !== "undefined" ? window.location.pathname : "";
+    if (path !== "/") {
+      navigate("/");
+      playSound("linkSound");
+    }
+  };
   return (
     <header
       className="header-container"
@@ -15,7 +24,7 @@ const Header: React.FC = () => {
     >
       <div>
         <div
-          onClick={() => navigate("/")}
+          onClick={headerIconClick}
           className="header-icon"
           style={{
             backgroundColor: theme.colors.secondary,
@@ -23,6 +32,9 @@ const Header: React.FC = () => {
           }}
         >
           N
+        </div>
+        <div className="toggle-button">
+          <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
         </div>
         <Navigation />
       </div>

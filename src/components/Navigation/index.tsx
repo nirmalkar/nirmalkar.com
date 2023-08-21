@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/themeProvider";
-import ToggleButton from "../ToggleButton";
 import { navLinks, NavConst } from "../../constants/navigationContants";
+import { playSound } from "../../utils/playSound";
 
 interface NavProps {}
 interface Links {
@@ -25,11 +25,10 @@ const Links: FC<Links> = ({ themeName, navLinks }) => {
   );
 };
 const Nav: FC<NavProps> = () => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+  const { theme, themeName } = React.useContext(ThemeContext);
   return (
     <div className={`nav-container-${themeName}`}>
       <Links {...{ navLinks, themeName }} />
-      <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
     </div>
   );
 };

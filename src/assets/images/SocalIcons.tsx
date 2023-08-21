@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Link } from "gatsby";
-import { ThemeContext } from "../context/themeProvider";
+import { ThemeContext } from "../../context/themeProvider";
 
 interface SocialIconsProps {
   name: string;

@@ -1,6 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useContext } from "react";
+import MoonIcon from "../../assets/svg/Moon";
+import SunIcon from "../../assets/svg/Sun";
+import { ThemeContext } from "../../context/themeProvider";
+import { playSound } from "../../utils/playSound";
 interface ToggleButtonProps {
   currentTheme?: string;
   onToggle?: () => void;
@@ -10,8 +12,13 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   onToggle,
   currentTheme,
 }) => {
-  const [toggleVal, setToggleVal] = useState("light");
+  const [toggleVal, setToggleVal] = useState<string>("light");
+  const { theme, themeName, toggleTheme } = useContext(ThemeContext);
+  const { secondary, oppositeSecondary } = theme?.colors;
+  const isDarkMode = themeName === "dark";
+  console.log(toggleVal);
   const handleToggle = () => {
+    playSound("toggleSound");
     if (onToggle) {
       onToggle();
     } else {
@@ -31,12 +38,16 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
         type="checkbox"
         className={`checkbox`}
         id="checkbox"
+        checked={isDarkMode}
       />
-      <label htmlFor="checkbox" className="checkbox-label">
-        <i className="fas fa-moon"></i>
-        <FontAwesomeIcon icon={faMoon} />
-        <FontAwesomeIcon icon={faSun} />
-        <span className="ball"></span>
+      <label
+        htmlFor="checkbox"
+        className="checkbox-label"
+        style={{ backgroundColor: oppositeSecondary }}
+      >
+        <span className="ball" style={{ backgroundColor: secondary }}>
+          {themeName === "dark" ? <SunIcon /> : <MoonIcon />}
+        </span>
       </label>
     </div>
   );

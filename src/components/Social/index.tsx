@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../context/themeProvider";
-import Icon from "../../images/SocalIcons";
+import Icon from "../../assets/images/SocalIcons";
 interface SocialProps {}
 const social = [
   {
@@ -22,7 +22,6 @@ const social = [
 ];
 const Social: React.FC<SocialProps> = () => {
   const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
-
   const { secondary, oppositeSecondary } = theme?.colors;
   return (
     <div className="social-container">

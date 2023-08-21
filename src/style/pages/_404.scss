@@ -1,6 +1,12 @@
 .not-found {
   position: absolute;
   top: 30%;
-  left: 90%;
-  transform: translate(-90%, -30%);
+  left: 43%;
+  transform: translate(-50%, -50%);
+  .not-found-text {
+    font-size: 30px;
+    position: absolute;
+    right: 8%;
+    font-family: "Inter", sans-serif;
+  }
 }
