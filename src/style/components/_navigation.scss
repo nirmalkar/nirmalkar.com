@@ -26,3 +26,12 @@
     color: #fff;
   }
 }
+.others-link {
+  cursor: pointer;
+  position: relative;
+  .arrow-down {
+    display: inline-block;
+    top: 1px;
+    position: absolute;
+  }
+}

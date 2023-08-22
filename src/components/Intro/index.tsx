@@ -11,8 +11,9 @@ const Intro: React.FC<IntroProps> = () => {
         <br />I am Hemant Nirmalkar
       </div>
       <div className="intro-description">
-        I enjoy experimenting with new tools and frameworks to create cool and
-        exciting stuff on the web.
+        I love tinkering with new web tools and frameworks to create cool stuff
+        on the web. Yet, my true escape is in the mountains, where I find peace
+        and beauty beyond screens.
       </div>
     </section>
   );
