@@ -1,8 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, useState, useRef, useEffect } from "react";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/themeProvider";
 import { navLinks, NavConst } from "../../constants/navigationContants";
+import LinkSelect from "../LinkSelect";
 import DownAero from "../../assets/svg/DownAero";
+import { UseOutsideAlerter } from "../../utils/focusInOrOut";
 
 interface NavProps {}
 interface Links {
@@ -19,8 +21,20 @@ interface Colors {
   primary: string;
   secondary: string;
 }
+
 const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
   const { oppositePrimary } = theme.colors;
+  const [showMoreOptions, setShowMoreOptions] = useState<boolean>(false);
+  const ref = useRef(null);
+  if (ref.current) {
+    const checkVal = showMoreOptions;
+    console.log(ref);
+    // UseOutsideAlerter({
+    //   ref,
+    //   functToRun: setShowMoreOptions,
+    //   checkVal: showMoreOptions,
+    // });
+  }
   return (
     <>
       {navLinks.map((nav, i) => {
@@ -33,11 +47,25 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
               </Link>
             )}
             {isTabOhters && (
-              <span className="others-link">
-                Others &nbsp;
+              <span
+                ref={ref}
+                onClick={() => setShowMoreOptions((prev) => !prev)}
+                className="others-link"
+              >
+                More &nbsp;
                 <div className="arrow-down">
                   <DownAero size={13} color={oppositePrimary} />
                 </div>
+                {showMoreOptions && (
+                  <div className="more-options-dropdown">
+                    <LinkSelect
+                      paths={[
+                        { name: "Journey", path: "/journey" },
+                        { name: "Info", path: "/info" },
+                      ]}
+                    />
+                  </div>
+                )}
               </span>
             )}
             {i < navLinks.length - 1 && <span>/</span>}

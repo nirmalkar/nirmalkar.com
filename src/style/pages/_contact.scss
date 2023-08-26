@@ -1,0 +1,31 @@
+.contact-container {
+  .contact-heading {
+    font-family: "Lato", sans-serif;
+  }
+  .contact-card {
+    padding: 20px;
+    border-radius: 5px;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      .contact-input {
+        border: none;
+        outline: none;
+        margin-bottom: 0.5rem;
+        padding: 1rem;
+        background-color: #f1f1f1;
+        float: left;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 25rem;
+      }
+      .contact-submit {
+        padding: 0.5rem 1rem;
+        margin-top: 0.5rem;
+        font-size: 16px;
+      }
+    }
+  }
+}
