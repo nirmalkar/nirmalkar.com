@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { FC } from "react";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
+import Icon from "../assets/images/SocalIcons";
+import { social } from "../constants/socialContants";
 
 interface ContactProps {}
 
@@ -86,6 +88,19 @@ const Contact: FC<ContactProps> = () => {
             >
               Submit
             </button>
+            <div className="contact-icons">
+              {social.map((social) => (
+                <a
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social"
+                  style={{ backgroundColor: secondary }}
+                >
+                  <Icon size={20} fill={oppositeSecondary} name={social.name} />
+                </a>
+              ))}
+            </div>
           </form>
         </div>
       </div>

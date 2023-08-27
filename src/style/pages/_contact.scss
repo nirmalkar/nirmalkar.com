@@ -25,7 +25,14 @@
         padding: 0.5rem 1rem;
         margin-top: 0.5rem;
         font-size: 16px;
+        cursor: pointer;
       }
+    }
+    .contact-icons {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      padding-top: 26px;
     }
   }
 }

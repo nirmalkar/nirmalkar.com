@@ -17,11 +17,11 @@ const MyJourney = (props: Props) => {
     <div className="journey-road-container">
       {a.map((ele, i) => (
         <div
-          className="journey-card"
+          className="journey-card-container"
           style={
             i % 2 === 0
               ? { left: `${ele}%`, top: "43%" }
-              : { left: `${ele}%`, top: "52%", rotate: "160deg" }
+              : { left: `${ele}%`, top: "69%" }
           }
         >
           <JourneyCard position={ele} index={i} />
@@ -33,7 +33,7 @@ const MyJourney = (props: Props) => {
           style={
             i % 2 === 0
               ? { left: `${ele}%`, top: "43%" }
-              : { left: `${ele}%`, top: "52%", rotate: "160deg" }
+              : { left: `${ele}%`, top: "52%" }
           }
         >
           <Location size={20} color={oppositeSecondary} />
