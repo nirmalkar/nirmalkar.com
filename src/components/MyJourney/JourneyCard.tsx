@@ -21,7 +21,7 @@ const JourneyCard = (props: Props) => {
           : { ...cardColor, top: "-4rem", rotate: "-10deg" }
       }
     >
-      asdf
+      
     </div>
   );
 };
