@@ -1,4 +1,8 @@
 .blog-category-container {
+  min-height: 300px;
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }

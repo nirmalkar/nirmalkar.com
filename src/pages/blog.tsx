@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FC } from "react";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
-import Card from "../components/card";
+import Card from "../components/Card";
 import { blogs } from "../constants/blogConstant";
 
 interface BlogProps {}

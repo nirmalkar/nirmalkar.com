@@ -24,7 +24,7 @@ function Card({ name, description, bgColor, textColor, clickable }: CardProps) {
       <div className="description" style={{ color: textColor }}>
         {description}
       </div>
-      <BlogIcons {...{ size: 56, name, fill: textColor }} />
+      <BlogIcons {...{ size: 100, name, fill: textColor }} />
     </div>
   );
 }
