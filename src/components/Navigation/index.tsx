@@ -28,7 +28,6 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
   const ref = useRef(null);
   if (ref.current) {
     const checkVal = showMoreOptions;
-    console.log(ref);
     // UseOutsideAlerter({
     //   ref,
     //   functToRun: setShowMoreOptions,

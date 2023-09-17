@@ -399,54 +399,12 @@ type ContentfulAssetSysSortInput = {
 };
 
 type ContentfulBlog = ContentfulEntry & ContentfulReference & Node & {
-  readonly categories: Maybe<contentfulBlogCategoriesJsonNode>;
-  /** Returns the first child node of type contentfulBlogCategoriesJsonNode or null if there are no children of given type on this node */
-  readonly childContentfulBlogCategoriesJsonNode: Maybe<contentfulBlogCategoriesJsonNode>;
-  /** Returns the first child node of type contentfulBlogTagsJsonNode or null if there are no children of given type on this node */
-  readonly childContentfulBlogTagsJsonNode: Maybe<contentfulBlogTagsJsonNode>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type contentfulBlogCategoriesJsonNode */
-  readonly childrenContentfulBlogCategoriesJsonNode: Maybe<ReadonlyArray<Maybe<contentfulBlogCategoriesJsonNode>>>;
-  /** Returns all children nodes filtered by type contentfulBlogTagsJsonNode */
-  readonly childrenContentfulBlogTagsJsonNode: Maybe<ReadonlyArray<Maybe<contentfulBlogTagsJsonNode>>>;
-  readonly content: Maybe<ContentfulBlogContent>;
   readonly contentful_id: Scalars['String'];
-  readonly createdAt: Maybe<Scalars['Date']>;
-  readonly featuredImage: Maybe<ContentfulAsset>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly publicationDate: Maybe<Scalars['Date']>;
-  readonly spaceId: Maybe<Scalars['String']>;
-  readonly sys: Maybe<ContentfulBlogSys>;
-  readonly tags: Maybe<contentfulBlogTagsJsonNode>;
-  readonly title: Maybe<Scalars['String']>;
-  readonly updatedAt: Maybe<Scalars['Date']>;
-};
-
-
-type ContentfulBlog_createdAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type ContentfulBlog_publicationDateArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type ContentfulBlog_updatedAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type ContentfulBlogConnection = {
@@ -488,22 +446,6 @@ type ContentfulBlogConnection_sumArgs = {
   field: ContentfulBlogFieldSelector;
 };
 
-type ContentfulBlogContent = {
-  readonly raw: Maybe<Scalars['String']>;
-};
-
-type ContentfulBlogContentFieldSelector = {
-  readonly raw: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulBlogContentFilterInput = {
-  readonly raw: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulBlogContentSortInput = {
-  readonly raw: InputMaybe<SortOrderEnum>;
-};
-
 type ContentfulBlogEdge = {
   readonly next: Maybe<ContentfulBlog>;
   readonly node: ContentfulBlog;
@@ -511,49 +453,21 @@ type ContentfulBlogEdge = {
 };
 
 type ContentfulBlogFieldSelector = {
-  readonly categories: InputMaybe<contentfulBlogCategoriesJsonNodeFieldSelector>;
-  readonly childContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFieldSelector>;
-  readonly childContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFieldSelector>;
-  readonly childrenContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFieldSelector>;
-  readonly content: InputMaybe<ContentfulBlogContentFieldSelector>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
-  readonly createdAt: InputMaybe<FieldSelectorEnum>;
-  readonly featuredImage: InputMaybe<ContentfulAssetFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly publicationDate: InputMaybe<FieldSelectorEnum>;
-  readonly spaceId: InputMaybe<FieldSelectorEnum>;
-  readonly sys: InputMaybe<ContentfulBlogSysFieldSelector>;
-  readonly tags: InputMaybe<contentfulBlogTagsJsonNodeFieldSelector>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
 type ContentfulBlogFilterInput = {
-  readonly categories: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
-  readonly childContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
-  readonly childContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFilterListInput>;
-  readonly childrenContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFilterListInput>;
-  readonly content: InputMaybe<ContentfulBlogContentFilterInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
-  readonly featuredImage: InputMaybe<ContentfulAssetFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly publicationDate: InputMaybe<DateQueryOperatorInput>;
-  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
-  readonly sys: InputMaybe<ContentfulBlogSysFilterInput>;
-  readonly tags: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 type ContentfulBlogGroupConnection = {
@@ -597,91 +511,307 @@ type ContentfulBlogGroupConnection_sumArgs = {
   field: ContentfulBlogFieldSelector;
 };
 
-type ContentfulBlogSortInput = {
-  readonly categories: InputMaybe<contentfulBlogCategoriesJsonNodeSortInput>;
-  readonly childContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeSortInput>;
-  readonly childContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeSortInput>;
+type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & {
+  readonly author: Maybe<ContentfulPerson>;
+  readonly body: Maybe<ContentfulBlogPostBody>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<ContentfulBlogPostDescription>;
+  readonly heroImage: Maybe<ContentfulAsset>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly publishDate: Maybe<Scalars['Date']>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulBlogPostSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulBlogPost_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulBlogPost_publishDateArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulBlogPost_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulBlogPostBody = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulBlogPostBodyFieldSelector = {
+  readonly raw: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulBlogPostBodyFilterInput = {
+  readonly raw: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulBlogPostBodySortInput = {
+  readonly raw: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulBlogPostConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulBlogPostConnection_distinctArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostConnection_groupArgs = {
+  field: ContentfulBlogPostFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulBlogPostConnection_maxArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostConnection_minArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostConnection_sumArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+type ContentfulBlogPostDescription = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulBlogPostDescriptionFieldSelector = {
+  readonly raw: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulBlogPostDescriptionFilterInput = {
+  readonly raw: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulBlogPostDescriptionSortInput = {
+  readonly raw: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulBlogPostEdge = {
+  readonly next: Maybe<ContentfulBlogPost>;
+  readonly node: ContentfulBlogPost;
+  readonly previous: Maybe<ContentfulBlogPost>;
+};
+
+type ContentfulBlogPostFieldSelector = {
+  readonly author: InputMaybe<ContentfulPersonFieldSelector>;
+  readonly body: InputMaybe<ContentfulBlogPostBodyFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<ContentfulBlogPostDescriptionFieldSelector>;
+  readonly heroImage: InputMaybe<ContentfulAssetFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishDate: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysFieldSelector>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulBlogPostFilterInput = {
+  readonly author: InputMaybe<ContentfulPersonFilterInput>;
+  readonly body: InputMaybe<ContentfulBlogPostBodyFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<ContentfulBlogPostDescriptionFilterInput>;
+  readonly heroImage: InputMaybe<ContentfulAssetFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishDate: InputMaybe<DateQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulBlogPostFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulBlogPostFilterInput>;
+};
+
+type ContentfulBlogPostGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulBlogPostGroupConnection_distinctArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostGroupConnection_groupArgs = {
+  field: ContentfulBlogPostFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulBlogPostGroupConnection_maxArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostGroupConnection_minArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+
+type ContentfulBlogPostGroupConnection_sumArgs = {
+  field: ContentfulBlogPostFieldSelector;
+};
+
+type ContentfulBlogPostSortInput = {
+  readonly author: InputMaybe<ContentfulPersonSortInput>;
+  readonly body: InputMaybe<ContentfulBlogPostBodySortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeSortInput>;
-  readonly childrenContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeSortInput>;
-  readonly content: InputMaybe<ContentfulBlogContentSortInput>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
-  readonly featuredImage: InputMaybe<ContentfulAssetSortInput>;
+  readonly description: InputMaybe<ContentfulBlogPostDescriptionSortInput>;
+  readonly heroImage: InputMaybe<ContentfulAssetSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly publicationDate: InputMaybe<SortOrderEnum>;
+  readonly publishDate: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
-  readonly sys: InputMaybe<ContentfulBlogSysSortInput>;
-  readonly tags: InputMaybe<contentfulBlogTagsJsonNodeSortInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysSortInput>;
+  readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };
 
-type ContentfulBlogSys = {
-  readonly contentType: Maybe<ContentfulBlogSysContentType>;
+type ContentfulBlogPostSys = {
+  readonly contentType: Maybe<ContentfulBlogPostSysContentType>;
   readonly revision: Maybe<Scalars['Int']>;
   readonly type: Maybe<Scalars['String']>;
 };
 
-type ContentfulBlogSysContentType = {
-  readonly sys: Maybe<ContentfulBlogSysContentTypeSys>;
+type ContentfulBlogPostSysContentType = {
+  readonly sys: Maybe<ContentfulBlogPostSysContentTypeSys>;
 };
 
-type ContentfulBlogSysContentTypeFieldSelector = {
-  readonly sys: InputMaybe<ContentfulBlogSysContentTypeSysFieldSelector>;
+type ContentfulBlogPostSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFieldSelector>;
 };
 
-type ContentfulBlogSysContentTypeFilterInput = {
-  readonly sys: InputMaybe<ContentfulBlogSysContentTypeSysFilterInput>;
+type ContentfulBlogPostSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
 };
 
-type ContentfulBlogSysContentTypeSortInput = {
-  readonly sys: InputMaybe<ContentfulBlogSysContentTypeSysSortInput>;
+type ContentfulBlogPostSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulBlogPostSysContentTypeSysSortInput>;
 };
 
-type ContentfulBlogSysContentTypeSys = {
+type ContentfulBlogPostSysContentTypeSys = {
   readonly id: Maybe<Scalars['String']>;
   readonly linkType: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
 };
 
-type ContentfulBlogSysContentTypeSysFieldSelector = {
+type ContentfulBlogPostSysContentTypeSysFieldSelector = {
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly linkType: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
 };
 
-type ContentfulBlogSysContentTypeSysFilterInput = {
+type ContentfulBlogPostSysContentTypeSysFilterInput = {
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly linkType: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
-type ContentfulBlogSysContentTypeSysSortInput = {
+type ContentfulBlogPostSysContentTypeSysSortInput = {
   readonly id: InputMaybe<SortOrderEnum>;
   readonly linkType: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
-type ContentfulBlogSysFieldSelector = {
-  readonly contentType: InputMaybe<ContentfulBlogSysContentTypeFieldSelector>;
+type ContentfulBlogPostSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeFieldSelector>;
   readonly revision: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
 };
 
-type ContentfulBlogSysFilterInput = {
-  readonly contentType: InputMaybe<ContentfulBlogSysContentTypeFilterInput>;
+type ContentfulBlogPostSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeFilterInput>;
   readonly revision: InputMaybe<IntQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
-type ContentfulBlogSysSortInput = {
-  readonly contentType: InputMaybe<ContentfulBlogSysContentTypeSortInput>;
+type ContentfulBlogPostSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeSortInput>;
   readonly revision: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulBlogSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type ContentfulContentType = Node & {
@@ -964,6 +1094,284 @@ type ContentfulImageCropFocus =
   | 'top'
   | 'top_left'
   | 'top_right';
+
+type ContentfulPerson = ContentfulEntry & ContentfulReference & Node & {
+  readonly blog_post: Maybe<ReadonlyArray<Maybe<ContentfulBlogPost>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly company: Maybe<Scalars['String']>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly email: Maybe<Scalars['String']>;
+  readonly facebook: Maybe<Scalars['String']>;
+  readonly github: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly image: Maybe<ContentfulAsset>;
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly phone: Maybe<Scalars['String']>;
+  readonly shortBio: Maybe<ContentfulPersonShortBio>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulPersonSys>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly twitter: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulPerson_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulPerson_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulPersonConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulPersonEdge>;
+  readonly group: ReadonlyArray<ContentfulPersonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulPerson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulPersonConnection_distinctArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonConnection_groupArgs = {
+  field: ContentfulPersonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulPersonConnection_maxArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonConnection_minArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonConnection_sumArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+type ContentfulPersonEdge = {
+  readonly next: Maybe<ContentfulPerson>;
+  readonly node: ContentfulPerson;
+  readonly previous: Maybe<ContentfulPerson>;
+};
+
+type ContentfulPersonFieldSelector = {
+  readonly blog_post: InputMaybe<ContentfulBlogPostFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly company: InputMaybe<FieldSelectorEnum>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly email: InputMaybe<FieldSelectorEnum>;
+  readonly facebook: InputMaybe<FieldSelectorEnum>;
+  readonly github: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly image: InputMaybe<ContentfulAssetFieldSelector>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly phone: InputMaybe<FieldSelectorEnum>;
+  readonly shortBio: InputMaybe<ContentfulPersonShortBioFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulPersonSysFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly twitter: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulPersonFilterInput = {
+  readonly blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly company: InputMaybe<StringQueryOperatorInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly email: InputMaybe<StringQueryOperatorInput>;
+  readonly facebook: InputMaybe<StringQueryOperatorInput>;
+  readonly github: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFilterInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly phone: InputMaybe<StringQueryOperatorInput>;
+  readonly shortBio: InputMaybe<ContentfulPersonShortBioFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulPersonSysFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly twitter: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulPersonGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulPersonEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulPersonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulPerson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulPersonGroupConnection_distinctArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonGroupConnection_groupArgs = {
+  field: ContentfulPersonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulPersonGroupConnection_maxArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonGroupConnection_minArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+
+type ContentfulPersonGroupConnection_sumArgs = {
+  field: ContentfulPersonFieldSelector;
+};
+
+type ContentfulPersonShortBio = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulPersonShortBioFieldSelector = {
+  readonly raw: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulPersonShortBioFilterInput = {
+  readonly raw: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulPersonShortBioSortInput = {
+  readonly raw: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulPersonSortInput = {
+  readonly blog_post: InputMaybe<ContentfulBlogPostSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly company: InputMaybe<SortOrderEnum>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly email: InputMaybe<SortOrderEnum>;
+  readonly facebook: InputMaybe<SortOrderEnum>;
+  readonly github: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly image: InputMaybe<ContentfulAssetSortInput>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly phone: InputMaybe<SortOrderEnum>;
+  readonly shortBio: InputMaybe<ContentfulPersonShortBioSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulPersonSysSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly twitter: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulPersonSys = {
+  readonly contentType: Maybe<ContentfulPersonSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulPersonSysContentType = {
+  readonly sys: Maybe<ContentfulPersonSysContentTypeSys>;
+};
+
+type ContentfulPersonSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulPersonSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulPersonSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulPersonSysContentTypeSysFilterInput>;
+};
+
+type ContentfulPersonSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulPersonSysContentTypeSysSortInput>;
+};
+
+type ContentfulPersonSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulPersonSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulPersonSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulPersonSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulPersonSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulPersonSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulPersonSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulPersonSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulPersonSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulPersonSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
 
 type ContentfulReference = {
   readonly contentful_id: Scalars['String'];
@@ -2373,10 +2781,10 @@ type PotraceTurnPolicy =
 type Query = {
   readonly allContentfulAsset: ContentfulAssetConnection;
   readonly allContentfulBlog: ContentfulBlogConnection;
-  readonly allContentfulBlogCategoriesJsonNode: contentfulBlogCategoriesJsonNodeConnection;
-  readonly allContentfulBlogTagsJsonNode: contentfulBlogTagsJsonNodeConnection;
+  readonly allContentfulBlogPost: ContentfulBlogPostConnection;
   readonly allContentfulContentType: ContentfulContentTypeConnection;
   readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly allContentfulPerson: ContentfulPersonConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -2388,10 +2796,10 @@ type Query = {
   readonly allSitePlugin: SitePluginConnection;
   readonly contentfulAsset: Maybe<ContentfulAsset>;
   readonly contentfulBlog: Maybe<ContentfulBlog>;
-  readonly contentfulBlogCategoriesJsonNode: Maybe<contentfulBlogCategoriesJsonNode>;
-  readonly contentfulBlogTagsJsonNode: Maybe<contentfulBlogTagsJsonNode>;
+  readonly contentfulBlogPost: Maybe<ContentfulBlogPost>;
   readonly contentfulContentType: Maybe<ContentfulContentType>;
   readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly contentfulPerson: Maybe<ContentfulPerson>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -2420,19 +2828,11 @@ type Query_allContentfulBlogArgs = {
 };
 
 
-type Query_allContentfulBlogCategoriesJsonNodeArgs = {
-  filter: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
+type Query_allContentfulBlogPostArgs = {
+  filter: InputMaybe<ContentfulBlogPostFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<contentfulBlogCategoriesJsonNodeSortInput>>>;
-};
-
-
-type Query_allContentfulBlogTagsJsonNodeArgs = {
-  filter: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<contentfulBlogTagsJsonNodeSortInput>>>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogPostSortInput>>>;
 };
 
 
@@ -2449,6 +2849,14 @@ type Query_allContentfulEntryArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntrySortInput>>>;
+};
+
+
+type Query_allContentfulPersonArgs = {
+  filter: InputMaybe<ContentfulPersonFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulPersonSortInput>>>;
 };
 
 
@@ -2554,46 +2962,34 @@ type Query_contentfulAssetArgs = {
 
 
 type Query_contentfulBlogArgs = {
-  categories: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
-  childContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
-  childContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulBlogCategoriesJsonNode: InputMaybe<contentfulBlogCategoriesJsonNodeFilterListInput>;
-  childrenContentfulBlogTagsJsonNode: InputMaybe<contentfulBlogTagsJsonNodeFilterListInput>;
-  content: InputMaybe<ContentfulBlogContentFilterInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  featuredImage: InputMaybe<ContentfulAssetFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  publicationDate: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulBlogPostArgs = {
+  author: InputMaybe<ContentfulPersonFilterInput>;
+  body: InputMaybe<ContentfulBlogPostBodyFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<ContentfulBlogPostDescriptionFilterInput>;
+  heroImage: InputMaybe<ContentfulAssetFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishDate: InputMaybe<DateQueryOperatorInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulBlogSysFilterInput>;
-  tags: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
+  sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
+  tags: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
-};
-
-
-type Query_contentfulBlogCategoriesJsonNodeArgs = {
-  categories: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<contentfulBlogCategoriesJsonNodeSysFilterInput>;
-};
-
-
-type Query_contentfulBlogTagsJsonNodeArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<contentfulBlogTagsJsonNodeSysFilterInput>;
-  tags: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -2616,6 +3012,31 @@ type Query_contentfulEntryArgs = {
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+};
+
+
+type Query_contentfulPersonArgs = {
+  blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  company: InputMaybe<StringQueryOperatorInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  email: InputMaybe<StringQueryOperatorInput>;
+  facebook: InputMaybe<StringQueryOperatorInput>;
+  github: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  image: InputMaybe<ContentfulAssetFilterInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  phone: InputMaybe<StringQueryOperatorInput>;
+  shortBio: InputMaybe<ContentfulPersonShortBioFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulPersonSysFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  twitter: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -3687,289 +4108,14 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type contentfulBlogCategoriesJsonNode = Node & {
-  readonly categories: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly children: ReadonlyArray<Node>;
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly parent: Maybe<Node>;
-  readonly sys: Maybe<contentfulBlogCategoriesJsonNodeSys>;
-};
-
-type contentfulBlogCategoriesJsonNodeConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<contentfulBlogCategoriesJsonNodeEdge>;
-  readonly group: ReadonlyArray<contentfulBlogCategoriesJsonNodeGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<contentfulBlogCategoriesJsonNode>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
+type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+  previousPostSlug: InputMaybe<Scalars['String']>;
+  nextPostSlug: InputMaybe<Scalars['String']>;
+}>;
 
 
-type contentfulBlogCategoriesJsonNodeConnection_distinctArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeConnection_groupArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type contentfulBlogCategoriesJsonNodeConnection_maxArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeConnection_minArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeConnection_sumArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-type contentfulBlogCategoriesJsonNodeEdge = {
-  readonly next: Maybe<contentfulBlogCategoriesJsonNode>;
-  readonly node: contentfulBlogCategoriesJsonNode;
-  readonly previous: Maybe<contentfulBlogCategoriesJsonNode>;
-};
-
-type contentfulBlogCategoriesJsonNodeFieldSelector = {
-  readonly categories: InputMaybe<FieldSelectorEnum>;
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly sys: InputMaybe<contentfulBlogCategoriesJsonNodeSysFieldSelector>;
-};
-
-type contentfulBlogCategoriesJsonNodeFilterInput = {
-  readonly categories: InputMaybe<StringQueryOperatorInput>;
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly sys: InputMaybe<contentfulBlogCategoriesJsonNodeSysFilterInput>;
-};
-
-type contentfulBlogCategoriesJsonNodeFilterListInput = {
-  readonly elemMatch: InputMaybe<contentfulBlogCategoriesJsonNodeFilterInput>;
-};
-
-type contentfulBlogCategoriesJsonNodeGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<contentfulBlogCategoriesJsonNodeEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<contentfulBlogCategoriesJsonNodeGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<contentfulBlogCategoriesJsonNode>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type contentfulBlogCategoriesJsonNodeGroupConnection_distinctArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeGroupConnection_groupArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type contentfulBlogCategoriesJsonNodeGroupConnection_maxArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeGroupConnection_minArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogCategoriesJsonNodeGroupConnection_sumArgs = {
-  field: contentfulBlogCategoriesJsonNodeFieldSelector;
-};
-
-type contentfulBlogCategoriesJsonNodeSortInput = {
-  readonly categories: InputMaybe<SortOrderEnum>;
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly parent: InputMaybe<NodeSortInput>;
-  readonly sys: InputMaybe<contentfulBlogCategoriesJsonNodeSysSortInput>;
-};
-
-type contentfulBlogCategoriesJsonNodeSys = {
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type contentfulBlogCategoriesJsonNodeSysFieldSelector = {
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type contentfulBlogCategoriesJsonNodeSysFilterInput = {
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type contentfulBlogCategoriesJsonNodeSysSortInput = {
-  readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type contentfulBlogTagsJsonNode = Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly parent: Maybe<Node>;
-  readonly sys: Maybe<contentfulBlogTagsJsonNodeSys>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-};
-
-type contentfulBlogTagsJsonNodeConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<contentfulBlogTagsJsonNodeEdge>;
-  readonly group: ReadonlyArray<contentfulBlogTagsJsonNodeGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<contentfulBlogTagsJsonNode>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type contentfulBlogTagsJsonNodeConnection_distinctArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeConnection_groupArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type contentfulBlogTagsJsonNodeConnection_maxArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeConnection_minArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeConnection_sumArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-type contentfulBlogTagsJsonNodeEdge = {
-  readonly next: Maybe<contentfulBlogTagsJsonNode>;
-  readonly node: contentfulBlogTagsJsonNode;
-  readonly previous: Maybe<contentfulBlogTagsJsonNode>;
-};
-
-type contentfulBlogTagsJsonNodeFieldSelector = {
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly sys: InputMaybe<contentfulBlogTagsJsonNodeSysFieldSelector>;
-  readonly tags: InputMaybe<FieldSelectorEnum>;
-};
-
-type contentfulBlogTagsJsonNodeFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly sys: InputMaybe<contentfulBlogTagsJsonNodeSysFilterInput>;
-  readonly tags: InputMaybe<StringQueryOperatorInput>;
-};
-
-type contentfulBlogTagsJsonNodeFilterListInput = {
-  readonly elemMatch: InputMaybe<contentfulBlogTagsJsonNodeFilterInput>;
-};
-
-type contentfulBlogTagsJsonNodeGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<contentfulBlogTagsJsonNodeEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<contentfulBlogTagsJsonNodeGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<contentfulBlogTagsJsonNode>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type contentfulBlogTagsJsonNodeGroupConnection_distinctArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeGroupConnection_groupArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type contentfulBlogTagsJsonNodeGroupConnection_maxArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeGroupConnection_minArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-
-type contentfulBlogTagsJsonNodeGroupConnection_sumArgs = {
-  field: contentfulBlogTagsJsonNodeFieldSelector;
-};
-
-type contentfulBlogTagsJsonNodeSortInput = {
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly parent: InputMaybe<NodeSortInput>;
-  readonly sys: InputMaybe<contentfulBlogTagsJsonNodeSysSortInput>;
-  readonly tags: InputMaybe<SortOrderEnum>;
-};
-
-type contentfulBlogTagsJsonNodeSys = {
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type contentfulBlogTagsJsonNodeSysFieldSelector = {
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type contentfulBlogTagsJsonNodeSysFilterInput = {
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type contentfulBlogTagsJsonNodeSysSortInput = {
-  readonly type: InputMaybe<SortOrderEnum>;
-};
+type BlogPostBySlugQuery = { readonly contentfulBlogPost: { readonly slug: string | null, readonly title: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly rawDate: string | null, readonly author: { readonly name: string | null } | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly body: { readonly raw: string | null } | null, readonly description: { readonly raw: string | null } | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -3996,6 +4142,16 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
+
+type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomeQueryQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
+
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_1_Query = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null }> } };
 
 
 }
