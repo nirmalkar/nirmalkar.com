@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import Icon from "../assets/images/SocalIcons";
 import { social } from "../constants/socialContants";
+import Seo from "../components/seo";
 
 interface ContactProps {}
 
@@ -33,6 +34,10 @@ const Contact: FC<ContactProps> = () => {
 
   return (
     <Layout>
+      <Seo
+        title={"Contact"}
+        description={"This is contact page for Nirmalkar"}
+      />
       <div className="contact-container">
         <h2 className="contact-heading" style={{ color: oppositeSecondary }}>
           Say Hello!

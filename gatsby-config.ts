@@ -5,8 +5,8 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `dummy`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Nirmalkar`,
+    siteUrl: `https://www.nirmalkar.com`,
   },
   graphqlTypegen: true,
   plugins: [

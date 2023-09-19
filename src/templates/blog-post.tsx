@@ -38,7 +38,7 @@ const BlogPostTemplate = (props) => {
         image={`http:${post.heroImage.resize.src}`}
       />
       <div>
-        <span>
+        <span style={{color: oppositeSecondary}}>
           {post.author?.name} &middot;{" "}
           <time dateTime={post.rawDate}>{post.publishDate}</time>
         </span>

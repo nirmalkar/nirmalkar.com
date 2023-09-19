@@ -5,7 +5,8 @@ import { ThemeContext } from "../context/themeProvider";
 import Card from "../components/Card";
 import { blogs } from "../constants/blogConstant";
 import ArticlePreview from "../components/ArticlePreview";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
+import Seo from "../components/seo";
 
 interface BlogProps {
   data: any;
@@ -19,16 +20,22 @@ const Blog: FC<BlogProps> = (props) => {
     textColor: secondary,
     clickable: true,
   };
-  const posts = props.data?.allContentfulBlogPost.nodes;
-  console.log(posts);
+  
   return (
     <div>
       <Layout>
+      <Seo
+        title={"Blog Categories"}
+        description={"This is blog categories for Nirmalkar"}
+      />
         <div className="blog-category-container">
           {blogs.map((blog, index) => {
-            return <Card {...{ ...blogProps, name: blog.name }} />;
+            return (
+              <Link to={`/blog/${blog.name}`}>
+                <Card {...{ ...blogProps, name: blog.name }} />
+              </Link>
+            );
           })}
-          <ArticlePreview posts={posts} />
         </div>
       </Layout>
     </div>
@@ -36,26 +43,4 @@ const Blog: FC<BlogProps> = (props) => {
 };
 
 export default Blog;
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
-        description {
-          raw
-        }
-      }
-    }
-  }
-`;
+

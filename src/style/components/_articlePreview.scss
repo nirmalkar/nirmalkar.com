@@ -1,0 +1,14 @@
+.article-preview-container {
+  width: 70%;
+  .articles {
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    .article {
+      width: 300px;
+    }
+  }
+}
