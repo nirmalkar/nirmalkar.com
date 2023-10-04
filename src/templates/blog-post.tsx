@@ -37,13 +37,24 @@ const BlogPostTemplate = (props) => {
         description={plainTextDescription}
         image={`http:${post.heroImage.resize.src}`}
       />
-      <div>
-        <span style={{color: oppositeSecondary}}>
+      <div className="blog-layout">
+        <span style={{ color: oppositeSecondary }}>
+          <div className="blog-image">
+            {post.heroImage?.gatsbyImage && (
+              <GatsbyImage
+                alt={post.title}
+                image={post.heroImage?.gatsbyImage}
+              />
+            )}
+          </div>
+          <div className="blog-title mt-2">{post.title}</div>
           {post.author?.name} &middot;{" "}
           <time dateTime={post.rawDate}>{post.publishDate}</time>
         </span>
         <div>
-          <div style={{color: oppositeSecondary}}>{post.body?.raw && renderRichText(post.body, options)}</div>
+          <div style={{ color: oppositeSecondary }}>
+            {post.body?.raw && renderRichText(post.body, options)}
+          </div>
           {(previous || next) && (
             <nav>
               <ul>

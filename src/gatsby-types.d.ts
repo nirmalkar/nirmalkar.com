@@ -309,6 +309,10 @@ type ContentfulAssetFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
+type ContentfulAssetFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulAssetFilterInput>;
+};
+
 type ContentfulAssetGroupConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
   readonly edges: ReadonlyArray<ContentfulAssetEdge>;
@@ -558,18 +562,22 @@ type ContentfulBlogPost_updatedAtArgs = {
 
 type ContentfulBlogPostBody = {
   readonly raw: Maybe<Scalars['String']>;
+  readonly references: Maybe<ReadonlyArray<Maybe<ContentfulAsset>>>;
 };
 
 type ContentfulBlogPostBodyFieldSelector = {
   readonly raw: InputMaybe<FieldSelectorEnum>;
+  readonly references: InputMaybe<ContentfulAssetFieldSelector>;
 };
 
 type ContentfulBlogPostBodyFilterInput = {
   readonly raw: InputMaybe<StringQueryOperatorInput>;
+  readonly references: InputMaybe<ContentfulAssetFilterListInput>;
 };
 
 type ContentfulBlogPostBodySortInput = {
   readonly raw: InputMaybe<SortOrderEnum>;
+  readonly references: InputMaybe<ContentfulAssetSortInput>;
 };
 
 type ContentfulBlogPostConnection = {
