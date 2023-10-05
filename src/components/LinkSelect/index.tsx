@@ -15,7 +15,7 @@ const LinkSelect = (props: LinkSelectProps) => {
   const { theme } = useContext(ThemeContext);
   const { oppositeSecondary, secondary } = theme.colors;
   return (
-    <div className="select-container">
+    <div className="select-container" style={{ background: secondary }}>
       {paths.map((path) => (
         <Link style={{ color: secondary }} to={path.path}>
           <div

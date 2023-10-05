@@ -6,7 +6,7 @@ import { ThemeContext } from "../../context/themeProvider";
 
 const ArticlePreview = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
-  const { secondary, oppositeSecondary } = theme.colors;
+  const { primary, oppositeSecondary } = theme.colors;
   if (!posts) return null;
   if (!Array.isArray(posts)) return null;
 
@@ -15,15 +15,23 @@ const ArticlePreview = ({ posts }) => {
       <ul className="articles">
         {posts.map((post) => {
           return (
-            <li className="article" key={post.slug}>
+            <li
+              className="article"
+              style={{ backgroundColor: `${primary}a1` }}
+              key={post.slug}
+            >
               <Link to={`/blog/${post.slug}`}>
-                <GatsbyImage alt="" image={post.heroImage.gatsbyImage} />
-                <h2 style={{color: oppositeSecondary}}>{post.title}</h2>
+                <GatsbyImage
+                 className="br-1"
+                  alt=""
+                  image={post.heroImage.gatsbyImage}
+                />
+                <h2 style={{ color: oppositeSecondary }}>{post.title}</h2>
               </Link>
-              <div style={{color: oppositeSecondary}}>
+              <div style={{ color: oppositeSecondary }}>
                 {post.description?.raw && renderRichText(post.description)}
               </div>
-              <div style={{color: oppositeSecondary}}>
+              <div style={{ color: oppositeSecondary }}>
                 <small className="meta">{post.publishDate}</small>
               </div>
             </li>

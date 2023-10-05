@@ -33,9 +33,6 @@ const Header: React.FC = (props) => {
         >
           N
         </div>
-        <div className="toggle-button">
-          <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
-        </div>
         <Navigation />
       </div>
     </header>

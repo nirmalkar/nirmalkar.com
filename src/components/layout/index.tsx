@@ -2,12 +2,13 @@ import * as React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import { ThemeContext } from "../../context/themeProvider";
+import ToggleButton from "../ToggleButton";
 
 interface Props {
   children?: React.ReactNode;
 }
 const Layout: React.FC<Props> = (props: Props) => {
-  const { theme, toggleTheme } = React.useContext(ThemeContext);
+  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
   const { secondary } = theme?.colors;
   const { children } = props;
   return (
@@ -23,6 +24,9 @@ const Layout: React.FC<Props> = (props: Props) => {
       }}
     >
       <Header />
+      <div className="toggle-button">
+        <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
+      </div>
       <main>
         <section className="content">{children}</section>
       </main>

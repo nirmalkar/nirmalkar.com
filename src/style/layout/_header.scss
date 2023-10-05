@@ -4,6 +4,7 @@ header {
   width: 70%;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
+  position: relative;
   .header-icon {
     position: absolute;
     top: 0.5rem;
@@ -12,14 +13,10 @@ header {
     background-color: greenyellow;
     width: 2.5rem;
     height: 2.5rem;
+    left: 0rem;
     border-radius: 50%;
     text-align: center;
     line-height: 2.4rem;
     cursor: pointer;
-  }
-  .toggle-button {
-    position: absolute;
-    right: 3%;
-    top: 2%;
   }
 }

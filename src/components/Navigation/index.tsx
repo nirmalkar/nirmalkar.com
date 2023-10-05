@@ -26,14 +26,15 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
   const { oppositePrimary } = theme.colors;
   const [showMoreOptions, setShowMoreOptions] = useState<boolean>(false);
   const ref = useRef(null);
-  if (ref.current) {
+  React.useEffect(() => {
     const checkVal = showMoreOptions;
-    // UseOutsideAlerter({
-    //   ref,
-    //   functToRun: setShowMoreOptions,
-    //   checkVal: showMoreOptions,
-    // });
-  }
+    UseOutsideAlerter({
+      ref,
+      functToRun: setShowMoreOptions,
+      checkVal: showMoreOptions,
+    });
+  }, [ref, showMoreOptions]);
+
   return (
     <>
       {navLinks.map((nav, i) => {
@@ -56,14 +57,12 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
                   <DownAero size={13} color={oppositePrimary} />
                 </div>
                 {showMoreOptions && (
-                  <div className="more-options-dropdown">
                     <LinkSelect
                       paths={[
                         { name: "Journey", path: "/journey" },
                         { name: "Info", path: "/info" },
                       ]}
                     />
-                  </div>
                 )}
               </span>
             )}

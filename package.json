@@ -39,7 +39,9 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-svg-path": "^1.14.0",
-    "sass": "^1.56.1"
+    "reading-time": "^2.0.0-1",
+    "sass": "^1.56.1",
+    "stream": "^0.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

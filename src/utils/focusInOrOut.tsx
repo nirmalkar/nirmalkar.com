@@ -1,6 +1,3 @@
-import { type } from "os";
-import React from "react";
-
 type UseOutsideAlerterProps = {
   ref: refs;
   functToRun: any;
@@ -13,22 +10,17 @@ type refs = {
 
 export function UseOutsideAlerter(props: UseOutsideAlerterProps) {
   const { ref, functToRun, checkVal } = props;
-  React.useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        if (checkVal) {
-          functToRun(!checkVal);
-        }
+  function handleClickOutside(event: any) {
+    if (ref.current && !ref.current.contains(event.target)) {
+      if (checkVal) {
+        functToRun(!checkVal);
       }
     }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref, checkVal]);
+  }
+  // Bind the event listener
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    // Unbind the event listener on clean up
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
 }

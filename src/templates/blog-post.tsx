@@ -5,6 +5,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import readingTime from "reading-time";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
@@ -12,7 +13,7 @@ import { ThemeContext } from "../context/themeProvider";
 
 const BlogPostTemplate = (props) => {
   const { theme } = React.useContext(ThemeContext);
-  const { oppositeSecondary } = theme?.colors;
+  const { primary, oppositeSecondary } = theme?.colors;
   const post = get(props, "data.contentfulBlogPost");
   const previous = get(props, "data.previous");
   const next = get(props, "data.next");
@@ -20,6 +21,7 @@ const BlogPostTemplate = (props) => {
     JSON.parse(post.description.raw)
   );
   const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw));
+  const { minutes: timeToRead } = readingTime(plainTextBody);
 
   const options = {
     renderNode: {
@@ -37,7 +39,7 @@ const BlogPostTemplate = (props) => {
         description={plainTextDescription}
         image={`http:${post.heroImage.resize.src}`}
       />
-      <div className="blog-layout">
+      <div className="blog-layout" style={{ backgroundColor: `${primary}a1` }}>
         <span style={{ color: oppositeSecondary }}>
           <div className="blog-image">
             {post.heroImage?.gatsbyImage && (
@@ -49,10 +51,11 @@ const BlogPostTemplate = (props) => {
           </div>
           <div className="blog-title mt-2">{post.title}</div>
           {post.author?.name} &middot;{" "}
-          <time dateTime={post.rawDate}>{post.publishDate}</time>
+          <time dateTime={post.rawDate}>{post.publishDate}</time> &middot;{" "}
+          {timeToRead} minute read
         </span>
         <div>
-          <div style={{ color: oppositeSecondary }}>
+          <div className="blog-text" style={{ color: oppositeSecondary }}>
             {post.body?.raw && renderRichText(post.body, options)}
           </div>
           {(previous || next) && (
