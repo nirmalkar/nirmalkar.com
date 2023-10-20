@@ -3,13 +3,14 @@ import Header from "./header";
 import Footer from "./footer";
 import { ThemeContext } from "../../context/themeProvider";
 import ToggleButton from "../ToggleButton";
+import HamburgerMenu from "../../assets/svg/HamburgerMenu";
 
 interface Props {
   children?: React.ReactNode;
 }
 const Layout: React.FC<Props> = (props: Props) => {
   const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
-  const { secondary } = theme?.colors;
+  const { secondary, oppositeSecondary } = theme?.colors;
   const { children } = props;
   return (
     <div
@@ -26,6 +27,9 @@ const Layout: React.FC<Props> = (props: Props) => {
       <Header />
       <div className="toggle-button">
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
+        <div className="hamburger-container">
+          <HamburgerMenu color={oppositeSecondary} />
+        </div>
       </div>
       <main>
         <section className="content">{children}</section>

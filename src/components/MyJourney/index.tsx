@@ -48,7 +48,6 @@ const MyJourney = (props: Props) => {
           stroke={oppositePrimary}
           strokeWidth="2"
         />
-
         <line
           x1="0"
           y1={medianY}

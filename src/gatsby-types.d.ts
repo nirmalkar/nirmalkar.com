@@ -533,6 +533,7 @@ type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & {
   readonly sys: Maybe<ContentfulBlogPostSys>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly title: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
@@ -659,6 +660,7 @@ type ContentfulBlogPostFieldSelector = {
   readonly sys: InputMaybe<ContentfulBlogPostSysFieldSelector>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -680,6 +682,7 @@ type ContentfulBlogPostFilterInput = {
   readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -746,6 +749,7 @@ type ContentfulBlogPostSortInput = {
   readonly sys: InputMaybe<ContentfulBlogPostSysSortInput>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };
 
@@ -2997,6 +3001,7 @@ type Query_contentfulBlogPostArgs = {
   sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  type: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -4154,7 +4159,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomeQueryQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
+type HomeQueryQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly type: string | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -6,11 +6,20 @@
     display: flex;
     list-style-type: none;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
     .article {
       width: 300px;
     }
+  }
+}
+@include respond-to(small) {
+  .articles {
+    display: flex;
+    justify-content: center;
+  }
+  .article {
+    width: 100%;
   }
 }

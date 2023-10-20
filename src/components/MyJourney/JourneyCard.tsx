@@ -12,17 +12,19 @@ const JourneyCard = (props: Props) => {
   const { oppositePrimary, secondary, primary, oppositeSecondary } =
     theme.colors;
   const cardColor = { color: primary, backgroundColor: oppositeSecondary };
+  const handleJourneyCardClick = () => {
+    console.log("hello world!");
+  };
   return (
     <div
       className="journey-card"
+      onClick={handleJourneyCardClick}
       style={
         index % 2 === 0
           ? { ...cardColor, top: "-3.5rem", rotate: "-10deg" }
           : { ...cardColor, top: "-4rem", rotate: "-10deg" }
       }
-    >
-      
-    </div>
+    ></div>
   );
 };
 

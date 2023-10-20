@@ -9,10 +9,7 @@ import Seo from "../components/seo";
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <Seo
-        title={"Home"}
-        description={"This is home page for Nirmalkar"}
-      />
+      <Seo title={"Home"} description={"This is home page for Nirmalkar"} />
       <Intro />
       <Social />
     </Layout>

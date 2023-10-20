@@ -5,14 +5,25 @@ import { ThemeContext } from "../../context/themeProvider";
 import Layout from "../../components/layout";
 
 type Props = {
-  data: any
+  data: any;
+  location: any;
 };
 
 const BologCategory = (props: Props) => {
   const { theme } = useContext(ThemeContext);
   const { secondary, oppositeSecondary } = theme.colors;
-  const posts = props.data?.allContentfulBlogPost.nodes;
-  return <Layout><div className="blogs-container"><ArticlePreview posts={posts} /></div></Layout>;
+  const path = location.pathname.split("/");
+  const currPagePath = path[path.length - 2];
+  const posts = props.data?.allContentfulBlogPost.nodes.filter(
+    (ele: any) => ele.type === currPagePath
+  );
+  return (
+    <Layout>
+      <div className="blogs-container">
+        <ArticlePreview posts={posts} />
+      </div>
+    </Layout>
+  );
 };
 
 export default BologCategory;
@@ -32,6 +43,7 @@ export const pageQuery = graphql`
             height: 212
           )
         }
+        type
         description {
           raw
         }

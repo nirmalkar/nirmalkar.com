@@ -12,17 +12,17 @@ const ArticlePreview = ({ posts }) => {
 
   return (
     <div className="article-preview-container">
-      <ul className="articles">
+      <div className="articles">
         {posts.map((post) => {
           return (
-            <li
+            <div
               className="article"
               style={{ backgroundColor: `${primary}a1` }}
               key={post.slug}
             >
               <Link to={`/blog/${post.slug}`}>
                 <GatsbyImage
-                 className="br-1"
+                  className="br-1"
                   alt=""
                   image={post.heroImage.gatsbyImage}
                 />
@@ -34,10 +34,10 @@ const ArticlePreview = ({ posts }) => {
               <div style={{ color: oppositeSecondary }}>
                 <small className="meta">{post.publishDate}</small>
               </div>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };

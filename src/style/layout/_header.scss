@@ -20,3 +20,16 @@ header {
     cursor: pointer;
   }
 }
+
+@include respond-to(extraSmall) {
+  .header-container {
+    padding: 1.8rem;
+    width: 80%;
+  }
+}
+@include respond-to(small) {
+  .header-container {
+    padding: 20px;
+    width: 70%;
+  }
+}
