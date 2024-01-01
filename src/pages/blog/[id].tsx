@@ -11,7 +11,6 @@ type Props = {
 
 const BologCategory = (props: Props) => {
   const { theme } = useContext(ThemeContext);
-  const { secondary, oppositeSecondary } = theme.colors;
   const path = location.pathname.split("/");
   const currPagePath = path[path.length - 2];
   const posts = props.data?.allContentfulBlogPost.nodes.filter(
@@ -28,7 +27,7 @@ const BologCategory = (props: Props) => {
 
 export default BologCategory;
 export const pageQuery = graphql`
-  query HomeQuery {
+  query BlogQuery {
     allContentfulBlogPost(sort: { publishDate: DESC }) {
       nodes {
         title

@@ -1113,6 +1113,7 @@ type ContentfulPerson = ContentfulEntry & ContentfulReference & Node & {
   readonly company: Maybe<Scalars['String']>;
   readonly contentful_id: Scalars['String'];
   readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
   readonly email: Maybe<Scalars['String']>;
   readonly facebook: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
@@ -1198,6 +1199,7 @@ type ContentfulPersonFieldSelector = {
   readonly company: InputMaybe<FieldSelectorEnum>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
   readonly email: InputMaybe<FieldSelectorEnum>;
   readonly facebook: InputMaybe<FieldSelectorEnum>;
   readonly github: InputMaybe<FieldSelectorEnum>;
@@ -1222,6 +1224,7 @@ type ContentfulPersonFilterInput = {
   readonly company: InputMaybe<StringQueryOperatorInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly email: InputMaybe<StringQueryOperatorInput>;
   readonly facebook: InputMaybe<StringQueryOperatorInput>;
   readonly github: InputMaybe<StringQueryOperatorInput>;
@@ -1303,6 +1306,7 @@ type ContentfulPersonSortInput = {
   readonly company: InputMaybe<SortOrderEnum>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
   readonly email: InputMaybe<SortOrderEnum>;
   readonly facebook: InputMaybe<SortOrderEnum>;
   readonly github: InputMaybe<SortOrderEnum>;
@@ -3034,6 +3038,7 @@ type Query_contentfulPersonArgs = {
   company: InputMaybe<StringQueryOperatorInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
   email: InputMaybe<StringQueryOperatorInput>;
   facebook: InputMaybe<StringQueryOperatorInput>;
   github: InputMaybe<StringQueryOperatorInput>;
@@ -4121,6 +4126,11 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutQueryQuery = { readonly allContentfulPerson: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly email: string | null, readonly description: string | null, readonly shortBio: { readonly raw: string | null } | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null } }> } };
+
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
   previousPostSlug: InputMaybe<Scalars['String']>;
@@ -4129,6 +4139,11 @@ type BlogPostBySlugQueryVariables = Exact<{
 
 
 type BlogPostBySlugQuery = { readonly contentfulBlogPost: { readonly slug: string | null, readonly title: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly rawDate: string | null, readonly author: { readonly name: string | null } | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly body: { readonly raw: string | null } | null, readonly description: { readonly raw: string | null } | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
+
+type BlogQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BlogQueryQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly type: string | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -4155,11 +4170,6 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
-
-type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomeQueryQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly type: string | null, readonly heroImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

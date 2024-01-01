@@ -1,0 +1,34 @@
+.about-container {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  letter-spacing: 1px;
+  font-family: "Inter", sans-serif;
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 60px;
+  }
+}
+.about-description {
+  color: white;
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
+}
+.profile-picture {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  .about-picture {
+    border-radius: 50%;
+    width: 12rem;
+    @media (min-width: 768px) {
+      width: 15rem;
+    }
+  }
+}
