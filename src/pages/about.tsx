@@ -17,11 +17,10 @@ interface AboutProps {}
 
 const About: FC<AboutProps> = (props) => {
   const { theme } = useContext(ThemeContext);
-  const [showModal, setShowModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { secondary, primary, oppositePrimary, oppositeSecondary } =
     theme.colors;
   const node = props?.data?.allContentfulPerson?.edges[2].node;
-  console.log(node);
   const image = node.image.gatsbyImage;
   const options = {
     renderNode: {
@@ -31,10 +30,17 @@ const About: FC<AboutProps> = (props) => {
       },
     },
   };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Layout>
       <Seo title={"About"} description={"This is about page for Nirmalkar"} />
-      <div className="profile-picture">
+      <div onClick={openModal} className="profile-picture">
         <GatsbyImage className="about-picture" alt={node.name} image={image} />
       </div>
       <div className="about-container">
@@ -45,7 +51,7 @@ const About: FC<AboutProps> = (props) => {
           {node.shortBio.raw && renderRichText(node.shortBio, options)}
         </div>
       </div>
-      {showModal && <Modal imageUrl={imageUrl} onClose={handleCloseModal} />}
+      <Modal isOpen={isModalOpen} closeModal={closeModal} imageData={image} />
     </Layout>
   );
 };
@@ -68,8 +74,8 @@ export const pageQuery = graphql`
             gatsbyImage(
               layout: FULL_WIDTH
               placeholder: BLURRED
-              width: 400
-              height: 400
+              width: 800
+              height: 800
             )
           }
         }

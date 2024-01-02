@@ -1,33 +1,62 @@
-import React, { FC, useEffect } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
+import CloseIcon from "../../assets/svg/Close";
 
 interface ModalProps {
-  imageUrl: string;
-  onClose: () => void;
+  isOpen: boolean;
+  closeModal: () => void;
+  imageData?: ImageDataLike;
+  bgColor?: string;
+  children?: ReactNode;
+  showCloseBtn?: boolean;
 }
 
-const Modal: FC<ModalProps> = ({ imageUrl, onClose }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  closeModal,
+  imageData,
+  bgColor,
+  showCloseBtn,
+}) => {
+  const modalClass = isOpen ? "modal-overlay" : "hidden";
+  const modalRef = useRef(null);
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && modalRef.current === event.target) {
+        closeModal();
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onClose]);
-
+  }, [isOpen, closeModal]);
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <img src={imageUrl} alt="Modal" />
-        <button className="close-button" onClick={onClose}>
-          Close
-        </button>
-      </div>
+    <div className="modal-container">
+      {isOpen && (
+        <div ref={modalRef} className={modalClass}>
+          <div className="modal" style={{ background: bgColor ?? "" }}>
+            {imageData && (
+              <div className="image-container">
+                <GatsbyImage image={getImage(imageData)} alt="Modal Image" />
+              </div>
+            )}
+            <div className="close-icon-container">
+              <CloseIcon
+                onClose={closeModal}
+                bg="#fff"
+                color="#333"
+                size={20}
+                crossSize={15}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
