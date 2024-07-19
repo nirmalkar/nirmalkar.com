@@ -1,19 +1,18 @@
 import React, { useContext, useState } from "react";
 import { FC } from "react";
 import { Link, graphql } from "gatsby";
-import get from "lodash/get";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import readingTime from "reading-time";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import Modal from "../components/Modal";
 
-interface AboutProps {}
+interface AboutProps {
+  data: any;
+}
 
 const About: FC<AboutProps> = (props) => {
   const { theme } = useContext(ThemeContext);
@@ -24,9 +23,14 @@ const About: FC<AboutProps> = (props) => {
   const image = node.image.gatsbyImage;
   const options = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      [BLOCKS.EMBEDDED_ASSET]: (node: {
+        data: { target: { gatsbyImage: any; description: any } };
+      }) => {
         const { gatsbyImage, description } = node.data.target;
-        return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />;
+        const imageData = getImage(gatsbyImage);
+        return imageData ? (
+          <GatsbyImage image={imageData} alt={description} />
+        ) : null;
       },
     },
   };

@@ -16,7 +16,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   const { theme, themeName, toggleTheme } = useContext(ThemeContext);
   const { secondary, oppositeSecondary } = theme?.colors;
   const isDarkMode = themeName === "dark";
-  console.log(toggleVal);
+
   const handleToggle = () => {
     playSound("toggleSound");
     if (onToggle) {

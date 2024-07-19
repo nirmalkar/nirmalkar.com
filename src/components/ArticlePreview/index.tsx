@@ -3,8 +3,13 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { ThemeContext } from "../../context/themeProvider";
+import { BlogPost } from "../../types/posts";
 
-const ArticlePreview = ({ posts }) => {
+type ArticlePreviewPropsType = {
+  posts: BlogPost;
+};
+
+const ArticlePreview = ({ posts }: ArticlePreviewPropsType) => {
   const { theme } = useContext(ThemeContext);
   const { primary, oppositeSecondary } = theme.colors;
   if (!posts) return null;

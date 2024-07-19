@@ -15,26 +15,26 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
         <svg
           width={size ?? ""}
           xmlns="http://www.w3.org/2000/svg"
-          enable-background="new 0 0 512 512"
+          enableBackground="new 0 0 512 512"
           viewBox="0 0 512 512"
           id="travelling-bag"
         >
           <polygon
             fill="none"
             stroke={fill}
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="15"
             points="312.5 27 312.5 180 199.5 180 199.5 27 215.5 27 215.5 36 296.5 36 296.5 27"
           ></polygon>
           <path
             fill="none"
             stroke={fill}
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="15"
             d="M153.911 468h204.179c15.691 0 28.411-12.72 28.411-28.411V208.411c0-15.691-12.72-28.411-28.411-28.411H153.911c-15.691 0-28.411 12.72-28.411 28.411v231.179C125.5 455.28 138.22 468 153.911 468zM175.5 495L175.5 495c-7.456 0-13.5-6.044-13.5-13.5V468h27v13.5C189 488.956 182.956 495 175.5 495zM337.5 495L337.5 495c7.456 0 13.5-6.044 13.5-13.5V468h-27v13.5C324 488.956 330.044 495 337.5 495z"
           ></path>
           <rect
@@ -44,10 +44,10 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
             y="180"
             fill="none"
             stroke={fill}
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="15"
           ></rect>
           <line
             x1="224.5"
@@ -56,10 +56,10 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
             y2="216"
             fill="none"
             stroke={fill}
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="15"
           ></line>
           <rect
             // width="81"
@@ -68,10 +68,10 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
             y="18"
             fill="none"
             stroke={fill}
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="15"
           ></rect>
         </svg>
       );

@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import Card from "../components/Card";
 import { blogs } from "../constants/blogConstant";
-import ArticlePreview from "../components/ArticlePreview";
 import { Link, graphql } from "gatsby";
 import Seo from "../components/seo";
 
@@ -20,18 +19,18 @@ const Blog: FC<BlogProps> = (props) => {
     textColor: secondary,
     clickable: true,
   };
-  
+
   return (
     <div>
       <Layout>
-      <Seo
-        title={"Blog Categories"}
-        description={"This is blog categories for Nirmalkar"}
-      />
+        <Seo
+          title={"Blog Categories"}
+          description={"This is blog categories for Nirmalkar"}
+        />
         <div className="blog-category-container">
           {blogs.map((blog, index) => {
             return (
-              <Link to={`/blog/${blog.name}`}>
+              <Link key={blog.name} to={`/blog/${blog.name}`}>
                 <Card {...{ ...blogProps, name: blog.name }} />
               </Link>
             );
@@ -43,4 +42,3 @@ const Blog: FC<BlogProps> = (props) => {
 };
 
 export default Blog;
-

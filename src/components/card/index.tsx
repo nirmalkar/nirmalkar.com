@@ -1,5 +1,5 @@
 import React from "react";
-import BlogIcons from "../../assets/svg/blog";
+import BlogIcons from "../../assets/svg/Blog";
 
 type CardProps = {
   name: string;

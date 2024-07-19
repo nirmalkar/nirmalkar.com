@@ -96,6 +96,7 @@ const Contact: FC<ContactProps> = () => {
             <div className="contact-icons">
               {social.map((social) => (
                 <a
+                  key={social.name}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
 import get from "lodash/get";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import readingTime from "reading-time";
+import Prism from "prismjs";
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/components/prism-javascript";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
+import { BlogPost } from "../types/posts";
+import CopyToClipboardButton from "../components/CopyToClipboardButton";
 
-const BlogPostTemplate = (props) => {
+const BlogPostTemplate = (props: BlogPost) => {
   const { theme } = React.useContext(ThemeContext);
   const { primary, oppositeSecondary } = theme?.colors;
   const post = get(props, "data.contentfulBlogPost");
@@ -20,15 +26,35 @@ const BlogPostTemplate = (props) => {
   const plainTextDescription = documentToPlainTextString(
     JSON.parse(post.description.raw)
   );
+  const [copyStatus, setCopyStatus] = useState(false);
+  const copyContent = () => {
+    setCopyStatus(true);
+    setTimeout(() => {
+      setCopyStatus(false);
+    }, 1000);
+  };
   const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw));
   const { minutes: timeToRead } = readingTime(plainTextBody);
 
   const options = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { gatsbyImage, description } = node.data.target;
-        return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />;
+    renderMark: {
+      [MARKS.CODE]: (text) => {
+        const blockId = `code-block-${Math.random().toString(36).substr(2, 9)}`;
+        useEffect(() => {
+          Prism.highlightAll();
+        }, []);
+
+        return (
+          <div style={{ position: "relative" }}>
+            <CopyToClipboard text={text} onCopy={copyContent}>
+              <CopyToClipboardButton theme={theme} text={text} />
+            </CopyToClipboard>
+          </div>
+        );
       },
+    },
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
     },
   };
 

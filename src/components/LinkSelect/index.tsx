@@ -17,7 +17,7 @@ const LinkSelect = (props: LinkSelectProps) => {
   return (
     <div className="select-container" style={{ background: secondary }}>
       {paths.map((path) => (
-        <Link style={{ color: secondary }} to={path.path}>
+        <Link key={path.path} style={{ color: secondary }} to={path.path}>
           <div
             className="select"
             style={{ backgroundColor: oppositeSecondary, color: secondary }}

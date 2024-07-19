@@ -40,7 +40,7 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
       {navLinks.map((nav, i) => {
         const isTabOhters = nav.name === "others";
         return (
-          <>
+          <div key={nav.name}>
             {!isTabOhters && (
               <Link to={nav.path} className="nav">
                 {nav.name}
@@ -57,17 +57,17 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
                   <DownAero size={13} color={oppositePrimary} />
                 </div>
                 {showMoreOptions && (
-                    <LinkSelect
-                      paths={[
-                        { name: "Journey", path: "/journey" },
-                        { name: "Info", path: "/info" },
-                      ]}
-                    />
+                  <LinkSelect
+                    paths={[
+                      { name: "Journey", path: "/journey" },
+                      { name: "Info", path: "/info" },
+                    ]}
+                  />
                 )}
               </span>
             )}
             {i < navLinks.length - 1 && <span>/</span>}
-          </>
+          </div>
         );
       })}
     </>

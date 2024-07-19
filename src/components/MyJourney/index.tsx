@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/themeProvider";
-import Location from "../../assets/svg/localtion";
+import Location from "../../assets/svg/Localtion";
 import JourneyCard from "./JourneyCard";
 
 type Props = {};
@@ -17,6 +17,7 @@ const MyJourney = (props: Props) => {
     <div className="journey-road-container">
       {a.map((ele, i) => (
         <div
+          key={ele}
           className="journey-card-container"
           style={
             i % 2 === 0
@@ -29,6 +30,7 @@ const MyJourney = (props: Props) => {
       ))}
       {a.map((ele, i) => (
         <div
+          key={ele}
           className="journey-loaction"
           style={
             i % 2 === 0

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, graphql } from "gatsby";
 import ArticlePreview from "../../components/ArticlePreview";
 import { ThemeContext } from "../../context/themeProvider";
@@ -11,15 +11,22 @@ type Props = {
 
 const BologCategory = (props: Props) => {
   const { theme } = useContext(ThemeContext);
-  const path = location.pathname.split("/");
-  const currPagePath = path[path.length - 2];
-  const posts = props.data?.allContentfulBlogPost.nodes.filter(
-    (ele: any) => ele.type === currPagePath
-  );
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const path = location.pathname.split("/");
+      const currPagePath = path[path.length - 2];
+      const posts = props.data?.allContentfulBlogPost.nodes.filter(
+        (ele: any) => ele.type === currPagePath
+      );
+      setPosts(posts);
+    }
+  }, []);
   return (
     <Layout>
       <div className="blogs-container">
-        <ArticlePreview posts={posts} />
+        {posts && <ArticlePreview posts={posts} />}
       </div>
     </Layout>
   );

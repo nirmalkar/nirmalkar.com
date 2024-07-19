@@ -9,7 +9,7 @@ function HamburgerMenu({ color }: Props) {
     <svg
       width={30}
       xmlns="http://www.w3.org/2000/svg"
-      enable-background="new 0 0 500 500"
+      enableBackground="new 0 0 500 500"
       viewBox="0 0 500 500"
       id="hamburger-menu"
     >
@@ -19,9 +19,9 @@ function HamburgerMenu({ color }: Props) {
         r="200"
         fill="none"
         stroke={color ?? "#000"}
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="20"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="20"
       ></circle>
       <rect
         fill={color ?? "#000"}

@@ -5,7 +5,7 @@ type UseOutsideAlerterProps = {
 };
 type refs = {
   [string: string]: any;
-  stepInput: any;
+  stepInput?: any;
 };
 
 export function UseOutsideAlerter(props: UseOutsideAlerterProps) {
