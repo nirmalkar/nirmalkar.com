@@ -3,15 +3,9 @@
   text-align: left;
   font-family: "Lato", sans-serif;
   .articles {
-    display: flex;
-    list-style-type: none;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    .article {
-      width: 300px;
-    }
+    display: grid;
+    gap: 20px; /* Space between cards */
+    padding: 16px;
   }
 }
 @include respond-to(small) {
@@ -21,5 +15,29 @@
   }
   .article {
     width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .articles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .articles {
+    grid-template-columns: 1fr;
   }
 }
