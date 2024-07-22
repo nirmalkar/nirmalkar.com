@@ -1,17 +1,25 @@
-import * as React from "react";
+import React, { ReactNode, FC, useContext, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import { ThemeContext } from "../../context/themeProvider";
+import { ToggleContext } from "../../context/toggleProvider";
 import ToggleButton from "../ToggleButton";
 import HamburgerMenu from "../../assets/svg/HamburgerMenu";
+import SideBar from "../SideBar";
 
 interface Props {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
-const Layout: React.FC<Props> = (props: Props) => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+const Layout: FC<Props> = (props: Props) => {
+  const { theme, themeName, toggleTheme } = useContext(ThemeContext);
+  const { toggle, isToggled } = useContext(ToggleContext);
   const { secondary, oppositeSecondary } = theme?.colors;
   const { children } = props;
+
+  const toggleSidebar = () => {
+    toggle();
+  };
+
   return (
     <div
       className="layout"
@@ -25,15 +33,18 @@ const Layout: React.FC<Props> = (props: Props) => {
       }}
     >
       <Header />
+      <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
       <div className="toggle-button">
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
-        <div className="hamburger-container">
+        <div onClick={toggleSidebar} className="hamburger-container">
           <HamburgerMenu color={oppositeSecondary} />
         </div>
       </div>
-      <main>
-        <section className="content">{children}</section>
-      </main>
+      <div className={`content ${isToggled ? "shifted" : ""}`}>
+        <main>
+          <section className="content">{children}</section>
+        </main>
+      </div>
       <Footer />
     </div>
   );

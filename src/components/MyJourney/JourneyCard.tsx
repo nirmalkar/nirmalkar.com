@@ -14,6 +14,7 @@ const JourneyCard = (props: Props) => {
   const cardColor = { color: primary, backgroundColor: oppositeSecondary };
   const handleJourneyCardClick = () => {
     console.log("hello world!");
+    ``;
   };
   return (
     <div

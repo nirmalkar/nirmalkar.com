@@ -4,6 +4,10 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   box-sizing: border-box;
 }
+:root {
+  --secondaryColor: #f0f0f0;
+  --oppositeSecondaryColor: #333;
+}
 
 #shadow-host-companion {
   display: none;

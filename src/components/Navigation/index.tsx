@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from "react";
+import React, { FC, useState, useContext, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/themeProvider";
 import { navLinks, NavConst } from "../../constants/navigationContants";
@@ -26,7 +26,7 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
   const { oppositePrimary } = theme.colors;
   const [showMoreOptions, setShowMoreOptions] = useState<boolean>(false);
   const ref = useRef(null);
-  React.useEffect(() => {
+  useEffect(() => {
     const checkVal = showMoreOptions;
     UseOutsideAlerter({
       ref,
@@ -74,7 +74,7 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
   );
 };
 const Nav: FC<NavProps> = () => {
-  const { theme, themeName } = React.useContext(ThemeContext);
+  const { theme, themeName } = useContext(ThemeContext);
   return (
     <div className={`nav-container-${themeName}`}>
       <Links {...{ navLinks, themeName, theme }} />

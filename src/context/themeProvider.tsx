@@ -1,5 +1,4 @@
-// ThemeProvider.tsx
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, ReactNode } from "react";
 import { Theme, themes, ThemeName } from "../../theme";
 
 type ThemeContextType = {
@@ -8,13 +7,17 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
 export const ThemeContext = createContext<ThemeContextType>({
   theme: themes.light,
   themeName: "light",
   toggleTheme: () => {},
 });
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [themeName, setThemeName] = useState<ThemeName>(
     getUserPreferredTheme()
   );
