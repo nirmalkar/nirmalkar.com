@@ -38,7 +38,7 @@ const BlogPostTemplate = (props: BlogPost) => {
 
   const options = {
     renderMark: {
-      [MARKS.CODE]: (text) => {
+      [MARKS.CODE]: (text: string) => {
         const blockId = `code-block-${Math.random().toString(36).substr(2, 9)}`;
         useEffect(() => {
           Prism.highlightAll();
@@ -54,7 +54,18 @@ const BlogPostTemplate = (props: BlogPost) => {
       },
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (
+        node: any,
+        children:
+          | string
+          | number
+          | boolean
+          | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+          | React.ReactFragment
+          | React.ReactPortal
+          | null
+          | undefined
+      ) => <p>{children}</p>,
     },
   };
 

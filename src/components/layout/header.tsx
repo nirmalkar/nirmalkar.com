@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from "../Navigation";
 import { navigate } from "gatsby";
 import { ThemeContext } from "../../context/themeProvider";
-import ToggleButton from "../ToggleButton";
 import { playSound } from "../../utils/playSound";
 
 const Header: React.FC = (props) => {

@@ -51,7 +51,7 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/blog-categories">Blog</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
             <Link to="/about">About</Link>

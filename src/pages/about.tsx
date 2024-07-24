@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FC } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -19,7 +19,7 @@ const About: FC<AboutProps> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { secondary, primary, oppositePrimary, oppositeSecondary } =
     theme.colors;
-  const node = props?.data?.allContentfulPerson?.edges[2].node;
+  const node = props?.data?.allContentfulPerson?.edges[0].node;
   const image = node.image.gatsbyImage;
   const options = {
     renderNode: {
@@ -34,6 +34,7 @@ const About: FC<AboutProps> = (props) => {
       },
     },
   };
+
   const openModal = () => {
     setIsModalOpen(true);
   };
