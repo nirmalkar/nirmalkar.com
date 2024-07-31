@@ -1,20 +1,23 @@
-.article-preview-container {
-  width: 70%;
-  text-align: left;
-  font-family: "Lato", sans-serif;
-  .articles {
-    display: grid;
-    gap: 20px; /* Space between cards */
-    padding: 16px;
+@include respond-to(extraSmall) {
+  .article-preview-container {
+    width: 100%;
   }
 }
+
 @include respond-to(small) {
   .articles {
     display: flex;
     justify-content: center;
   }
-  .article {
-    width: 100%;
+  .article-preview-container {
+    width: 70%;
+    text-align: left;
+    font-family: "Lato", sans-serif;
+    .articles {
+      display: grid;
+      gap: 20px; /* Space between cards */
+      padding: 16px;
+    }
   }
 }
 

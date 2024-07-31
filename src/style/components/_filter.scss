@@ -1,18 +1,3 @@
-.filter-container {
-  margin: 0 auto;
-  width: 70%;
-}
-
-.show-filter-toggle-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-}
-
 .filter-content {
   position: relative;
   display: flex;
@@ -40,7 +25,27 @@
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.clear-filter-button {
-  cursor: pointer;
-  padding-top: 1.5rem;
+
+@include respond-to(extraSmall) {
+  .clear-filter-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0.1rem;
+    right: 0;
+  }
+  .filter-container {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+@include respond-to(small) {
+  .clear-filter-button {
+    cursor: pointer;
+    position: relative;
+    top: 1.5rem;
+  }
+  .filter-container {
+    margin: 0 auto;
+    width: 70%;
+  }
 }

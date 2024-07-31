@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../context/themeProvider";
-import { GiCancel } from "@react-icons/all-files/gi/GiCancel";
+import { TiDeleteOutline } from "@react-icons/all-files/ti/TiDeleteOutline";
 type FilterValuesType = {
   category: string;
   sort: string;
@@ -53,7 +53,10 @@ const Filter: React.FC<FilterPropsType> = ({
         </select>
       </div>
       <div onClick={handleClearFilters} className="clear-filter-button">
-        <GiCancel size={30} />
+        <TiDeleteOutline
+          style={{ color: theme.colors.oppositeSecondary }}
+          size={30}
+        />
       </div>
     </div>
   );
