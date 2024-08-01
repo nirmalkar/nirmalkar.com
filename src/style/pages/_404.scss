@@ -1,12 +1,11 @@
 .not-found {
-  position: absolute;
-  top: 30%;
-  left: 43%;
-  transform: translate(-50%, -50%);
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .not-found-text {
     font-size: 30px;
-    position: absolute;
-    right: 8%;
     font-family: "Inter", sans-serif;
   }
 }
