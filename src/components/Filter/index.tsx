@@ -26,38 +26,41 @@ const Filter: React.FC<FilterPropsType> = ({
   return (
     <div className="filter-content">
       <div className="filter-group">
-        <label htmlFor="sort">Sort By:</label>
         <select
+          className="blog-filter-select"
           name="sort"
           id="sort"
           value={sort}
           onChange={handleFilterChange}
         >
-          <option value="">Select</option>
+          <option value="">Select sort by</option>
           <option value="latest">Latest</option>
           <option value="oldest">Oldest</option>
         </select>
       </div>
       <div className="filter-group">
-        <label htmlFor="category">Category:</label>
         <select
+          className="blog-filter-select"
           id="category"
           name="category"
           value={category}
           onChange={handleFilterChange}
         >
-          <option value="">Select</option>
+          <option value="">Select category</option>
           <option value="technology">Technology</option>
           <option value="finance">Finance</option>
           <option value="travel">Travel</option>
         </select>
       </div>
-      <div onClick={handleClearFilters} className="clear-filter-button">
-        <TiDeleteOutline
-          style={{ color: theme.colors.oppositeSecondary }}
-          size={30}
-        />
-      </div>
+      {(category !== "" || sort !== "") && (
+        <div onClick={handleClearFilters} className="clear-filter-button">
+          <TiDeleteOutline
+            title="Clear filters"
+            style={{ color: theme.colors.oppositeSecondary }}
+            size={30}
+          />
+        </div>
+      )}
     </div>
   );
 };

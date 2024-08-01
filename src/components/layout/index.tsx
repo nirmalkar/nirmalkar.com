@@ -26,7 +26,7 @@ const Layout: FC<Props> = (props: Props) => {
       id="wrapper"
       style={{
         backgroundColor: theme.colors.primary,
-        backgroundImage: `radial-gradient(${secondary} 10%, transparent 11%), radial-gradient(${secondary} 10%, transparent 11%)`,
+        // backgroundImage: `radial-gradient(${secondary} 10%, transparent 11%), radial-gradient(${secondary} 10%, transparent 11%)`,
         backgroundSize: "10px 10px",
         backgroundPosition: "0 0, 30px 30px",
         backgroundRepeat: "repeat",
@@ -42,7 +42,7 @@ const Layout: FC<Props> = (props: Props) => {
       </div>
       <div className={`content ${isToggled ? "shifted" : ""}`}>
         <main>
-          <section className="content">{children}</section>
+          <section>{children}</section>
         </main>
       </div>
       <Footer />

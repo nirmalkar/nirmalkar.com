@@ -1,14 +1,32 @@
 @include respond-to(extraSmall) {
   .article-preview-container {
     width: 100%;
+    .articles {
+      display: grid;
+      gap: 30px;
+      .article-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .article-not-found {
+      width: 60vw;
+      p {
+        font-size: 16pt;
+        width: 90%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 }
 
 @include respond-to(small) {
-  .articles {
-    display: flex;
-    justify-content: center;
-  }
   .article-preview-container {
     width: 70%;
     text-align: left;
@@ -17,6 +35,13 @@
       display: grid;
       gap: 20px; /* Space between cards */
       padding: 16px;
+    }
+    .article-not-found {
+      width: 60vw;
+      p {
+        font-size: 36pt;
+        width: 60vw;
+      }
     }
   }
 }

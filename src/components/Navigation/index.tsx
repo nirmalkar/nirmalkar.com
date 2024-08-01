@@ -59,7 +59,7 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
                 {showMoreOptions && (
                   <LinkSelect
                     paths={[
-                      { name: "Journey", path: "/journey" },
+                      { name: "About Me", path: "/about" },
                       { name: "Info", path: "/info" },
                     ]}
                   />

@@ -18,6 +18,11 @@ const ArticlePreview = ({ posts }: ArticlePreviewPropsType) => {
   return (
     <div className="article-preview-container">
       <div className="articles">
+        {!posts.length && (
+          <div className="article-not-found">
+            <p>No blog available, Please select another category!</p>
+          </div>
+        )}
         {posts.map((post) => {
           return (
             <div
@@ -32,13 +37,17 @@ const ArticlePreview = ({ posts }: ArticlePreviewPropsType) => {
                   image={post.heroImage.gatsbyImage}
                 />
                 <h2 style={{ color: oppositeSecondary }}>{post.title}</h2>
+
+                <div
+                  className="article-description"
+                  style={{ color: oppositeSecondary }}
+                >
+                  {post.description?.raw && renderRichText(post.description)}
+                </div>
+                <div style={{ color: oppositeSecondary }}>
+                  <small className="meta">{post.publishDate}</small>
+                </div>
               </Link>
-              <div style={{ color: oppositeSecondary }}>
-                {post.description?.raw && renderRichText(post.description)}
-              </div>
-              <div style={{ color: oppositeSecondary }}>
-                <small className="meta">{post.publishDate}</small>
-              </div>
             </div>
           );
         })}

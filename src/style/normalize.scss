@@ -57,3 +57,6 @@ $dark-secondary-color: #908990;
 // Light theme colors
 $dark-primary-color: #222222;
 $dark-secondary-color: #908990;
+*::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit-based browsers */
+}
