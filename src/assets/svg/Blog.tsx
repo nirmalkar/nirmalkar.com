@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import { Link } from "gatsby";
-import { ThemeContext } from "../../context/themeProvider";
 
 interface BlogIconProps {
   name: string;

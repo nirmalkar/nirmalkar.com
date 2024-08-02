@@ -87,7 +87,6 @@ const getIcons = (icon: string, fill: string, size: number) => {
 };
 
 const SocialIcons: FC<SocialIconsProps> = ({ name, fill, size }) => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
   return <div>{getIcons(name, fill, size)}</div>;
 };
 

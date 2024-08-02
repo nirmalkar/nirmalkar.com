@@ -11,7 +11,7 @@ type ArticlePreviewPropsType = {
 
 const ArticlePreview = ({ posts }: ArticlePreviewPropsType) => {
   const { theme } = useContext(ThemeContext);
-  const { primary, oppositeSecondary } = theme.colors;
+  const { primary, oppositePrimary, oppositeSecondary } = theme.colors;
   if (!posts) return null;
   if (!Array.isArray(posts)) return null;
 
@@ -20,7 +20,9 @@ const ArticlePreview = ({ posts }: ArticlePreviewPropsType) => {
       <div className="articles">
         {!posts.length && (
           <div className="article-not-found">
-            <p>No blog available, Please select another category!</p>
+            <p style={{ color: oppositePrimary }}>
+              No blog available, Please select another category!
+            </p>
           </div>
         )}
         {posts.map((post) => {

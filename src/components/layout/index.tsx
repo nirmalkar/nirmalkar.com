@@ -5,6 +5,8 @@ import { ThemeContext } from "../../context/themeProvider";
 import { ToggleContext } from "../../context/toggleProvider";
 import ToggleButton from "../ToggleButton";
 import HamburgerMenu from "../../assets/svg/HamburgerMenu";
+import { IoIosCloseCircleOutline } from "@react-icons/all-files/io/IoIosCloseCircleOutline";
+import { IoListCircleOutline } from "@react-icons/all-files/io5/IoListCircleOutline";
 import SideBar from "../SideBar";
 
 interface Props {
@@ -37,7 +39,16 @@ const Layout: FC<Props> = (props: Props) => {
       <div className="toggle-button">
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
         <div onClick={toggleSidebar} className="hamburger-container">
-          <HamburgerMenu color={oppositeSecondary} />
+          <IoIosCloseCircleOutline
+            size={30}
+            className={`icon ${isToggled ? "show" : "hide"}`}
+            style={{ color: theme.colors.oppositePrimary }}
+          />
+          <IoListCircleOutline
+            size={30}
+            className={`icon ${isToggled ? "hide" : "show"}`}
+            style={{ color: theme.colors.oppositePrimary }}
+          />
         </div>
       </div>
       <div className={`content ${isToggled ? "shifted" : ""}`}>
