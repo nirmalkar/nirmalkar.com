@@ -1,6 +1,12 @@
 import { Link } from "gatsby";
 import React, { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../context/themeProvider";
+import { RiContactsLine } from "@react-icons/all-files/ri/RiContactsLine";
+import { SiAboutDotMe } from "@react-icons/all-files/si/SiAboutdotme";
+import { FaBlogger } from "@react-icons/all-files/fa/FaBlogger";
+import { IoHomeOutline } from "@react-icons/all-files/io5/IoHomeOutline";
+import { IoInformationCircleOutline } from "@react-icons/all-files/io5/IoInformationCircleOutline";
+import { FaLaptopCode } from "@react-icons/all-files/fa/FaLaptopCode";
 
 type SideBarPropsType = { isVisible: boolean; toggleSidebar: () => void };
 
@@ -31,12 +37,16 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
 
   useEffect(() => {
     document.documentElement.style.setProperty(
-      "--secondaryColor",
-      theme.colors.secondary
+      "--primaryColor",
+      theme.colors.primary
     );
     document.documentElement.style.setProperty(
-      "--oppositeSecondaryColor",
-      theme.colors.oppositeSecondary
+      "--oppositePrimaryColor",
+      theme.colors.oppositePrimary
+    );
+    document.documentElement.style.setProperty(
+      "--secondaryLighterColor",
+      theme.colors.secondaryLighter
     );
   }, [theme]);
 
@@ -47,21 +57,44 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
     >
       <nav>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/info">Info</Link>
-          </li>
+          <Link to="/">
+            <li>
+              <IoHomeOutline style={{ color: theme.colors.oppositePrimary }} />
+              Home
+            </li>
+          </Link>
+          <Link to="/blog">
+            <li>
+              <FaBlogger style={{ color: theme.colors.oppositePrimary }} />
+              Blog
+            </li>
+          </Link>
+          <Link to="/work">
+            <li>
+              <FaLaptopCode style={{ color: theme.colors.oppositePrimary }} />
+              Work
+            </li>
+          </Link>
+          <Link to="/about">
+            <li>
+              <SiAboutDotMe style={{ color: theme.colors.oppositePrimary }} />
+              About me
+            </li>
+          </Link>
+          <Link to="/contact">
+            <li>
+              <RiContactsLine style={{ color: theme.colors.oppositePrimary }} />
+              Contact
+            </li>
+          </Link>
+          <Link to="/info">
+            <li>
+              <IoInformationCircleOutline
+                style={{ color: theme.colors.oppositePrimary }}
+              />
+              Info
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>

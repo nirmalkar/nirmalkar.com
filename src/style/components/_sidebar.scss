@@ -1,33 +1,29 @@
 .sidebar {
   width: 70vw;
-  padding: 20px 0px;
-  background: var(--secondaryColor);
-  color: var(--oppositeSecondaryColor);
+  padding: 20px;
+  background: var(--primaryColor);
   position: fixed;
   height: 100%;
   overflow: auto;
   transition: transform 0.3s ease;
   z-index: 100;
+  a {
+    text-decoration: none;
+    display: block;
+    color: var(--oppositePrimaryColor);
+  }
   ul {
     list-style-type: none;
     padding: 0;
     li {
+      display: flex;
+      gap: 10px;
       text-align: center;
       padding: 8px;
       text-align: center;
       margin-bottom: 10px;
       border-radius: 3px;
-      color: var(--oppositeSecondaryColor);
-      background-color: var(--oppositeSecondaryColor);
-      &:hover {
-        background-color: #555;
-        color: white;
-      }
-      a {
-        text-decoration: none;
-        color: black;
-        display: block;
-      }
+      background-color: var(--secondaryLighterColor);
     }
   }
 }
