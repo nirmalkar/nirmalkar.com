@@ -402,119 +402,6 @@ type ContentfulAssetSysSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
-type ContentfulBlog = ContentfulEntry & ContentfulReference & Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly contentful_id: Scalars['String'];
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly node_locale: Scalars['String'];
-  readonly parent: Maybe<Node>;
-};
-
-type ContentfulBlogConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulBlogEdge>;
-  readonly group: ReadonlyArray<ContentfulBlogGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulBlog>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulBlogConnection_distinctArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogConnection_groupArgs = {
-  field: ContentfulBlogFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulBlogConnection_maxArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogConnection_minArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogConnection_sumArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-type ContentfulBlogEdge = {
-  readonly next: Maybe<ContentfulBlog>;
-  readonly node: ContentfulBlog;
-  readonly previous: Maybe<ContentfulBlog>;
-};
-
-type ContentfulBlogFieldSelector = {
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly node_locale: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-};
-
-type ContentfulBlogFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-};
-
-type ContentfulBlogGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulBlogEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<ContentfulBlogGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulBlog>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulBlogGroupConnection_distinctArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogGroupConnection_groupArgs = {
-  field: ContentfulBlogFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulBlogGroupConnection_maxArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogGroupConnection_minArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
-
-type ContentfulBlogGroupConnection_sumArgs = {
-  field: ContentfulBlogFieldSelector;
-};
-
 type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & {
   readonly author: Maybe<ContentfulPerson>;
   readonly body: Maybe<ContentfulBlogPostBody>;
@@ -815,15 +702,6 @@ type ContentfulBlogPostSysSortInput = {
   readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeSortInput>;
   readonly revision: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulBlogSortInput = {
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly contentful_id: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly node_locale: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type ContentfulContentType = Node & {
@@ -1385,6 +1263,546 @@ type ContentfulPersonSysFilterInput = {
 
 type ContentfulPersonSysSortInput = {
   readonly contentType: InputMaybe<ContentfulPersonSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProject = ContentfulEntry & ContentfulReference & Node & {
+  readonly Image: Maybe<ReadonlyArray<Maybe<ContentfulProjectImage>>>;
+  /** Returns the first child node of type contentfulProjectDescriptionTextNode or null if there are no children of given type on this node */
+  readonly childContentfulProjectDescriptionTextNode: Maybe<contentfulProjectDescriptionTextNode>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type contentfulProjectDescriptionTextNode */
+  readonly childrenContentfulProjectDescriptionTextNode: Maybe<ReadonlyArray<Maybe<contentfulProjectDescriptionTextNode>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<contentfulProjectDescriptionTextNode>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulProjectSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulProject_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProject_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulProjectConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulProjectConnection_distinctArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectConnection_groupArgs = {
+  field: ContentfulProjectFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulProjectConnection_maxArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectConnection_minArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectConnection_sumArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+type ContentfulProjectEdge = {
+  readonly next: Maybe<ContentfulProject>;
+  readonly node: ContentfulProject;
+  readonly previous: Maybe<ContentfulProject>;
+};
+
+type ContentfulProjectFieldSelector = {
+  readonly Image: InputMaybe<ContentfulProjectImageFieldSelector>;
+  readonly childContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<contentfulProjectDescriptionTextNodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulProjectSysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectFilterInput = {
+  readonly Image: InputMaybe<ContentfulProjectImageFilterListInput>;
+  readonly childContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulProjectSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulProjectGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulProjectGroupConnection_distinctArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectGroupConnection_groupArgs = {
+  field: ContentfulProjectFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulProjectGroupConnection_maxArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectGroupConnection_minArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+
+type ContentfulProjectGroupConnection_sumArgs = {
+  field: ContentfulProjectFieldSelector;
+};
+
+type ContentfulProjectImage = {
+  readonly fields: Maybe<ContentfulProjectImageFields>;
+  readonly sys: Maybe<ContentfulProjectImageSys>;
+};
+
+type ContentfulProjectImageFieldSelector = {
+  readonly fields: InputMaybe<ContentfulProjectImageFieldsFieldSelector>;
+  readonly sys: InputMaybe<ContentfulProjectImageSysFieldSelector>;
+};
+
+type ContentfulProjectImageFields = {
+  readonly description: Maybe<ContentfulProjectImageFieldsDescription>;
+  readonly file: Maybe<ContentfulProjectImageFieldsFile>;
+  readonly title: Maybe<ContentfulProjectImageFieldsTitle>;
+};
+
+type ContentfulProjectImageFieldsDescription = {
+  readonly en_US: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageFieldsDescriptionFieldSelector = {
+  readonly en_US: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageFieldsDescriptionFilterInput = {
+  readonly en_US: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectImageFieldsDescriptionSortInput = {
+  readonly en_US: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageFieldsFieldSelector = {
+  readonly description: InputMaybe<ContentfulProjectImageFieldsDescriptionFieldSelector>;
+  readonly file: InputMaybe<ContentfulProjectImageFieldsFileFieldSelector>;
+  readonly title: InputMaybe<ContentfulProjectImageFieldsTitleFieldSelector>;
+};
+
+type ContentfulProjectImageFieldsFile = {
+  readonly en_US: Maybe<ContentfulProjectImageFieldsFileEn_US>;
+};
+
+type ContentfulProjectImageFieldsFileEn_US = {
+  readonly contentType: Maybe<Scalars['String']>;
+  readonly details: Maybe<ContentfulProjectImageFieldsFileEn_USDetails>;
+  readonly fileName: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetails = {
+  readonly image: Maybe<ContentfulProjectImageFieldsFileEn_USDetailsImage>;
+  readonly size: Maybe<Scalars['Int']>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsFieldSelector = {
+  readonly image: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsImageFieldSelector>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsFilterInput = {
+  readonly image: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsImageFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsImage = {
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsImageFieldSelector = {
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsImageFilterInput = {
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsImageSortInput = {
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USDetailsSortInput = {
+  readonly image: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsImageSortInput>;
+  readonly size: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USFieldSelector = {
+  readonly contentType: InputMaybe<FieldSelectorEnum>;
+  readonly details: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsFieldSelector>;
+  readonly fileName: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USFilterInput = {
+  readonly contentType: InputMaybe<StringQueryOperatorInput>;
+  readonly details: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsFilterInput>;
+  readonly fileName: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectImageFieldsFileEn_USSortInput = {
+  readonly contentType: InputMaybe<SortOrderEnum>;
+  readonly details: InputMaybe<ContentfulProjectImageFieldsFileEn_USDetailsSortInput>;
+  readonly fileName: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageFieldsFileFieldSelector = {
+  readonly en_US: InputMaybe<ContentfulProjectImageFieldsFileEn_USFieldSelector>;
+};
+
+type ContentfulProjectImageFieldsFileFilterInput = {
+  readonly en_US: InputMaybe<ContentfulProjectImageFieldsFileEn_USFilterInput>;
+};
+
+type ContentfulProjectImageFieldsFileSortInput = {
+  readonly en_US: InputMaybe<ContentfulProjectImageFieldsFileEn_USSortInput>;
+};
+
+type ContentfulProjectImageFieldsFilterInput = {
+  readonly description: InputMaybe<ContentfulProjectImageFieldsDescriptionFilterInput>;
+  readonly file: InputMaybe<ContentfulProjectImageFieldsFileFilterInput>;
+  readonly title: InputMaybe<ContentfulProjectImageFieldsTitleFilterInput>;
+};
+
+type ContentfulProjectImageFieldsSortInput = {
+  readonly description: InputMaybe<ContentfulProjectImageFieldsDescriptionSortInput>;
+  readonly file: InputMaybe<ContentfulProjectImageFieldsFileSortInput>;
+  readonly title: InputMaybe<ContentfulProjectImageFieldsTitleSortInput>;
+};
+
+type ContentfulProjectImageFieldsTitle = {
+  readonly en_US: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageFieldsTitleFieldSelector = {
+  readonly en_US: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageFieldsTitleFilterInput = {
+  readonly en_US: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectImageFieldsTitleSortInput = {
+  readonly en_US: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageFilterInput = {
+  readonly fields: InputMaybe<ContentfulProjectImageFieldsFilterInput>;
+  readonly sys: InputMaybe<ContentfulProjectImageSysFilterInput>;
+};
+
+type ContentfulProjectImageFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulProjectImageFilterInput>;
+};
+
+type ContentfulProjectImageSortInput = {
+  readonly fields: InputMaybe<ContentfulProjectImageFieldsSortInput>;
+  readonly sys: InputMaybe<ContentfulProjectImageSysSortInput>;
+};
+
+type ContentfulProjectImageSys = {
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly environment: Maybe<ContentfulProjectImageSysEnvironment>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly space: Maybe<ContentfulProjectImageSysSpace>;
+  readonly type: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulProjectImageSys_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProjectImageSys_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageSysEnvironment = {
+  readonly sys: Maybe<ContentfulProjectImageSysEnvironmentSys>;
+};
+
+type ContentfulProjectImageSysEnvironmentFieldSelector = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysEnvironmentSysFieldSelector>;
+};
+
+type ContentfulProjectImageSysEnvironmentFilterInput = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysEnvironmentSysFilterInput>;
+};
+
+type ContentfulProjectImageSysEnvironmentSortInput = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysEnvironmentSysSortInput>;
+};
+
+type ContentfulProjectImageSysEnvironmentSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageSysEnvironmentSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageSysEnvironmentSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectImageSysEnvironmentSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageSysFieldSelector = {
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly environment: InputMaybe<ContentfulProjectImageSysEnvironmentFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly space: InputMaybe<ContentfulProjectImageSysSpaceFieldSelector>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageSysFilterInput = {
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly environment: InputMaybe<ContentfulProjectImageSysEnvironmentFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly space: InputMaybe<ContentfulProjectImageSysSpaceFilterInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulProjectImageSysSortInput = {
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly environment: InputMaybe<ContentfulProjectImageSysEnvironmentSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly space: InputMaybe<ContentfulProjectImageSysSpaceSortInput>;
+  readonly type: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectImageSysSpace = {
+  readonly sys: Maybe<ContentfulProjectImageSysSpaceSys>;
+};
+
+type ContentfulProjectImageSysSpaceFieldSelector = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysSpaceSysFieldSelector>;
+};
+
+type ContentfulProjectImageSysSpaceFilterInput = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysSpaceSysFilterInput>;
+};
+
+type ContentfulProjectImageSysSpaceSortInput = {
+  readonly sys: InputMaybe<ContentfulProjectImageSysSpaceSysSortInput>;
+};
+
+type ContentfulProjectImageSysSpaceSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectImageSysSpaceSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectImageSysSpaceSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectImageSysSpaceSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectSortInput = {
+  readonly Image: InputMaybe<ContentfulProjectImageSortInput>;
+  readonly childContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<contentfulProjectDescriptionTextNodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulProjectSysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectSys = {
+  readonly contentType: Maybe<ContentfulProjectSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectSysContentType = {
+  readonly sys: Maybe<ContentfulProjectSysContentTypeSys>;
+};
+
+type ContentfulProjectSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulProjectSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulProjectSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulProjectSysContentTypeSysFilterInput>;
+};
+
+type ContentfulProjectSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulProjectSysContentTypeSysSortInput>;
+};
+
+type ContentfulProjectSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProjectSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProjectSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulProjectSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProjectSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulProjectSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProjectSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulProjectSysContentTypeSortInput>;
   readonly revision: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
 };
@@ -2796,11 +3214,12 @@ type PotraceTurnPolicy =
 
 type Query = {
   readonly allContentfulAsset: ContentfulAssetConnection;
-  readonly allContentfulBlog: ContentfulBlogConnection;
   readonly allContentfulBlogPost: ContentfulBlogPostConnection;
   readonly allContentfulContentType: ContentfulContentTypeConnection;
   readonly allContentfulEntry: ContentfulEntryConnection;
   readonly allContentfulPerson: ContentfulPersonConnection;
+  readonly allContentfulProject: ContentfulProjectConnection;
+  readonly allContentfulProjectDescriptionTextNode: contentfulProjectDescriptionTextNodeConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -2811,11 +3230,12 @@ type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly contentfulAsset: Maybe<ContentfulAsset>;
-  readonly contentfulBlog: Maybe<ContentfulBlog>;
   readonly contentfulBlogPost: Maybe<ContentfulBlogPost>;
   readonly contentfulContentType: Maybe<ContentfulContentType>;
   readonly contentfulEntry: Maybe<ContentfulEntry>;
   readonly contentfulPerson: Maybe<ContentfulPerson>;
+  readonly contentfulProject: Maybe<ContentfulProject>;
+  readonly contentfulProjectDescriptionTextNode: Maybe<contentfulProjectDescriptionTextNode>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -2833,14 +3253,6 @@ type Query_allContentfulAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetSortInput>>>;
-};
-
-
-type Query_allContentfulBlogArgs = {
-  filter: InputMaybe<ContentfulBlogFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogSortInput>>>;
 };
 
 
@@ -2873,6 +3285,22 @@ type Query_allContentfulPersonArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulPersonSortInput>>>;
+};
+
+
+type Query_allContentfulProjectArgs = {
+  filter: InputMaybe<ContentfulProjectFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProjectSortInput>>>;
+};
+
+
+type Query_allContentfulProjectDescriptionTextNodeArgs = {
+  filter: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<contentfulProjectDescriptionTextNodeSortInput>>>;
 };
 
 
@@ -2977,16 +3405,6 @@ type Query_contentfulAssetArgs = {
 };
 
 
-type Query_contentfulBlogArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-};
-
-
 type Query_contentfulBlogPostArgs = {
   author: InputMaybe<ContentfulPersonFilterInput>;
   body: InputMaybe<ContentfulBlogPostBodyFilterInput>;
@@ -3055,6 +3473,35 @@ type Query_contentfulPersonArgs = {
   title: InputMaybe<StringQueryOperatorInput>;
   twitter: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulProjectArgs = {
+  Image: InputMaybe<ContentfulProjectImageFilterListInput>;
+  childContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenContentfulProjectDescriptionTextNode: InputMaybe<contentfulProjectDescriptionTextNodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulProjectSysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulProjectDescriptionTextNodeArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  sys: InputMaybe<contentfulProjectDescriptionTextNodeSysFilterInput>;
 };
 
 
@@ -4126,6 +4573,148 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type contentfulProjectDescriptionTextNode = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<contentfulProjectDescriptionTextNodeSys>;
+};
+
+type contentfulProjectDescriptionTextNodeConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<contentfulProjectDescriptionTextNodeEdge>;
+  readonly group: ReadonlyArray<contentfulProjectDescriptionTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<contentfulProjectDescriptionTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type contentfulProjectDescriptionTextNodeConnection_distinctArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeConnection_groupArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type contentfulProjectDescriptionTextNodeConnection_maxArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeConnection_minArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeConnection_sumArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+type contentfulProjectDescriptionTextNodeEdge = {
+  readonly next: Maybe<contentfulProjectDescriptionTextNode>;
+  readonly node: contentfulProjectDescriptionTextNode;
+  readonly previous: Maybe<contentfulProjectDescriptionTextNode>;
+};
+
+type contentfulProjectDescriptionTextNodeFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly sys: InputMaybe<contentfulProjectDescriptionTextNodeSysFieldSelector>;
+};
+
+type contentfulProjectDescriptionTextNodeFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<contentfulProjectDescriptionTextNodeSysFilterInput>;
+};
+
+type contentfulProjectDescriptionTextNodeFilterListInput = {
+  readonly elemMatch: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+};
+
+type contentfulProjectDescriptionTextNodeGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<contentfulProjectDescriptionTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<contentfulProjectDescriptionTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<contentfulProjectDescriptionTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type contentfulProjectDescriptionTextNodeGroupConnection_distinctArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeGroupConnection_groupArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type contentfulProjectDescriptionTextNodeGroupConnection_maxArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeGroupConnection_minArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+
+type contentfulProjectDescriptionTextNodeGroupConnection_sumArgs = {
+  field: contentfulProjectDescriptionTextNodeFieldSelector;
+};
+
+type contentfulProjectDescriptionTextNodeSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly sys: InputMaybe<contentfulProjectDescriptionTextNodeSysSortInput>;
+};
+
+type contentfulProjectDescriptionTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulProjectDescriptionTextNodeSysFieldSelector = {
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type contentfulProjectDescriptionTextNodeSysFilterInput = {
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type contentfulProjectDescriptionTextNodeSysSortInput = {
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
 type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4170,6 +4759,11 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
+
+type ProjectQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ProjectQueryQuery = { readonly allContentfulProject: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly description: { readonly id: string } | null, readonly Image: ReadonlyArray<{ readonly fields: { readonly description: { readonly en_US: string | null } | null, readonly file: { readonly en_US: { readonly url: string | null, readonly fileName: string | null, readonly contentType: string | null } | null } | null } | null } | null> | null } }> } };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

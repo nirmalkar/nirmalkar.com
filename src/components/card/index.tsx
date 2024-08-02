@@ -34,7 +34,7 @@ function Card({
       <div className="description" style={{ color: textColor }}>
         {description}
       </div>
-      <BlogIcons {...{ size: 100, name, fill: textColor }} />
+      {name && <BlogIcons {...{ size: 100, name, fill: textColor }} />}
     </div>
   );
 }

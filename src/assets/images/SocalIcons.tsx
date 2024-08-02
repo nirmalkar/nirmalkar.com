@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import { Link } from "gatsby";
-import { ThemeContext } from "../../context/themeProvider";
 
 interface SocialIconsProps {
   name: string;
@@ -8,8 +6,8 @@ interface SocialIconsProps {
   size?: number;
 }
 
-const getIcons = (icon: string, fill: string, size: number) => {
-  switch (icon) {
+const getIcons = ({ name, fill, size }: SocialIconsProps) => {
+  switch (name) {
     case "github":
       return (
         <svg
@@ -87,7 +85,7 @@ const getIcons = (icon: string, fill: string, size: number) => {
 };
 
 const SocialIcons: FC<SocialIconsProps> = ({ name, fill, size }) => {
-  return <div>{getIcons(name, fill, size)}</div>;
+  return <div>{getIcons({ name, fill, size })}</div>;
 };
 
 export default SocialIcons;
