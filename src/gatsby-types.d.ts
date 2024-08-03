@@ -4763,7 +4763,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type ProjectQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ProjectQueryQuery = { readonly allContentfulProject: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly description: { readonly id: string } | null, readonly Image: ReadonlyArray<{ readonly fields: { readonly description: { readonly en_US: string | null } | null, readonly file: { readonly en_US: { readonly url: string | null, readonly fileName: string | null, readonly contentType: string | null } | null } | null } | null } | null> | null } }> } };
+type ProjectQueryQuery = { readonly allContentfulProject: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly description: { readonly id: string, readonly description: string | null } | null, readonly Image: ReadonlyArray<{ readonly fields: { readonly description: { readonly en_US: string | null } | null, readonly file: { readonly en_US: { readonly url: string | null, readonly fileName: string | null, readonly contentType: string | null } | null } | null } | null } | null> | null } }> } };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

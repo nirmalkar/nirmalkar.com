@@ -3,12 +3,14 @@ import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import Card from "../components/Card";
 import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 type Project = {
   id: string;
   name: string;
   description: {
     id: string;
+    description: string;
   };
   Image: {
     fields: {
@@ -23,7 +25,7 @@ type Project = {
         };
       };
     };
-  };
+  }[];
 };
 
 type Data = {
@@ -48,12 +50,18 @@ function Work(props: WorkPropsType) {
       <main className="work-container">
         <section className="project-container">
           <h3 style={{ color: theme.colors.oppositePrimary }}>Projects:</h3>
-          <Card
-            {...{
-              clickable: true,
-              textColor: theme.colors.oppositePrimary,
-            }}
-          />
+          {projects.map((project) => (
+            <Card
+              {...{
+                bgColor: theme.colors.secondary,
+                title: project?.node.name,
+                image: project?.node?.Image[0].fields.file.en_US,
+                description: project?.node.description.description,
+                clickable: true,
+                textColor: theme.colors.oppositePrimary,
+              }}
+            />
+          ))}
         </section>
         <section className="technologies-container">
           <h3 style={{ color: theme.colors.oppositePrimary }}>Techologies:</h3>
@@ -73,6 +81,7 @@ export const pageQuery = graphql`
           name
           description {
             id
+            description
           }
           Image {
             fields {

@@ -1,6 +1,5 @@
 .card-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.05s;
   padding: 10px 26px;
   border-radius: 5px;
   .title {
@@ -8,11 +7,45 @@
     font-size: 24px;
     margin-bottom: 1rem;
   }
+
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .image {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .card-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .description {
+      flex: 1;
+      padding: 0rem 1rem;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-align: left;
+      text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+        padding: 1rem 0rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
 }
 
 .card-container:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  transform: scale(1.01);
 }
 a {
   text-decoration: none;

@@ -11,6 +11,7 @@ const Social: React.FC<SocialProps> = () => {
     <div className="social-container">
       {social.map((social) => (
         <a
+          key={social.name}
           href={social.link}
           target="_blank"
           rel="noopener noreferrer"
