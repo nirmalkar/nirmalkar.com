@@ -32,6 +32,19 @@
       line-height: 1.5;
       text-align: left;
       text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+      .card-descriotion-icons {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: flex-start;
+        padding-top: 1rem;
+        flex-wrap: wrap;
+        .icon {
+          padding: 5px;
+          display: flex;
+          border-radius: 50%;
+        }
+      }
       @media (max-width: 768px) {
         font-size: 0.9rem;
         padding: 1rem 0rem;
