@@ -7,6 +7,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import TechIcons from "../components/TechIcon";
 import { technologies } from "../constants/workConstant";
+import Seo from "../components/seo";
 type GatsbyImageFallback = {
   src: string;
   srcSet: string;
@@ -69,6 +70,7 @@ function Work(props: WorkPropsType) {
   console.log(projects, "these are the projects!");
   return (
     <Layout>
+      <Seo title={"Work"} description={"This is the work page."} />
       <main className="work-container">
         <section className="project-container">
           <h3 style={{ color: theme.colors.oppositePrimary }}>Projects:</h3>

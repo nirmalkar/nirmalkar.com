@@ -34,10 +34,7 @@ const Contact: FC<ContactProps> = () => {
 
   return (
     <Layout>
-      <Seo
-        title={"Contact"}
-        description={"This is contact page for Nirmalkar"}
-      />
+      <Seo title={"Contact"} description={"This is the contact page."} />
       <div className="contact-container">
         <h2 className="contact-heading" style={{ color: oppositeSecondary }}>
           Say Hello!

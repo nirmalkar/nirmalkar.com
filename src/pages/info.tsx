@@ -7,12 +7,10 @@ interface InfoProps {}
 
 const Info: FC<InfoProps> = () => {
   return (
-    <div>
-      <Layout>
-        <Seo title={"Info"} description={"This is info page for Nirmalkar"} />
-        Info Page
-      </Layout>
-    </div>
+    <Layout>
+      <Seo title={"Info"} description={"This is the info page."} />
+      Info Page
+    </Layout>
   );
 };
 

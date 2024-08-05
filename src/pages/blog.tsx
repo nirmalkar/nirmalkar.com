@@ -4,6 +4,7 @@ import ArticlePreview from "../components/ArticlePreview";
 import { ThemeContext } from "../context/themeProvider";
 import Layout from "../components/layout";
 import Filter from "../components/Filter";
+import Seo from "../components/seo";
 
 type Props = {
   data: any;
@@ -64,6 +65,7 @@ const BologCategory = (props: Props) => {
   };
   return (
     <Layout>
+      <Seo title={"Blog"} description={"This is the blog page."} />
       <div className="filter-container">
         <Filter {...{ onFilterChange, filteredValues, handleClearFilters }} />
       </div>

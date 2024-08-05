@@ -8,15 +8,10 @@ interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
   return (
-    <div>
-      <Layout>
-      <Seo
-        title={"Journey"}
-        description={"This is jouney page for Nirmalkar"}
-      />
-        <MyJourney />
-      </Layout>
-    </div>
+    <Layout>
+      <Seo title={"Journey"} description={"This is the jouney page."} />
+      <MyJourney />
+    </Layout>
   );
 };
 
