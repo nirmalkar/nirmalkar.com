@@ -2,9 +2,9 @@ import React from "react";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import get from "lodash/get";
-import Card from "../components/Card";
+import InfoCard from "../components/InfoCard";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import TechIcons from "../components/TechIcon";
 import { technologies } from "../constants/workConstant";
 import Seo from "../components/seo";
@@ -75,7 +75,7 @@ function Work(props: WorkPropsType) {
         <section className="project-container">
           <h3 style={{ color: theme.colors.oppositePrimary }}>Projects:</h3>
           {projects.map((project: { node: Project }) => (
-            <Card
+            <InfoCard
               {...{
                 bgColor: theme.colors.secondary,
                 title: project?.node.name,

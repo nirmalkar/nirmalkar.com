@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React, { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../context/themeProvider";
 import { RiContactsLine } from "@react-icons/all-files/ri/RiContactsLine";
-import { SiAboutDotMe } from "@react-icons/all-files/si/SiAboutdotme";
+import { IoPersonOutline } from "@react-icons/all-files/io5/IoPersonOutline";
 import { FaBlogger } from "@react-icons/all-files/fa/FaBlogger";
 import { IoHomeOutline } from "@react-icons/all-files/io5/IoHomeOutline";
 import { IoInformationCircleOutline } from "@react-icons/all-files/io5/IoInformationCircleOutline";
@@ -56,7 +56,7 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
       className={`sidebar ${isVisible ? "visible" : "hidden"}`}
     >
       <nav>
-        <ul>
+        <ul onClick={toggleSidebar}>
           <Link to="/">
             <li>
               <IoHomeOutline style={{ color: theme.colors.oppositePrimary }} />
@@ -77,7 +77,9 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
           </Link>
           <Link to="/about">
             <li>
-              <SiAboutDotMe style={{ color: theme.colors.oppositePrimary }} />
+              <IoPersonOutline
+                style={{ color: theme.colors.oppositePrimary }}
+              />
               About me
             </li>
           </Link>
