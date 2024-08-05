@@ -1,0 +1,24 @@
+.journey-road-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  position: relative;
+  .journey-loaction {
+    position: absolute;
+  }
+  .journey-card-container {
+    position: absolute;
+  }
+}
+.journey-card {
+  position: absolute;
+  min-width: 5rem;
+  min-height: 2.5rem;
+  background-color: #333;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  :hover {
+    scale: 1.1%;
+  }
+}

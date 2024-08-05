@@ -1,14 +1,12 @@
-// custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
-import "./src/scss/main.scss"
+// gatsby-browser.js
+import React from "react";
+import { ThemeProvider } from "./src/context/themeProvider";
+import { ToggleProvider } from "./src/context/toggleProvider";
+import "./src/style/main.scss";
+import theme from "./theme";
 
-// Highlighting for code blocks
-import "prismjs/themes/prism.css"
-
-import React from "react"
-import { ThemeProvider } from "./src/context/ThemeContext"
-// Wraps every page in a component
-export const wrapPageElement = ({ element, props }) => {
-    return <ThemeProvider>{element}</ThemeProvider>
-}
+export const wrapRootElement = ({ element }) => (
+  <ToggleProvider>
+    <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  </ToggleProvider>
+);

@@ -1,0 +1,83 @@
+.layout {
+  min-height: 100vh;
+  @include respond-to(small) {
+  }
+
+  @include respond-to(medium) {
+  }
+
+  @include respond-to(large) {
+  }
+
+  @include respond-to(xlarge) {
+  }
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding to the main content area */
+  padding-bottom: 80px; /* Add additional padding for the sticky footer */
+}
+
+section {
+  text-align: center;
+  padding: 18px;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Default styles for all screen sizes */
+.container {
+  width: 100%;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+.toggle-button {
+  position: absolute;
+  right: 3%;
+  top: 2%;
+}
+
+@include respond-to(extraSmall) {
+  .toggle-button {
+    display: flex;
+    position: absolute;
+    right: 15%;
+    top: 2%;
+  }
+  .hamburger-container {
+    .icon {
+      position: absolute;
+      transition: opacity 0.5s ease-in-out;
+      right: 0;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .hide {
+      opacity: 0;
+    }
+  }
+}
+@include respond-to(small) {
+  .toggle-button {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+  }
+  .hamburger-container {
+    display: none;
+  }
+}

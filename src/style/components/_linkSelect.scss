@@ -1,0 +1,12 @@
+.select-container {
+  position: absolute;
+  min-width: 7rem;
+  background-color: #fff;
+  .select {
+    padding: 0.8rem;
+    cursor: pointer;
+  }
+  .select:hover {
+    opacity: 0.6;
+  }
+}

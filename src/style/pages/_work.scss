@@ -1,0 +1,26 @@
+.work-container {
+  font-family: "Lato", sans-serif;
+  width: 70vw;
+  padding: 0;
+  .project-container {
+    padding: 0;
+    width: 100%;
+    text-align: start;
+  }
+  .technologies-container {
+    width: 100%;
+    text-align: start;
+    .technologies-icons {
+      padding: 1rem 0rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      .icon {
+        padding: 5px;
+        display: flex;
+        border-radius: 50%;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

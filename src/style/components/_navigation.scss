@@ -1,0 +1,47 @@
+@mixin nav-container {
+  display: flex;
+  gap: 7px;
+  justify-content: right;
+  color: white;
+  flex-flow: row wrap;
+}
+
+.others-link {
+  cursor: pointer;
+  position: relative;
+  .arrow-down {
+    display: inline-block;
+    top: 1px;
+    position: absolute;
+  }
+}
+@include respond-to(extraSmall) {
+  .nav-container-light {
+    display: none;
+  }
+  .nav-container-dark {
+    display: none;
+  }
+}
+@include respond-to(small) {
+  .nav-container-light {
+    @include nav-container;
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    span {
+      color: #333;
+    }
+  }
+  .nav-container-dark {
+    @include nav-container;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    span {
+      color: #fff;
+    }
+  }
+}

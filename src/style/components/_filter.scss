@@ -1,0 +1,57 @@
+.filter-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  .blog-filter-select {
+    border: none;
+    background-color: #f3f3f3;
+    outline: none;
+  }
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.filter-group label {
+  margin-bottom: 5px;
+}
+
+.filter-group select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+@include respond-to(extraSmall) {
+  .clear-filter-button {
+    cursor: pointer;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+  }
+  .filter-container {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+@include respond-to(small) {
+  .clear-filter-button {
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+  .filter-container {
+    margin: 0 auto;
+    width: 70%;
+  }
+}

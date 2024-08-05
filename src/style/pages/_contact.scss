@@ -1,0 +1,90 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .contact-heading {
+    font-family: "Lato", sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .contact-card {
+    padding: 1rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+
+      .contact-form-group {
+        margin-bottom: 1rem;
+      }
+
+      .contact-input {
+        border: none;
+        outline: none;
+        padding: 1rem;
+        background-color: #f1f1f1;
+        font-size: 16px;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .contact-submit {
+        padding: 0.75rem 1.5rem;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+  }
+}
+@include respond-to(extraSmall) {
+  .contact-container {
+    .contact-card {
+      padding: 0.8rem;
+      width: 90vw;
+    }
+  }
+}
+@include respond-to(small) {
+  .contact-container {
+    .contact-card {
+      width: 60vw;
+    }
+  }
+}
+@include respond-to(medium) {
+  .contact-container {
+    .contact-card {
+      padding: 4rem;
+      width: 50vw;
+    }
+  }
+}
+
+@include respond-to(large) {
+  .contact-container {
+    .contact-card {
+      width: 40vw;
+    }
+  }
+}
+@include respond-to(xlarge) {
+  .contact-container {
+    .contact-card {
+      width: 30vw;
+    }
+  }
+}
