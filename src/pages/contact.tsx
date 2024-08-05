@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { FC } from "react";
 import Layout from "../components/layout";
 import { ThemeContext } from "../context/themeProvider";
 import Icon from "../assets/images/SocalIcons";
 import { social } from "../constants/socialContants";
 import Seo from "../components/seo";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 interface ContactProps {}
 
@@ -28,13 +30,38 @@ const Contact: FC<ContactProps> = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleServerResponse = (
+    ok: boolean,
+    msg: string,
+    form: { reset: () => void }
+  ) => {
+    if (ok) {
+      form.reset();
+    }
+  };
+
+  const submitContactForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    axios({
+      method: "post",
+      url: "https://formspree.io/f/mjvpgbrd",
+      data: new FormData(form),
+    })
+      .then((r) => {
+        handleServerResponse(true, "Thanks!", form);
+        toast.success("we'll get back to you soon!");
+      })
+      .catch((r) => {
+        handleServerResponse(false, r.response.data.error, form);
+        console.log(r);
+      });
   };
 
   return (
     <Layout>
       <Seo title={"Contact"} description={"This is the contact page."} />
+      <Toaster />
       <div className="contact-container">
         <h2 className="contact-heading" style={{ color: oppositeSecondary }}>
           Say Hello!
@@ -46,8 +73,8 @@ const Contact: FC<ContactProps> = () => {
             boxShadow: `${secondary} 0px 0px 5px 0px, ${secondary} 0px 0px 1px 0px`,
           }}
         >
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div style={{ float: "left" }}>
+          <form className="contact-form" onSubmit={submitContactForm}>
+            <div className="contact-form-group">
               <input
                 className="contact-input"
                 name="name"
@@ -58,7 +85,7 @@ const Contact: FC<ContactProps> = () => {
                 required
               />
             </div>
-            <div style={{ float: "left" }}>
+            <div className="contact-form-group">
               <input
                 className="contact-input"
                 type="email"
@@ -69,7 +96,7 @@ const Contact: FC<ContactProps> = () => {
                 required
               />
             </div>
-            <div>
+            <div className="contact-form-group">
               <textarea
                 className="contact-input"
                 value={contact.message}

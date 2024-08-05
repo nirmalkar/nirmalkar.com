@@ -1,5 +1,6 @@
 export const technologies = [
   "javascript",
+  "typescript",
   "reactjs",
   "vue",
   "jest",

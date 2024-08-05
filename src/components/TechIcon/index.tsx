@@ -1,6 +1,6 @@
 import React from "react";
 import { SiMaterialUi } from "@react-icons/all-files/si/SiMaterialUi";
-import { IoLogoJavascript } from "@react-icons/all-files/io5/IoLogoJavascript";
+import { SiJavascript } from "@react-icons/all-files/si/SiJavascript";
 import { FaReact } from "@react-icons/all-files/fa/FaReact";
 import { FaVuejs } from "@react-icons/all-files/fa/FaVuejs";
 import { FaPython } from "@react-icons/all-files/fa/FaPython";
@@ -18,6 +18,7 @@ import { FaHtml5 } from "@react-icons/all-files/fa/FaHtml5";
 import { FaCss3 } from "@react-icons/all-files/fa/FaCss3";
 import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
 import { FaBootstrap } from "@react-icons/all-files/fa/FaBootstrap";
+import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
 
 type TechIconsPropsType = {
   name: string;
@@ -27,7 +28,9 @@ type TechIconsPropsType = {
 function TechIcons({ name, size = 30 }: TechIconsPropsType) {
   switch (name.toLowerCase()) {
     case "javascript":
-      return <IoLogoJavascript title={name} size={size} />;
+      return <SiJavascript title={name} size={size} />;
+    case "typescript":
+      return <SiTypescript title={name} size={size} />;
     case "reactjs":
       return <FaReact title={name} size={size} />;
     case "vue":
