@@ -9,9 +9,9 @@ Portfolio: Check out my projects with details and links to live demos or code re
 Blog: Dive into articles and insights on software development, technology, and more.
 Contact: Reach out if you’re interested in opportunities or just want to connect.
 
-Frontend: Gatsby.js, TypeScript, SCSS
-Backend: Contentful headless CMS and Graphql.
-Tools: Git, GitHub
+Frontend: Gatsby.js, TypeScript, SCSS <br/>
+Backend: Contentful headless CMS and Graphql.<br/>
+Tools: Git, GitHub<br/>
 Hosting: Netlify
 
 ## Getting Started
@@ -88,7 +88,7 @@ npm run build
 yarn build
 ```
 
-Deploy to Your Hosting Provider: Follow the specific instructions provided by your hosting provider to deploy the built files [Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+Deploy to Your Hosting Provider: Follow the specific instructions provided by your hosting provider to deploy the built files ie. [Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/).
 
 ### Contributing
 
