@@ -12,7 +12,7 @@ const Intro: React.FC<IntroProps> = () => {
       </div>
       <div className="intro-description">
         I love tinkering with web tools and frameworks to create cool stuff
-        online. When I'm offline, you’ll find me in the mountains."
+        online and when I'm offline, you’ll find me in the mountains. ✌🏼
       </div>
     </section>
   );
