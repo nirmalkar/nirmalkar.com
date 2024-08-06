@@ -20,7 +20,7 @@ import CopyToClipboardButton from "../components/CopyToClipboardButton";
 const BlogPostTemplate = (props: BlogPost) => {
   const { theme } = React.useContext(ThemeContext);
   const { primary, oppositeSecondary } = theme?.colors;
-  const post = get(props, "data.contentfulBlogPost");
+  const post = props?.data.contentfulBlogPost;
   const previous = get(props, "data.previous");
   const next = get(props, "data.next");
   const plainTextDescription = documentToPlainTextString(

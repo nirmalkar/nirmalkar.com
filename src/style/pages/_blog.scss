@@ -9,6 +9,7 @@
 .blogs-container {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .blog-title {
@@ -16,7 +17,6 @@
   font-weight: 800;
 }
 .blog-layout {
-  width: 100%;
   max-width: 620px;
   text-align: left;
   font-family: "Lato", sans-serif;
@@ -31,5 +31,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .blog-layout {
+    width: 90vw;
+  }
+}
+@include respond-to(small) {
+  .blog-layout {
+    width: 70vw;
   }
 }
