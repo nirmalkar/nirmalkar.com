@@ -67,7 +67,6 @@ type WorkPropsType = {
 function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
   const projects = get(props, "data.allContentfulProject.edges");
-  console.log(projects, "these are the projects!");
   return (
     <Layout>
       <Seo title={"Work"} description={"This is the work page."} />

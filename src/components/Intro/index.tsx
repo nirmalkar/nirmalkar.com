@@ -1,19 +1,31 @@
 import React from "react";
 import { ThemeContext } from "../../context/themeProvider";
-interface IntroProps {}
-const Intro: React.FC<IntroProps> = () => {
+
+interface Bio {
+  bio: string;
+}
+
+interface BioData {
+  bio: Bio;
+  salutation: string;
+  intro: string;
+}
+interface IntroDataType {
+  bioData: BioData;
+}
+
+const Intro: React.FC<IntroDataType> = (props) => {
   const { theme } = React.useContext(ThemeContext);
   const { oppositeSecondary } = theme?.colors;
+  const { bio, salutation, intro } = props.bioData;
   return (
     <section className="intro-container" style={{ color: oppositeSecondary }}>
       <div className="intro-main">
-        Hi,
-        <br />I am Hemant Nirmalkar
+        {salutation}
+        <br />
+        {intro}
       </div>
-      <div className="intro-description">
-        I love tinkering with web tools and frameworks to create cool stuff
-        online and when I'm offline, you’ll find me in the mountains. ✌🏼
-      </div>
+      <div className="intro-description">{bio.bio}</div>
     </section>
   );
 };
