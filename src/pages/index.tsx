@@ -13,7 +13,6 @@ const IndexPage: React.FC<PageProps> = (props) => {
     <Layout>
       <Seo title={"Home"} description={"This is the home page."} />
       {bio && <Intro bioData={bio} />}
-      <Social />
     </Layout>
   );
 };

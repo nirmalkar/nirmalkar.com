@@ -51,11 +51,9 @@ const Layout: FC<Props> = (props: Props) => {
           />
         </div>
       </div>
-      <div className={`content ${isToggled ? "shifted" : ""}`}>
-        <main>
-          <section>{children}</section>
-        </main>
-      </div>
+      <main className={`content ${isToggled ? "shifted" : ""}`}>
+        <section>{children}</section>
+      </main>
       <Footer />
     </div>
   );

@@ -30,6 +30,24 @@ header {
 @include respond-to(small) {
   .header-container {
     padding: 20px;
+    width: 80%;
+  }
+}
+@include respond-to(medium) {
+  .header-container {
+    padding: 20px;
+    width: 80%;
+  }
+}
+@include respond-to(large) {
+  .header-container {
+    padding: 20px;
+    width: 75%;
+  }
+}
+@include respond-to(xlarge) {
+  .header-container {
+    padding: 20px;
     width: 70%;
   }
 }
