@@ -63,12 +63,12 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
               Home
             </li>
           </Link>
-          <Link to="/blog">
+          {/* <Link to="/blog">
             <li>
               <FaBlogger style={{ color: theme.colors.oppositePrimary }} />
               Blog
             </li>
-          </Link>
+          </Link> */}
           <Link to="/work">
             <li>
               <FaLaptopCode style={{ color: theme.colors.oppositePrimary }} />
