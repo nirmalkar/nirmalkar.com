@@ -5,7 +5,7 @@
 
   .contact-heading {
     font-family: "Lato", sans-serif;
-    margin-bottom: 1rem;
+    margin-bottom: 5vh;
   }
 
   .contact-card {
@@ -61,6 +61,7 @@
 @include respond-to(small) {
   .contact-container {
     .contact-card {
+      padding: 1rem;
       width: 60vw;
     }
   }
@@ -68,7 +69,7 @@
 @include respond-to(medium) {
   .contact-container {
     .contact-card {
-      padding: 4rem;
+      padding: 2rem;
       width: 50vw;
     }
   }
@@ -77,11 +78,19 @@
 @include respond-to(large) {
   .contact-container {
     .contact-card {
-      width: 40vw;
+      padding: 3rem;
+      width: 45vw;
     }
   }
 }
 @include respond-to(xlarge) {
+  .contact-container {
+    .contact-card {
+      width: 40vw;
+    }
+  }
+}
+@include respond-to(xxlarge) {
   .contact-container {
     .contact-card {
       width: 30vw;

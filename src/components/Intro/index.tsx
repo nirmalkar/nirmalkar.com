@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../context/themeProvider";
+import Social from "../Social";
 
 interface Bio {
   bio: string;
@@ -26,6 +27,9 @@ const Intro: React.FC<IntroDataType> = (props) => {
         {intro}
       </div>
       <div className="intro-description">{bio.bio}</div>
+      <div className="intro-social">
+        <Social />
+      </div>
     </section>
   );
 };

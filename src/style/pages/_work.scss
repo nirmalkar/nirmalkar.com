@@ -1,6 +1,5 @@
 .work-container {
   font-family: "Lato", sans-serif;
-  width: 70vw;
   padding: 0;
   .project-container {
     padding: 0;
@@ -22,5 +21,20 @@
         flex-wrap: wrap;
       }
     }
+  }
+}
+@include respond-to(extraSmall) {
+  .work-container {
+    width: 90vw;
+  }
+}
+@include respond-to(medium) {
+  .work-container {
+    width: 80vw;
+  }
+}
+@include respond-to(large) {
+  .work-container {
+    width: 70vw;
   }
 }
