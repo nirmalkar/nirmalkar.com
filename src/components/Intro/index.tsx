@@ -1,6 +1,6 @@
-import React from 'react';
-import { ThemeContext } from '../../context/themeProvider';
-import Social from '../Social';
+import React from "react";
+import { ThemeContext } from "../../context/themeProvider";
+import Social from "../Social";
 
 interface Bio {
   bio: string;
