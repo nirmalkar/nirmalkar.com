@@ -1,8 +1,8 @@
-import React from "react";
-import BlogIcons from "../../assets/svg/Blog";
-import { GatsbyImage } from "gatsby-plugin-image";
-import TechIcon from "../TechIcon";
-import { ThemeContext } from "../../context/themeProvider";
+import { GatsbyImage } from 'gatsby-plugin-image';
+import React from 'react';
+import BlogIcons from '../../assets/svg/Blog';
+import { ThemeContext } from '../../context/themeProvider';
+import TechIcon from '../TechIcon';
 
 interface GatsbyImage {
   images: {
@@ -17,7 +17,7 @@ interface GatsbyImage {
       sizes: string;
     };
   };
-  layout: "fixed" | "fullWidth" | "constrained";
+  layout: 'fixed' | 'fullWidth' | 'constrained';
   width: number;
   height: number;
   placeholder: {
@@ -54,10 +54,17 @@ function Card({
       key={title || name || description}
       className="card-container"
       style={{
-        backgroundColor: bgColor ?? "#fff",
-        cursor: clickable ? "pointer" : "",
+        backgroundColor: bgColor ?? '#fff',
+        cursor: clickable ? 'pointer' : '',
       }}
+      role={clickable ? 'button' : undefined}
+      tabIndex={clickable ? 0 : undefined}
       onClick={onCardClick}
+      onKeyDown={(e) => {
+        if (clickable && (e.key === 'Enter' || e.key === ' ')) {
+          onCardClick?.();
+        }
+      }}
     >
       {title && (
         <div className="title" style={{ color: textColor }}>
@@ -67,13 +74,14 @@ function Card({
       <div className="description" style={{ color: textColor }}>
         <div className="card-content">
           <div className="image">
-            {image && <GatsbyImage alt={"asd"} image={image.gatsbyImage} />}
+            {image && <GatsbyImage alt={'asd'} image={image.gatsbyImage} />}
           </div>
           <div className="description">
             {description}
             <div className="card-descriotion-icons">
-              {icons?.map((icon) => (
+              {icons?.map((icon, index) => (
                 <div
+                  key={index}
                   style={{ background: theme.colors.primary }}
                   className="icon"
                 >

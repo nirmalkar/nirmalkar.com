@@ -1,28 +1,26 @@
-import React, { FormEvent, useContext, useState } from "react";
-import { FC } from "react";
-import Layout from "../components/layout";
-import { ThemeContext } from "../context/themeProvider";
-import Icon from "../assets/images/SocalIcons";
-import { social } from "../constants/socialContants";
-import Seo from "../components/seo";
-import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import type { FormEvent, FC } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import Icon from '../assets/images/SocalIcons';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import { social } from '../constants/socialContants';
+import { ThemeContext } from '../context/themeProvider';
 
-interface ContactProps {}
-
-const Contact: FC<ContactProps> = () => {
+const Contact: FC = () => {
   const { theme } = useContext(ThemeContext);
   const { secondary, oppositePrimary, oppositeSecondary } = theme.colors;
   const [contact, setContact] = useState({
-    email: "",
-    name: "",
-    message: "",
+    email: '',
+    name: '',
+    message: '',
   });
 
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setContact({
       ...contact,
@@ -33,7 +31,7 @@ const Contact: FC<ContactProps> = () => {
   const handleServerResponse = (
     ok: boolean,
     msg: string,
-    form: { reset: () => void }
+    form: { reset: () => void },
   ) => {
     if (ok) {
       form.reset();
@@ -44,12 +42,12 @@ const Contact: FC<ContactProps> = () => {
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement;
     axios({
-      method: "post",
-      url: "https://formspree.io/f/mjvpgbrd",
+      method: 'post',
+      url: 'https://formspree.io/f/mjvpgbrd',
       data: new FormData(form),
     })
       .then((r) => {
-        handleServerResponse(true, "Thanks!", form);
+        handleServerResponse(true, 'Thanks!', form);
         toast.success("we'll get back to you soon!");
       })
       .catch((r) => {
@@ -60,7 +58,7 @@ const Contact: FC<ContactProps> = () => {
 
   return (
     <Layout>
-      <Seo title={"Contact"} description={"This is the contact page."} />
+      <Seo title={'Contact'} description={'This is the contact page.'} />
       <Toaster />
       <div className="contact-container">
         <h2 className="contact-heading" style={{ color: oppositeSecondary }}>

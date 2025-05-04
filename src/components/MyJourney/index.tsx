@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import Location from "../../assets/svg/Localtion";
-import JourneyCard from "./JourneyCard";
+import React, { useContext } from 'react';
+import Location from '../../assets/svg/Localtion';
+import { ThemeContext } from '../../context/themeProvider';
+import JourneyCard from './JourneyCard';
 
-type Props = {};
-
-const MyJourney = (props: Props) => {
+const MyJourney = () => {
   const { theme } = useContext(ThemeContext);
   const { oppositePrimary, oppositeSecondary } = theme.colors;
 
-  const line1Y = "30%";
-  const medianY = "50%"; // Adjust this value to control the position of the median line
-  const line2Y = "70%";
+  const line1Y = '30%';
+  const medianY = '50%'; // Adjust this value to control the position of the median line
+  const line2Y = '70%';
   const a = [2, 10, 18, 26, 34, 42, 50, 58];
   return (
     <div className="journey-road-container">
@@ -21,8 +19,8 @@ const MyJourney = (props: Props) => {
           className="journey-card-container"
           style={
             i % 2 === 0
-              ? { left: `${ele}%`, top: "43%" }
-              : { left: `${ele}%`, top: "69%" }
+              ? { left: `${ele}%`, top: '43%' }
+              : { left: `${ele}%`, top: '69%' }
           }
         >
           <JourneyCard position={ele} index={i} />
@@ -34,8 +32,8 @@ const MyJourney = (props: Props) => {
           className="journey-loaction"
           style={
             i % 2 === 0
-              ? { left: `${ele}%`, top: "43%" }
-              : { left: `${ele}%`, top: "52%" }
+              ? { left: `${ele}%`, top: '43%' }
+              : { left: `${ele}%`, top: '52%' }
           }
         >
           <Location size={20} color={oppositeSecondary} />

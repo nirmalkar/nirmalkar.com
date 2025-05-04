@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { ThemeContext } from "../../context/themeProvider";
-import { BlogPost } from "../../types/posts";
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../context/themeProvider';
+import type { BlogPost } from '../../types/posts';
 
 type ArticlePreviewPropsType = {
   posts: BlogPost;

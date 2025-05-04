@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, graphql } from "gatsby";
-import ArticlePreview from "../components/ArticlePreview";
-import { ThemeContext } from "../context/themeProvider";
-import Layout from "../components/layout";
-import Filter from "../components/Filter";
-import Seo from "../components/seo";
+import { Link, graphql } from 'gatsby';
+import React, { useContext, useEffect, useState } from 'react';
+import ArticlePreview from '../components/ArticlePreview';
+import Filter from '../components/Filter';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import { ThemeContext } from '../context/themeProvider';
 
 type Props = {
   data: any;
@@ -15,11 +15,11 @@ type FilteredVauesType = {
   sort: string;
 };
 const initialFilterValues = {
-  category: "",
-  sort: "",
+  category: '',
+  sort: '',
 };
 const parseDateString = (dateString: string): Date => {
-  const normalizedDateString = dateString.replace(/(\d+)(st|nd|rd|th)/, "$1");
+  const normalizedDateString = dateString.replace(/(\d+)(st|nd|rd|th)/, '$1');
   return new Date(normalizedDateString);
 };
 const BologCategory = (props: Props) => {
@@ -27,12 +27,12 @@ const BologCategory = (props: Props) => {
   const [posts, setPosts] = useState();
   const [filteredValues, setFilteredValues] =
     useState<FilteredVauesType>(initialFilterValues);
-  const sortByDate = (items: any[], sortOrder: "asc" | "desc") => {
+  const sortByDate = (items: any[], sortOrder: 'asc' | 'desc') => {
     return items.sort((a, b) => {
       const dateA = parseDateString(a.publishDate);
       const dateB = parseDateString(b.publishDate);
 
-      if (sortOrder === "asc") {
+      if (sortOrder === 'asc') {
         return dateA.getTime() - dateB.getTime();
       } else {
         return dateB.getTime() - dateA.getTime();
@@ -48,7 +48,7 @@ const BologCategory = (props: Props) => {
       }
       return ele;
     });
-    const sortOrder = sort ? (sort === "latest" ? "desc" : "asc") : "desc";
+    const sortOrder = sort ? (sort === 'latest' ? 'desc' : 'asc') : 'desc';
     sortByDate(posts, sortOrder);
     setPosts(posts);
   }, [filteredValues]);
@@ -65,7 +65,7 @@ const BologCategory = (props: Props) => {
   };
   return (
     <Layout>
-      <Seo title={"Blog"} description={"This is the blog page."} />
+      <Seo title={'Blog'} description={'This is the blog page.'} />
       <div className="filter-container">
         <Filter {...{ onFilterChange, filteredValues, handleClearFilters }} />
       </div>

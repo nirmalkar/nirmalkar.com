@@ -1,14 +1,16 @@
-import React, { ReactNode, useEffect, useRef } from "react";
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
-import CloseIcon from "../../assets/svg/Close";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import React, { useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
+import CloseIcon from '../../assets/svg/Close';
 
 interface ModalProps {
   isOpen: boolean;
-  closeModal: () => void;
-  imageData?: ImageDataLike;
+  imageData?: IGatsbyImageData | ImageData;
   bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
+  closeModal: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,9 +18,8 @@ const Modal: React.FC<ModalProps> = ({
   closeModal,
   imageData,
   bgColor,
-  showCloseBtn,
 }) => {
-  const modalClass = isOpen ? "modal-overlay" : "hidden";
+  const modalClass = isOpen ? 'modal-overlay' : 'hidden';
   const modalRef = useRef(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -28,21 +29,23 @@ const Modal: React.FC<ModalProps> = ({
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, closeModal]);
   return (
     <div className="modal-container">
       {isOpen && (
         <div ref={modalRef} className={modalClass}>
-          <div className="modal" style={{ background: bgColor ?? "" }}>
+          <div className="modal" style={{ background: bgColor ?? '' }}>
             {imageData && (
               <div className="image-container">
-                <GatsbyImage image={getImage(imageData)} alt="Modal Image" />
+                {imageData && 'images' in imageData && getImage(imageData) && (
+                  <GatsbyImage image={getImage(imageData)!} alt="Modal Image" />
+                )}
               </div>
             )}
             <div className="close-icon-container">

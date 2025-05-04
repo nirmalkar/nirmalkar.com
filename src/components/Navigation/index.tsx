@@ -1,13 +1,14 @@
-import React, { FC, useState, useContext, useEffect, useRef } from "react";
-import { Link } from "gatsby";
-import { ThemeContext } from "../../context/themeProvider";
-import { navLinks, NavConst } from "../../constants/navigationContants";
-import LinkSelect from "../LinkSelect";
-import DownAero from "../../assets/svg/DownAero";
-import { UseOutsideAlerter } from "../../utils/focusInOrOut";
+import { Link } from 'gatsby';
+import React, { useState, useContext, useRef } from 'react';
+import type { FC } from 'react';
+import DownAero from '../../assets/svg/DownAero';
+import { navLinks } from '../../constants/navigationContants';
+import type { NavConst } from '../../constants/navigationContants';
+import { ThemeContext } from '../../context/themeProvider';
+import { useOutsideAlerter } from '../../utils/focusInOrOut'; // note the hook import
+import LinkSelect from '../LinkSelect';
 
-interface NavProps {}
-interface Links {
+interface LinksProps {
   themeName: string;
   navLinks: NavConst[];
   theme: Theme;
@@ -22,34 +23,40 @@ interface Colors {
   secondary: string;
 }
 
-const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
+const Links: FC<LinksProps> = ({ navLinks, theme }) => {
   const { oppositePrimary } = theme.colors;
-  const [showMoreOptions, setShowMoreOptions] = useState<boolean>(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    const checkVal = showMoreOptions;
-    UseOutsideAlerter({
-      ref,
-      functToRun: setShowMoreOptions,
-      checkVal: showMoreOptions,
-    });
-  }, [ref, showMoreOptions]);
+  const [showMoreOptions, setShowMoreOptions] = useState(false);
+  const wrapperRef = useRef<HTMLSpanElement>(null);
+
+  useOutsideAlerter({
+    ref: wrapperRef,
+    functToRun: setShowMoreOptions,
+    checkVal: showMoreOptions,
+  });
 
   return (
     <>
       {navLinks.map((nav, i) => {
-        const isTabOhters = nav.name === "others";
+        const isOthers = nav.name === 'others';
         return (
           <div key={nav.name}>
-            {!isTabOhters && (
+            {!isOthers && (
               <Link to={nav.path} className="nav">
                 {nav.name}
               </Link>
             )}
-            {isTabOhters && (
+            {isOthers && (
               <span
-                ref={ref}
+                ref={wrapperRef}
+                role="button"
+                tabIndex={0}
                 onClick={() => setShowMoreOptions((prev) => !prev)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setShowMoreOptions((prev) => !prev);
+                  }
+                }}
                 className="others-link"
               >
                 More &nbsp;
@@ -59,8 +66,8 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
                 {showMoreOptions && (
                   <LinkSelect
                     paths={[
-                      { name: "About Me", path: "/about" },
-                      { name: "Info", path: "/info" },
+                      { name: 'About Me', path: '/about' },
+                      { name: 'Info', path: '/info' },
                     ]}
                   />
                 )}
@@ -73,7 +80,8 @@ const Links: FC<Links> = ({ themeName, navLinks, theme }) => {
     </>
   );
 };
-const Nav: FC<NavProps> = () => {
+
+const Nav: FC = () => {
   const { theme, themeName } = useContext(ThemeContext);
   return (
     <div className={`nav-container-${themeName}`}>

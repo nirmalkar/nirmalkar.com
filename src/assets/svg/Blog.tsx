@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React from 'react';
+import type { FC } from 'react';
 
 interface BlogIconProps {
   name: string;
@@ -8,10 +9,10 @@ interface BlogIconProps {
 
 const getBlogIcons = (icon: string, fill: string, size: number) => {
   switch (icon) {
-    case "travel":
+    case 'travel':
       return (
         <svg
-          width={size ?? ""}
+          width={size ?? ''}
           xmlns="http://www.w3.org/2000/svg"
           enableBackground="new 0 0 512 512"
           viewBox="0 0 512 512"
@@ -73,10 +74,10 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
           ></rect>
         </svg>
       );
-    case "finance":
+    case 'finance':
       return (
         <svg
-          width={size ?? ""}
+          width={size ?? ''}
           xmlns="http://www.w3.org/2000/svg"
           data-name="line expand"
           viewBox="0 0 48 48"
@@ -92,10 +93,10 @@ const getBlogIcons = (icon: string, fill: string, size: number) => {
           ></path>
         </svg>
       );
-    case "technology":
+    case 'technology':
       return (
         <svg
-          width={size ?? ""}
+          width={size ?? ''}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
           id="creative-technology"
