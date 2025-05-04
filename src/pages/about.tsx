@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
-import { FC } from "react";
-import { graphql } from "gatsby";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BLOCKS } from "@contentful/rich-text-types";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { BLOCKS } from '@contentful/rich-text-types';
+import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import React, { useContext, useState } from 'react';
+import type { FC } from 'react';
 
-import Seo from "../components/seo";
-import Layout from "../components/layout";
-import { ThemeContext } from "../context/themeProvider";
-import Modal from "../components/Modal";
+import Layout from '../components/layout';
+import Modal from '../components/Modal';
+import Seo from '../components/seo';
+import { ThemeContext } from '../context/themeProvider';
 
 interface AboutProps {
   data: any;
@@ -17,19 +17,19 @@ interface AboutProps {
 const About: FC<AboutProps> = (props) => {
   const { theme } = useContext(ThemeContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { secondary, primary, oppositePrimary, oppositeSecondary } =
-    theme.colors;
+  const { oppositeSecondary } = theme.colors;
   const node = props?.data?.allContentfulPerson?.edges[0].node;
   const image = node.image.gatsbyImage;
   const options = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node: {
-        data: { target: { gatsbyImage: any; description: any } };
-      }) => {
+      [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const { gatsbyImage, description } = node.data.target;
         const imageData = getImage(gatsbyImage);
         return imageData ? (
-          <GatsbyImage image={imageData} alt={description} />
+          <GatsbyImage
+            image={imageData}
+            alt={description || 'Embedded asset'}
+          />
         ) : null;
       },
     },
@@ -44,8 +44,14 @@ const About: FC<AboutProps> = (props) => {
   };
   return (
     <Layout>
-      <Seo title={"About"} description={"This is about page for Nirmalkar"} />
-      <div onClick={openModal} className="profile-picture">
+      <Seo title={'About'} description={'This is about page for Nirmalkar'} />
+      <div
+        onClick={openModal}
+        onKeyDown={(e) => e.key === 'Enter' && openModal()}
+        role="button"
+        tabIndex={0}
+        className="profile-picture"
+      >
         <GatsbyImage className="about-picture" alt={node.name} image={image} />
       </div>
       <div className="about-container">

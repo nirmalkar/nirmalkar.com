@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import { TiDeleteOutline } from "@react-icons/all-files/ti/TiDeleteOutline";
+import { TiDeleteOutline } from '@react-icons/all-files/ti/TiDeleteOutline';
+import React, { useContext, useState } from 'react';
+import { ThemeContext } from '../../context/themeProvider';
 type FilterValuesType = {
   category: string;
   sort: string;
@@ -52,14 +52,23 @@ const Filter: React.FC<FilterPropsType> = ({
           <option value="travel">Travel</option>
         </select>
       </div>
-      {(category !== "" || sort !== "") && (
-        <div onClick={handleClearFilters} className="clear-filter-button">
+      {(category !== '' || sort !== '') && (
+        <button
+          onClick={handleClearFilters}
+          className="clear-filter-button"
+          aria-label="Clear filters"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
           <TiDeleteOutline
             title="Clear filters"
             style={{ color: theme.colors.oppositeSecondary }}
             size={30}
           />
-        </div>
+        </button>
       )}
     </div>
   );

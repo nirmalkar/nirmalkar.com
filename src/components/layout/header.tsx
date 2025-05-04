@@ -1,16 +1,16 @@
-import React from "react";
-import Navigation from "../Navigation";
-import { navigate } from "gatsby";
-import { ThemeContext } from "../../context/themeProvider";
-import { playSound } from "../../utils/playSound";
+import { navigate } from 'gatsby';
+import React from 'react';
+import { ThemeContext } from '../../context/themeProvider';
+import { playSound } from '../../utils/playSound';
+import Navigation from '../Navigation';
 
-const Header: React.FC = (props) => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+const Header: React.FC = () => {
+  const { theme } = React.useContext(ThemeContext);
   const headerIconClick = () => {
-    const path = typeof window !== "undefined" ? window.location.pathname : "";
-    if (path !== "/") {
-      navigate("/");
-      playSound("linkSound");
+    const path = typeof window !== 'undefined' ? window.location.pathname : '';
+    if (path !== '/') {
+      navigate('/');
+      playSound('linkSound');
     }
   };
   return (
@@ -24,6 +24,13 @@ const Header: React.FC = (props) => {
       <div>
         <div
           onClick={headerIconClick}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              headerIconClick();
+            }
+          }}
+          role="button"
+          tabIndex={0}
           className="header-icon"
           style={{
             backgroundColor: theme.colors.secondary,

@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
-import { BiMessageSquareError } from "@react-icons/all-files/bi/BiMessageSquareError";
-import { ThemeContext } from "../context/themeProvider";
-import Layout from "../components/layout";
+import { BiMessageSquareError } from '@react-icons/all-files/bi/BiMessageSquareError';
+import type { PageProps, HeadFC } from 'gatsby';
+import * as React from 'react';
+import Layout from '../components/layout';
+import { ThemeContext } from '../context/themeProvider';
 
 const NotFoundPage: React.FC<PageProps> = () => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+  const { theme } = React.useContext(ThemeContext);
   return (
     <Layout>
       <div className="not-found">

@@ -1,24 +1,24 @@
-import React from "react";
-import { SiMaterialUi } from "@react-icons/all-files/si/SiMaterialUi";
-import { SiJavascript } from "@react-icons/all-files/si/SiJavascript";
-import { FaReact } from "@react-icons/all-files/fa/FaReact";
-import { FaVuejs } from "@react-icons/all-files/fa/FaVuejs";
-import { FaPython } from "@react-icons/all-files/fa/FaPython";
-import { SiJest } from "@react-icons/all-files/si/SiJest";
-import { FaDocker } from "@react-icons/all-files/fa/FaDocker";
-import { DiPostgresql } from "@react-icons/all-files/di/DiPostgresql";
-import { FaNodeJs } from "@react-icons/all-files/fa/FaNodeJs";
-import { FaGit } from "@react-icons/all-files/fa/FaGit";
-import { FaAws } from "@react-icons/all-files/fa/FaAws";
-import { SiGraphql } from "@react-icons/all-files/si/SiGraphql";
-import { SiAdonisjs } from "@react-icons/all-files/si/SiAdonisjs";
-import { AiOutlineAntDesign } from "@react-icons/all-files/ai/AiOutlineAntDesign";
-import { FaSass } from "@react-icons/all-files/fa/FaSass";
-import { FaHtml5 } from "@react-icons/all-files/fa/FaHtml5";
-import { FaCss3 } from "@react-icons/all-files/fa/FaCss3";
-import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
-import { FaBootstrap } from "@react-icons/all-files/fa/FaBootstrap";
-import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
+import { AiOutlineAntDesign } from '@react-icons/all-files/ai/AiOutlineAntDesign';
+import { DiPostgresql } from '@react-icons/all-files/di/DiPostgresql';
+import { FaAws } from '@react-icons/all-files/fa/FaAws';
+import { FaBootstrap } from '@react-icons/all-files/fa/FaBootstrap';
+import { FaCss3 } from '@react-icons/all-files/fa/FaCss3';
+import { FaDocker } from '@react-icons/all-files/fa/FaDocker';
+import { FaGit } from '@react-icons/all-files/fa/FaGit';
+import { FaHtml5 } from '@react-icons/all-files/fa/FaHtml5';
+import { FaNodeJs } from '@react-icons/all-files/fa/FaNodeJs';
+import { FaPython } from '@react-icons/all-files/fa/FaPython';
+import { FaReact } from '@react-icons/all-files/fa/FaReact';
+import { FaSass } from '@react-icons/all-files/fa/FaSass';
+import { FaVuejs } from '@react-icons/all-files/fa/FaVuejs';
+import { SiAdonisjs } from '@react-icons/all-files/si/SiAdonisjs';
+import { SiGraphql } from '@react-icons/all-files/si/SiGraphql';
+import { SiJavascript } from '@react-icons/all-files/si/SiJavascript';
+import { SiJest } from '@react-icons/all-files/si/SiJest';
+import { SiMaterialUi } from '@react-icons/all-files/si/SiMaterialUi';
+import { SiTailwindcss } from '@react-icons/all-files/si/SiTailwindcss';
+import { SiTypescript } from '@react-icons/all-files/si/SiTypescript';
+import React from 'react';
 
 type TechIconsPropsType = {
   name: string;
@@ -27,45 +27,45 @@ type TechIconsPropsType = {
 
 function TechIcons({ name, size = 30 }: TechIconsPropsType) {
   switch (name.toLowerCase()) {
-    case "javascript":
+    case 'javascript':
       return <SiJavascript title={name} size={size} />;
-    case "typescript":
+    case 'typescript':
       return <SiTypescript title={name} size={size} />;
-    case "reactjs":
+    case 'reactjs':
       return <FaReact title={name} size={size} />;
-    case "vue":
+    case 'vue':
       return <FaVuejs title={name} size={size} />;
-    case "jest":
+    case 'jest':
       return <SiJest title={name} size={size} />;
-    case "python":
+    case 'python':
       return <FaPython title={name} size={size} />;
-    case "nodejs":
+    case 'nodejs':
       return <FaNodeJs title={name} size={size} />;
-    case "postgresql":
+    case 'postgresql':
       return <DiPostgresql title={name} size={size} />;
-    case "docker":
+    case 'docker':
       return <FaDocker title={name} size={size} />;
-    case "git":
+    case 'git':
       return <FaGit title={name} size={size} />;
-    case "aws":
+    case 'aws':
       return <FaAws title={name} size={size} />;
-    case "graphql":
+    case 'graphql':
       return <SiGraphql title={name} size={size} />;
-    case "adonisjs":
+    case 'adonisjs':
       return <SiAdonisjs title={name} size={size} />;
-    case "antdesign":
+    case 'antdesign':
       return <AiOutlineAntDesign title={name} size={size} />;
-    case "bootstrap":
+    case 'bootstrap':
       return <FaBootstrap title={name} size={size} />;
-    case "sass":
+    case 'sass':
       return <FaSass title={name} size={size} />;
-    case "html":
+    case 'html':
       return <FaHtml5 title={name} size={size} />;
-    case "css":
+    case 'css':
       return <FaCss3 title={name} size={size} />;
-    case "mui":
+    case 'mui':
       return <SiMaterialUi title={name} size={size} />;
-    case "tailwind":
+    case 'tailwind':
       return <SiTailwindcss title={name} size={size} />;
     default:
       return null;

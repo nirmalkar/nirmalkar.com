@@ -1,8 +1,6 @@
-import React from "react";
+import React from 'react';
 
-type MoonProps = {};
-
-const Moon = (props: MoonProps) => {
+const Moon = () => {
   return (
     <div>
       <svg

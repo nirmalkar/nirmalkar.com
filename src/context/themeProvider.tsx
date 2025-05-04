@@ -1,5 +1,7 @@
-import React, { createContext, useEffect, useState, ReactNode } from "react";
-import { Theme, themes, ThemeName } from "../../theme";
+import React, { createContext, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import type { Theme, ThemeName } from '../../theme';
+import { themes } from '../../theme';
 
 type ThemeContextType = {
   theme: Theme;
@@ -13,18 +15,22 @@ type ThemeProviderProps = {
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: themes.light,
-  themeName: "light",
-  toggleTheme: () => {},
+  themeName: 'light',
+  toggleTheme: () => {
+    throw new Error(
+      'toggleTheme function must be overridden by a ThemeProvider',
+    );
+  },
 });
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [themeName, setThemeName] = useState<ThemeName>(
-    getUserPreferredTheme()
+    getUserPreferredTheme(),
   );
   const theme = themes[themeName];
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
+    const storedTheme = localStorage.getItem('theme');
     if (storedTheme && storedTheme in themes) {
       setThemeName(storedTheme as ThemeName);
     }
@@ -33,17 +39,17 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   function getUserPreferredTheme() {
     if (
       window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+      window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      return "dark";
+      return 'dark';
     }
-    return "light";
+    return 'light';
   }
 
   const toggleTheme = () => {
-    const newThemeName = themeName === "light" ? "dark" : "light";
+    const newThemeName = themeName === 'light' ? 'dark' : 'light';
     setThemeName(newThemeName);
-    localStorage.setItem("theme", newThemeName);
+    localStorage.setItem('theme', newThemeName);
   };
 
   return (

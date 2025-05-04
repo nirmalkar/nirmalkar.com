@@ -1,12 +1,11 @@
-import { Link } from "gatsby";
-import React, { useContext, useEffect, useRef } from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import { RiContactsLine } from "@react-icons/all-files/ri/RiContactsLine";
-import { IoPersonOutline } from "@react-icons/all-files/io5/IoPersonOutline";
-import { FaBlogger } from "@react-icons/all-files/fa/FaBlogger";
-import { IoHomeOutline } from "@react-icons/all-files/io5/IoHomeOutline";
-import { IoInformationCircleOutline } from "@react-icons/all-files/io5/IoInformationCircleOutline";
-import { FaLaptopCode } from "@react-icons/all-files/fa/FaLaptopCode";
+import { FaLaptopCode } from '@react-icons/all-files/fa/FaLaptopCode';
+import { IoHomeOutline } from '@react-icons/all-files/io5/IoHomeOutline';
+import { IoInformationCircleOutline } from '@react-icons/all-files/io5/IoInformationCircleOutline';
+import { IoPersonOutline } from '@react-icons/all-files/io5/IoPersonOutline';
+import { RiContactsLine } from '@react-icons/all-files/ri/RiContactsLine';
+import { Link } from 'gatsby';
+import React, { useContext, useEffect, useRef } from 'react';
+import { ThemeContext } from '../../context/themeProvider';
 
 type SideBarPropsType = { isVisible: boolean; toggleSidebar: () => void };
 
@@ -25,38 +24,45 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
 
   useEffect(() => {
     if (isVisible) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isVisible]);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
-      "--primaryColor",
-      theme.colors.primary
+      '--primaryColor',
+      theme.colors.primary,
     );
     document.documentElement.style.setProperty(
-      "--oppositePrimaryColor",
-      theme.colors.oppositePrimary
+      '--oppositePrimaryColor',
+      theme.colors.oppositePrimary,
     );
     document.documentElement.style.setProperty(
-      "--secondaryLighterColor",
-      theme.colors.secondaryLighter
+      '--secondaryLighterColor',
+      theme.colors.secondaryLighter,
     );
   }, [theme]);
 
   return (
     <div
       ref={sidebarRef}
-      className={`sidebar ${isVisible ? "visible" : "hidden"}`}
+      className={`sidebar ${isVisible ? 'visible' : 'hidden'}`}
     >
       <nav>
-        <ul onClick={toggleSidebar}>
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={toggleSidebar}
+          onKeyDown={(e) =>
+            (e.key === 'Enter' || e.key === ' ') && toggleSidebar()
+          }
+        >
           <Link to="/">
             <li>
               <IoHomeOutline style={{ color: theme.colors.oppositePrimary }} />
@@ -97,7 +103,7 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
               Info
             </li>
           </Link>
-        </ul>
+        </div>
       </nav>
     </div>
   );
