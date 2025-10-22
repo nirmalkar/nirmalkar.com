@@ -14,7 +14,6 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 }) => {
   const [toggleVal, setToggleVal] = useState<string>("light");
   const { theme, themeName, toggleTheme } = useContext(ThemeContext);
-  const { secondary, oppositeSecondary } = theme?.colors;
   const isDarkMode = themeName === "dark";
 
   const handleToggle = () => {
@@ -36,16 +35,12 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
       <input
         onChange={handleToggle}
         type="checkbox"
-        className={`checkbox`}
-        id="checkbox"
+        className="toggle-checkbox"
+        id="toggle-checkbox"
         checked={isDarkMode}
       />
-      <label
-        htmlFor="checkbox"
-        className="checkbox-label"
-        style={{ backgroundColor: oppositeSecondary }}
-      >
-        <span className="ball" style={{ backgroundColor: secondary }}>
+      <label htmlFor="toggle-checkbox" className="toggle-label">
+        <span className="toggle-ball">
           {themeName === "dark" ? <SunIcon /> : <MoonIcon />}
         </span>
       </label>

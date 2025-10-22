@@ -70,6 +70,40 @@ footer {
   position: absolute;
   right: 3%;
   top: 2%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 200;
+
+  .hamburger-container {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: var(--about-bg, rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      position: absolute;
+      transition: opacity 0.3s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .hide {
+      opacity: 0;
+    }
+  }
 }
 
 @include respond-to(extraSmall) {
@@ -100,8 +134,16 @@ footer {
     position: absolute;
     right: 3%;
     top: 2%;
+    gap: 1rem;
   }
+
   .hamburger-container {
     display: none;
+  }
+}
+
+@include respond-to(medium) {
+  .toggle-button {
+    right: 2%;
   }
 }
