@@ -18,8 +18,32 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* Add padding to the main content area */
+  padding: 10px; /* Reduced padding for 90vw cards */
   padding-bottom: 80px; /* Add additional padding for the sticky footer */
+
+  @media (min-width: 768px) {
+    padding: 20px 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px 40px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 20px 40px;
+  }
+
+  @media (min-width: 1600px) {
+    padding: 20px 40px;
+  }
+}
+
+.header-container {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
 }
 
 section {

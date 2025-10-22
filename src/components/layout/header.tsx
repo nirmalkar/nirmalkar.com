@@ -1,11 +1,9 @@
-import React from "react";
-import Navigation from "../Navigation";
 import { navigate } from "gatsby";
-import { ThemeContext } from "../../context/themeProvider";
+import React from "react";
 import { playSound } from "../../utils/playSound";
+import Navigation from "../Navigation";
 
-const Header: React.FC = (props) => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+const Header: React.FC = () => {
   const headerIconClick = () => {
     const path = typeof window !== "undefined" ? window.location.pathname : "";
     if (path !== "/") {
@@ -17,17 +15,30 @@ const Header: React.FC = (props) => {
     <header
       className="header-container"
       style={{
-        background: `${theme.colors.primary}50`,
-        borderBottom: `1px solid ${theme.colors.secondary}`,
+        background: "transparent",
+        backdropFilter: "none",
+        borderBottom: "none",
+        boxShadow: "none",
+        transition: "all 0.3s ease",
       }}
     >
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
         <div
           onClick={headerIconClick}
           className="header-icon"
           style={{
-            backgroundColor: theme.colors.secondary,
-            color: theme.colors.oppositeSecondary,
+            backgroundColor: "var(--about-stat-bg, rgba(255, 255, 255, 0.1))",
+            color: "var(--about-text, #ffffff)",
+            border: "1px solid var(--about-border, rgba(255, 255, 255, 0.1))",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+            transition: "all 0.3s ease",
           }}
         >
           N

@@ -5,49 +5,137 @@ header {
   margin: 0 auto;
   font-family: "Inter", sans-serif;
   position: relative;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+
   .header-icon {
-    position: absolute;
-    top: 0.5rem;
+    position: static;
     font-family: "Abril Fatface";
     font-size: 24px;
-    background-color: greenyellow;
+    background: var(--about-bg, rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
     width: 2.5rem;
     height: 2.5rem;
-    left: 0rem;
     border-radius: 50%;
     text-align: center;
     line-height: 2.4rem;
     cursor: pointer;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: var(--about-text, #ffffff);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+    }
   }
 }
 
 @include respond-to(extraSmall) {
-  .header-container {
+  header {
     padding: 1.8rem;
-    width: 80%;
+    width: 90%;
+    background: transparent !important;
+
+    .header-icon {
+      position: static;
+      background: var(--about-bg, rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: var(--about-text, #ffffff);
+
+      &:hover {
+        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      }
+    }
   }
 }
+
 @include respond-to(small) {
-  .header-container {
+  header {
     padding: 20px;
-    width: 80%;
+    width: 90%;
+    background: transparent !important;
+
+    .header-icon {
+      position: static;
+      background: var(--about-bg, rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: var(--about-text, #ffffff);
+
+      &:hover {
+        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      }
+    }
   }
 }
+
 @include respond-to(medium) {
-  .header-container {
+  header {
     padding: 20px;
-    width: 80%;
+    width: 85%;
+    background: transparent !important;
+
+    .header-icon {
+      position: static;
+      background: var(--about-bg, rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: var(--about-text, #ffffff);
+
+      &:hover {
+        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      }
+    }
   }
 }
+
 @include respond-to(large) {
-  .header-container {
+  header {
+    padding: 20px;
+    width: 80%;
+    background: transparent !important;
+
+    .header-icon {
+      position: static;
+      background: var(--about-bg, rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: var(--about-text, #ffffff);
+
+      &:hover {
+        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      }
+    }
+  }
+}
+
+@include respond-to(xlarge) {
+  header {
     padding: 20px;
     width: 75%;
-  }
-}
-@include respond-to(xlarge) {
-  .header-container {
-    padding: 20px;
-    width: 70%;
+    background: transparent !important;
+
+    .header-icon {
+      position: static;
+      background: var(--about-bg, rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: var(--about-text, #ffffff);
+
+      &:hover {
+        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+      }
+    }
   }
 }

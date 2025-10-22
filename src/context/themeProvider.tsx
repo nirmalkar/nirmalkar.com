@@ -30,6 +30,36 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    // Set CSS custom properties based on the current theme
+    const root = document.documentElement;
+    const customProperties = {
+      '--about-bg': themeName === 'light'
+        ? 'rgba(229, 228, 226, 0.1)'
+        : 'rgba(34, 34, 34, 0.3)',
+      '--about-border': themeName === 'light'
+        ? 'rgba(18, 18, 18, 0.1)'
+        : 'rgba(229, 228, 226, 0.1)',
+      '--about-text': theme.colors.oppositePrimary,
+      '--about-text-secondary': themeName === 'light'
+        ? 'rgba(18, 18, 18, 0.8)'
+        : 'rgba(229, 228, 226, 0.9)',
+      '--about-accent': themeName === 'light'
+        ? 'rgba(18, 18, 18, 0.2)'
+        : 'rgba(229, 228, 226, 0.3)',
+      '--about-stat-bg': themeName === 'light'
+        ? 'rgba(229, 228, 226, 0.2)'
+        : 'rgba(34, 34, 34, 0.4)',
+      '--about-stat-hover': themeName === 'light'
+        ? 'rgba(229, 228, 226, 0.3)'
+        : 'rgba(34, 34, 34, 0.6)',
+    };
+
+    Object.entries(customProperties).forEach(([property, value]) => {
+      root.style.setProperty(property, value);
+    });
+  }, [themeName, theme.colors.oppositePrimary]);
+
   function getUserPreferredTheme() {
     if (
       window.matchMedia &&

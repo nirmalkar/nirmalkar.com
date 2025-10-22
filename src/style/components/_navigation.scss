@@ -1,47 +1,137 @@
 @mixin nav-container {
   display: flex;
   gap: 7px;
-  justify-content: right;
+  justify-content: flex-end;
   color: white;
   flex-flow: row wrap;
+  background: var(--about-bg, rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+  border-radius: 20px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-left: auto;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.nav {
+  color: var(--about-text, #ffffff);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+    color: var(--about-text, #ffffff);
+  }
+
+  &:focus {
+    outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.4));
+    outline-offset: 2px;
+  }
 }
 
 .others-link {
   cursor: pointer;
   position: relative;
+  color: var(--about-text, #ffffff);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
+    color: var(--about-text, #ffffff);
+  }
+
+  &:focus {
+    outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.4));
+    outline-offset: 2px;
+  }
+
   .arrow-down {
-    display: inline-block;
-    top: 1px;
-    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
   }
 }
+
 @include respond-to(extraSmall) {
   .nav-container-light {
-    display: none;
+    @include nav-container;
+    padding: 0.5rem 1rem;
+    gap: 4px;
+
+    a {
+      color: var(--about-text, #ffffff);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 0.4rem 0.6rem;
+    }
+    span {
+      color: var(--about-text, #ffffff);
+      font-size: 12px;
+      padding: 0.4rem 0.6rem;
+    }
+    .others-link .arrow-down {
+      margin-left: 2px;
+    }
   }
   .nav-container-dark {
-    display: none;
+    @include nav-container;
+    padding: 0.5rem 1rem;
+    gap: 4px;
+
+    a {
+      color: var(--about-text, #ffffff);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 0.4rem 0.6rem;
+    }
+    span {
+      color: var(--about-text, #ffffff);
+      font-size: 12px;
+      padding: 0.4rem 0.6rem;
+    }
+    .others-link .arrow-down {
+      margin-left: 2px;
+    }
   }
 }
+
 @include respond-to(small) {
   .nav-container-light {
     @include nav-container;
     a {
-      color: #333;
+      color: var(--about-text, #ffffff);
       text-decoration: none;
     }
     span {
-      color: #333;
+      color: var(--about-text, #ffffff);
     }
   }
   .nav-container-dark {
     @include nav-container;
     a {
-      color: #fff;
+      color: var(--about-text, #ffffff);
       text-decoration: none;
     }
     span {
-      color: #fff;
+      color: var(--about-text, #ffffff);
     }
   }
 }

@@ -1,11 +1,11 @@
 import React, { ReactNode, useEffect, useRef } from "react";
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import CloseIcon from "../../assets/svg/Close";
 
 interface ModalProps {
   isOpen: boolean;
-  closeModal: () => void;
-  imageData?: ImageDataLike;
+  closeModal?: () => void;
+  imageData?: IGatsbyImageData;
   bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
@@ -18,12 +18,11 @@ const Modal: React.FC<ModalProps> = ({
   bgColor,
   showCloseBtn,
 }) => {
-  const modalClass = isOpen ? "modal-overlay" : "hidden";
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && modalRef.current === event.target) {
-        closeModal();
+        closeModal?.();
       }
     };
 
@@ -38,11 +37,16 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <div className="modal-container">
       {isOpen && (
-        <div ref={modalRef} className={modalClass}>
+        <div ref={modalRef} className="modal-overlay">
           <div className="modal" style={{ background: bgColor ?? "" }}>
             {imageData && (
               <div className="image-container">
-                <GatsbyImage image={getImage(imageData)} alt="Modal Image" />
+                {(() => {
+                  const image = getImage(imageData);
+                  return image ? (
+                    <GatsbyImage image={image} alt="Modal Image" />
+                  ) : null;
+                })()}
               </div>
             )}
             <div className="close-icon-container">
