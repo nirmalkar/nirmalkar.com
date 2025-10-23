@@ -82,7 +82,7 @@
   border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
   border-radius: 16px;
   padding: 1.5rem;
-  width: 70%;
+  width: 80%;
   max-width: 1000px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
   margin: 1rem auto;
@@ -93,18 +93,20 @@
   box-sizing: border-box;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       var(--about-accent, rgba(255, 255, 255, 0.1)) 0%,
       rgba(255, 255, 255, 0.05) 25%,
       rgba(255, 255, 255, 0.02) 50%,
       rgba(255, 255, 255, 0.08) 75%,
-      var(--about-accent, rgba(255, 255, 255, 0.15)) 100%);
+      var(--about-accent, rgba(255, 255, 255, 0.15)) 100%
+    );
     opacity: 0.3;
     pointer-events: none;
     border-radius: 20px;
@@ -115,7 +117,7 @@
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: var(--about-text, #ffffff);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -126,7 +128,7 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--about-text-secondary, rgba(255, 255, 255, 0.9));
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     position: relative;
     z-index: 2;
@@ -143,7 +145,11 @@
       order: -1;
       border-radius: 12px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--about-accent, rgba(255, 255, 255, 0.05)), rgba(255, 255, 255, 0.02));
+      background: linear-gradient(
+        135deg,
+        var(--about-accent, rgba(255, 255, 255, 0.05)),
+        rgba(255, 255, 255, 0.02)
+      );
 
       img {
         border-radius: 12px;
@@ -173,12 +179,12 @@
       backdrop-filter: blur(8px);
       border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
       transition: all 0.2s ease;
-      
+
       &:hover {
         transform: translateY(-2px);
         background: var(--about-accent, rgba(255, 255, 255, 0.15));
       }
-      
+
       svg {
         width: 16px;
         height: 16px;
@@ -190,16 +196,16 @@
     width: 80%;
     padding: 1.25rem;
     margin: 1rem auto;
-    
+
     .title {
       font-size: 1.5rem;
     }
-    
+
     .description {
       font-size: 1rem;
     }
   }
-  
+
   @media (max-width: 768px) {
     width: 90%;
     padding: 1.25rem;
@@ -231,7 +237,7 @@
   }
 
   @media (min-width: 1201px) {
-    width: 70%;
+    width: 80%;
     max-width: 1000px;
     padding: 2rem;
     margin: 1.25rem auto;
