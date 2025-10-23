@@ -72,11 +72,10 @@ function Work(props: WorkPropsType) {
       <Seo title={"Work"} description={"This is the work page."} />
       <main className="work-container">
         <section className="project-container">
-          <h3 style={{ color: theme.colors.oppositePrimary }}>Projects:</h3>
-          {projects.map((project: { node: Project }) => (
+          <h3 className="project-heading">Projects</h3>
+          {projects.map((project: { node: Project }, index: number) => (
             <InfoCard
               {...{
-                bgColor: theme.colors.secondary,
                 title: project?.node.name,
                 image: project?.node?.Image[0],
                 description: project?.node.description.description,
@@ -88,19 +87,14 @@ function Work(props: WorkPropsType) {
           ))}
         </section>
         <section className="technologies-container">
-          <h3 style={{ color: theme.colors.oppositePrimary }}>
-            Techologies:
-            <div className="technologies-icons">
-              {technologies.map((tech) => (
-                <div
-                  style={{ background: theme.colors.secondary }}
-                  className="icon"
-                >
-                  <TechIcons name={tech} />
-                </div>
-              ))}
-            </div>
-          </h3>
+          <h3 className="technologies-heading">Technologies</h3>
+          <div className="technologies-icons">
+            {technologies.map((tech) => (
+              <div className="icon">
+                <TechIcons name={tech} />
+              </div>
+            ))}
+          </div>
         </section>
       </main>
     </Layout>

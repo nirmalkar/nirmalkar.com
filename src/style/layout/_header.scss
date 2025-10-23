@@ -1,5 +1,5 @@
 header {
-  padding: 20px;
+  padding: 1rem; /* Reduced from 20px to minimize gap */
   font-size: 12px;
   width: 70%;
   margin: 0 auto;
@@ -38,7 +38,7 @@ header {
 
 @include respond-to(extraSmall) {
   header {
-    padding: 1.5rem 1rem;
+    padding: 0.75rem 0.5rem;
     width: 95%;
     background: transparent !important;
     box-sizing: border-box;
@@ -47,7 +47,7 @@ header {
 
 @include respond-to(small) {
   header {
-    padding: 20px;
+    padding: 1rem;
     width: 90%;
     background: transparent !important;
   }
@@ -55,7 +55,7 @@ header {
 
 @include respond-to(medium) {
   header {
-    padding: 20px;
+    padding: 1rem;
     width: 85%;
     background: transparent !important;
   }
@@ -63,7 +63,7 @@ header {
 
 @include respond-to(large) {
   header {
-    padding: 20px;
+    padding: 1rem;
     width: 80%;
     background: transparent !important;
   }
@@ -71,7 +71,7 @@ header {
 
 @include respond-to(xlarge) {
   header {
-    padding: 20px;
+    padding: 1rem;
     width: 75%;
     background: transparent !important;
   }
