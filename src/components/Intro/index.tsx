@@ -11,24 +11,28 @@ interface BioData {
   salutation: string;
   intro: string;
 }
+
 interface IntroDataType {
   bioData: BioData;
 }
 
 const Intro: React.FC<IntroDataType> = (props) => {
   const { theme } = React.useContext(ThemeContext);
-  const { oppositeSecondary } = theme?.colors;
+  const { oppositeSecondary, oppositePrimary } = theme?.colors;
   const { bio, salutation, intro } = props.bioData;
+
   return (
     <section className="intro-container" style={{ color: oppositeSecondary }}>
-      <div className="intro-main">
-        {salutation}
-        <br />
-        {intro}
-      </div>
-      <div className="intro-description">{bio.bio}</div>
-      <div className="intro-social">
-        <Social />
+      <div className="intro-content">
+        <div className="intro-main">
+          <span className="intro-salutation">{salutation}</span>
+          <br />
+          <span className="intro-title">{intro}</span>
+        </div>
+        <div className="intro-description">{bio.bio}</div>
+        <div className="intro-social">
+          <Social />
+        </div>
       </div>
     </section>
   );

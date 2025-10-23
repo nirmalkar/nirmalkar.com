@@ -1,12 +1,11 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import type { IGatsbyImageData } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
-import CloseIcon from '../../assets/svg/Close';
+import React, { ReactNode, useEffect, useRef } from "react";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import CloseIcon from "../../assets/svg/Close";
 
 interface ModalProps {
   isOpen: boolean;
-  imageData?: IGatsbyImageData | ImageData;
+  closeModal?: () => void;
+  imageData?: IGatsbyImageData;
   bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
@@ -19,12 +18,11 @@ const Modal: React.FC<ModalProps> = ({
   imageData,
   bgColor,
 }) => {
-  const modalClass = isOpen ? 'modal-overlay' : 'hidden';
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && modalRef.current === event.target) {
-        closeModal();
+        closeModal?.();
       }
     };
 
@@ -39,13 +37,16 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <div className="modal-container">
       {isOpen && (
-        <div ref={modalRef} className={modalClass}>
-          <div className="modal" style={{ background: bgColor ?? '' }}>
+        <div ref={modalRef} className="modal-overlay">
+          <div className="modal" style={{ background: bgColor ?? "" }}>
             {imageData && (
               <div className="image-container">
-                {imageData && 'images' in imageData && getImage(imageData) && (
-                  <GatsbyImage image={getImage(imageData)!} alt="Modal Image" />
-                )}
+                {(() => {
+                  const image = getImage(imageData);
+                  return image ? (
+                    <GatsbyImage image={image} alt="Modal Image" />
+                  ) : null;
+                })()}
               </div>
             )}
             <div className="close-icon-container">

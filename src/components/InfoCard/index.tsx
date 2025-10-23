@@ -52,10 +52,9 @@ function Card({
   return (
     <div
       key={title || name || description}
-      className="card-container"
+      className="work-card"
       style={{
-        backgroundColor: bgColor ?? '#fff',
-        cursor: clickable ? 'pointer' : '',
+        cursor: clickable ? "pointer" : "",
       }}
       role={clickable ? 'button' : undefined}
       tabIndex={clickable ? 0 : undefined}
@@ -74,18 +73,14 @@ function Card({
       <div className="description" style={{ color: textColor }}>
         <div className="card-content">
           <div className="image">
-            {image && <GatsbyImage alt={'asd'} image={image.gatsbyImage} />}
+            {image && <GatsbyImage alt={title || "Project image"} image={image.gatsbyImage} />}
           </div>
           <div className="description">
             {description}
-            <div className="card-descriotion-icons">
-              {icons?.map((icon, index) => (
-                <div
-                  key={index}
-                  style={{ background: theme.colors.primary }}
-                  className="icon"
-                >
-                  <TechIcon name={icon} size={25} />
+            <div className="card-description-icons">
+              {icons?.map((icon) => (
+                <div className="icon">
+                  <TechIcon name={icon} size={20} />
                 </div>
               ))}
             </div>

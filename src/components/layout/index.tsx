@@ -39,27 +39,25 @@ const Layout: FC<Props> = (props: Props) => {
         backgroundRepeat: 'repeat',
       }}
     >
-      <div>
-        <Header />
-        <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
-        <div className="toggle-button">
-          <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
-          <button
-            onClick={toggleSidebar}
-            className="hamburger-container"
-            aria-label="Toggle Sidebar"
-          >
-            <IoIosCloseCircleOutline
-              size={30}
-              className={`icon ${isToggled ? 'show' : 'hide'}`}
-              style={{ color: theme.colors.oppositePrimary }}
-            />
-            <IoListCircleOutline
-              size={30}
-              className={`icon ${isToggled ? 'hide' : 'show'}`}
-              style={{ color: theme.colors.oppositePrimary }}
-            />
-          </button>
+      <Header />
+      <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
+      <div className="toggle-button">
+        <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
+        <div
+          onClick={toggleSidebar}
+          id="hamburger"
+          className={`hamburger-container ${isToggled ? "active" : ""}`}
+        >
+          <IoIosCloseCircleOutline
+            size={32}
+            className={`icon ${isToggled ? "show" : "hide"}`}
+            style={{ color: theme.colors.oppositePrimary }}
+          />
+          <IoListCircleOutline
+            size={32}
+            className={`icon ${isToggled ? "hide" : "show"}`}
+            style={{ color: theme.colors.oppositePrimary }}
+          />
         </div>
       </div>
       <main className={`content ${isToggled ? "shifted" : ""}`}>

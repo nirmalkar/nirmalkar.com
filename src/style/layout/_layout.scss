@@ -18,56 +18,241 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* Add padding to the main content area */
-  padding-bottom: 80px; /* Add additional padding for the sticky footer */
+  padding: 0; /* Remove default padding - let pages control their own spacing */
+  padding-bottom: 70px; /* Adjusted for fixed 60px footer */
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 0;
+  }
+
+  @media (min-width: 1600px) {
+    padding: 0;
+  }
+}
+
+.header-container {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Global overflow prevention */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 section {
   text-align: center;
-  padding: 18px;
-}
-
-footer {
-  background-color: #f2f2f2;
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  padding: 0; /* Remove default padding - let components control their own spacing */
 }
 
 /* Default styles for all screen sizes */
 .container {
   width: 100%;
   padding: 20px;
-  background-color: #f2f2f2;
+  background-color: transparent;
 }
 .toggle-button {
   position: absolute;
   right: 3%;
   top: 2%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 200;
+
+  .hamburger-container {
+    cursor: pointer;
+    padding: 0.875rem;
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--about-bg, rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.18));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        var(--about-accent, rgba(255, 255, 255, 0.12)) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 14px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(
+        circle,
+        var(--about-accent, rgba(255, 255, 255, 0.15)) 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transition: all 0.4s ease;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    &:hover {
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 1;
+        width: 120%;
+        height: 120%;
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+    }
+
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--about-text, #ffffff);
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+      transform-origin: center;
+      font-weight: 600;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+
+    .hide {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8) rotate(180deg);
+    }
+
+    // Add subtle pulse animation when sidebar is open
+    &.active {
+      animation: gentle-pulse 2s ease-in-out infinite;
+
+      .icon {
+        filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.2));
+      }
+    }
+  }
 }
 
 @include respond-to(extraSmall) {
   .toggle-button {
     display: flex;
     position: absolute;
-    right: 15%;
+    right: 5%; // Adjusted for mobile
     top: 2%;
   }
   .hamburger-container {
+    width: 44px;
+    height: 44px;
+    padding: 0.75rem;
+    border-radius: 12px;
+
     .icon {
       position: absolute;
-      transition: opacity 0.5s ease-in-out;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       right: 0;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .show {
       opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 
     .hide {
       opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+    }
+
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+    }
+
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.03);
+
+      &::after {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
@@ -76,8 +261,94 @@ footer {
     position: absolute;
     right: 3%;
     top: 2%;
+    gap: 1rem;
   }
-  .hamburger-container {
+  #hamburger {
     display: none;
+  }
+
+  .hamburger-container {
+    width: 46px;
+    height: 46px;
+    padding: 0.8rem;
+    border-radius: 13px;
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.12));
+      width: 27px;
+      height: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+    }
+
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+  }
+  @include respond-to(medium) {
+    .toggle-button {
+      right: 2%;
+      top: 1.5%;
+      gap: 1.25rem;
+    }
+  }
+
+  /* Sidebar integration */
+  main.content {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.shifted {
+      transform: translateX(320px);
+
+      @include respond-to(extraSmall) {
+        transform: translateX(280px);
+      }
+
+      @include respond-to(small) {
+        transform: translateX(300px);
+      }
+    }
+  }
+
+  .sidebar-backdrop {
+    &.visible {
+      body {
+        overflow: hidden;
+      }
+    }
+  }
+
+  // Hamburger menu animations
+  @keyframes gentle-pulse {
+    0%,
+    100% {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.18),
+        0 0 0 12px var(--about-accent, rgba(255, 255, 255, 0.08));
+      transform: scale(1.02);
+    }
   }
 }

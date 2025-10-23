@@ -16,24 +16,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="footer">
-      <p style={{ color: theme.colors.oppositePrimary }}>
-        All materials © nirmalkar {new Date().getFullYear()}
-      </p>
-      <div
-        onClick={copyWebsite}
-        onKeyDown={(e) => e.key === 'Enter' && copyWebsite()}
-        role="button"
-        tabIndex={0}
-        className="share-icon"
-      >
-        <div
-          className="copy-text"
-          style={{
-            backgroundColor: theme.colors.oppositeSecondary,
-            color: theme.colors.secondary,
-          }}
-        >
-          {copyStatus && 'copied'}
+      <p>All materials © nirmalkar {new Date().getFullYear()}</p>
+      <div onClick={copyWebsite} className="share-icon">
+        <div className="copy-text">
+          {copyStatus && "copied"}
         </div>
         <ShareIcon size={20} color={theme.colors.oppositePrimary} />
       </div>

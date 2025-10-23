@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&family=Poppins:wght@300;400;700&display=swap");
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -10,6 +10,22 @@ html {
   --primaryColor: #121212;
   --oppositePrimaryColor: #ffffff;
   ---secondaryLighterColor: #444;
+
+  /* About section theme variables */
+  --about-bg: rgba(255, 255, 255, 0.12);
+  --about-text: #ffffff;
+  --about-text-secondary: rgba(255, 255, 255, 0.9);
+  --about-border: rgba(255, 255, 255, 0.15);
+  --about-accent: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --about-bg: rgba(0, 0, 0, 0.3);
+  --about-text: #ffffff;
+  --about-text-secondary: rgba(255, 255, 255, 0.8);
+  --about-border: rgba(255, 255, 255, 0.2);
+  --about-accent: rgba(255, 255, 255, 0.4);
 }
 
 #shadow-host-companion {
@@ -52,12 +68,9 @@ label {
 }
 
 /**
-* ALl about colors used in app.
-*/
-// dark theme colors
-$dark-primary-color: #222222;
-$dark-secondary-color: #908990;
-// Light theme colors
+ * All colors used in the app
+ */
+// Dark theme colors
 $dark-primary-color: #222222;
 $dark-secondary-color: #908990;
 *::-webkit-scrollbar {

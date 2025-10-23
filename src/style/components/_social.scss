@@ -1,11 +1,157 @@
 .social-container {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
   .social {
-    width: 2rem;
-    height: 2rem;
-    padding: 3px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--about-bg, rgba(255, 255, 255, 0.12));
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--about-accent, rgba(255, 255, 255, 0.15));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+      background: var(--about-bg, rgba(255, 255, 255, 0.18));
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover svg {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (min-width: 480px) {
+    gap: 1.25rem;
+
+    .social {
+      width: 3rem;
+      height: 3rem;
+      padding: 0.6rem;
+      background: var(--about-bg, rgba(255, 255, 255, 0.14));
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.18));
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+
+    .social {
+      width: 3.5rem;
+      height: 3.5rem;
+      padding: 0.7rem;
+      background: var(--about-bg, rgba(255, 255, 255, 0.16));
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.2));
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    gap: 1.75rem;
+
+    .social {
+      width: 4rem;
+      height: 4rem;
+      padding: 0.8rem;
+      background: var(--about-bg, rgba(255, 255, 255, 0.18));
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.22));
+
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
+}
+
+// Mobile responsive adjustments
+@include respond-to(extraSmall) {
+  .social-container {
+    gap: 0.75rem;
+
+    .social {
+      width: 2.25rem;
+      height: 2.25rem;
+      padding: 0.4rem;
+      background: var(--about-bg, rgba(255, 255, 255, 0.08));
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+}
+
+@include respond-to(small) {
+  .social-container {
+    gap: 1rem;
+
+    .social {
+      background: var(--about-bg, rgba(255, 255, 255, 0.1));
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.12));
+    }
   }
 }

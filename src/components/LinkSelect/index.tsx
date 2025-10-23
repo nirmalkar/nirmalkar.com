@@ -13,15 +13,12 @@ type Paths = {
 const LinkSelect = (props: LinkSelectProps) => {
   const { paths } = props;
   const { theme } = useContext(ThemeContext);
-  const { oppositeSecondary, secondary } = theme.colors;
+
   return (
-    <div className="select-container" style={{ background: secondary }}>
+    <div className="select-container">
       {paths.map((path) => (
-        <Link key={path.path} style={{ color: secondary }} to={path.path}>
-          <div
-            className="select"
-            style={{ backgroundColor: oppositeSecondary, color: secondary }}
-          >
+        <Link key={path.path} to={path.path} className="select-link">
+          <div className="select-item">
             {path.name}
           </div>
         </Link>
