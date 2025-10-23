@@ -3,7 +3,7 @@ header {
   font-size: 12px;
   width: 70%;
   margin: 0 auto;
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   position: relative;
   background: transparent !important;
   backdrop-filter: none !important;
@@ -38,24 +38,10 @@ header {
 
 @include respond-to(extraSmall) {
   header {
-    padding: 1.5rem 1rem; // Reduced padding for mobile
-    width: 95%; // Increased width but with better padding control
-    // max-width: 100%; // Prevent overflow
+    padding: 1.5rem 1rem;
+    width: 95%;
     background: transparent !important;
     box-sizing: border-box;
-
-    .header-icon {
-      position: static;
-      background: var(--about-bg, rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: var(--about-text, #ffffff);
-
-      &:hover {
-        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      }
-    }
   }
 }
 
@@ -64,19 +50,6 @@ header {
     padding: 20px;
     width: 90%;
     background: transparent !important;
-
-    .header-icon {
-      position: static;
-      background: var(--about-bg, rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: var(--about-text, #ffffff);
-
-      &:hover {
-        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      }
-    }
   }
 }
 
@@ -85,19 +58,6 @@ header {
     padding: 20px;
     width: 85%;
     background: transparent !important;
-
-    .header-icon {
-      position: static;
-      background: var(--about-bg, rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: var(--about-text, #ffffff);
-
-      &:hover {
-        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      }
-    }
   }
 }
 
@@ -106,19 +66,6 @@ header {
     padding: 20px;
     width: 80%;
     background: transparent !important;
-
-    .header-icon {
-      position: static;
-      background: var(--about-bg, rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: var(--about-text, #ffffff);
-
-      &:hover {
-        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      }
-    }
   }
 }
 
@@ -127,18 +74,5 @@ header {
     padding: 20px;
     width: 75%;
     background: transparent !important;
-
-    .header-icon {
-      position: static;
-      background: var(--about-bg, rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: var(--about-text, #ffffff);
-
-      &:hover {
-        background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      }
-    }
   }
 }

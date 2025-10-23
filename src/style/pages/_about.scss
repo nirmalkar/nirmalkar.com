@@ -3,7 +3,7 @@
   max-width: 90vw;
   text-align: left;
   letter-spacing: 1px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
@@ -115,7 +115,7 @@
   font-weight: 600;
   font-size: 26px;
   margin-bottom: 1.75rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.4;
   text-align: center;
   width: 100%;
@@ -142,6 +142,7 @@
   font-size: 17px;
   line-height: 1.65;
   font-weight: 400;
+  font-family: 'Poppins', sans-serif;
   margin-top: 1.5rem;
   text-align: left;
   width: 100%;
@@ -203,7 +204,7 @@
       font-size: 20px;
       font-weight: 700;
       color: var(--about-text, #ffffff);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
 
       @media (min-width: 768px) {
         font-size: 24px;
