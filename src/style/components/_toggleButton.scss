@@ -46,7 +46,7 @@
   svg {
     width: 0.6rem;  // Updated to match 12px SVG
     height: 0.6rem;  // Updated to match 12px SVG
-    fill: var(--about-bg, rgba(255, 255, 255, 0.05));
+    fill: #ffffff;
   }
 }
 
@@ -59,7 +59,7 @@
     color: var(--about-text, #ffffff);
 
     svg {
-      fill: var(--about-accent, rgba(255, 255, 255, 0.3));
+      fill: #ffffff;
     }
   }
 }
@@ -85,6 +85,7 @@
     svg {
       width: 0.5rem;  // Updated for 12px SVG
       height: 0.5rem;  // Updated for 12px SVG
+      fill: #ffffff;
     }
   }
 
@@ -108,6 +109,7 @@
     svg {
       width: 0.55rem;  // Updated for 12px SVG
       height: 0.55rem;  // Updated for 12px SVG
+      fill: #ffffff;
     }
   }
 
