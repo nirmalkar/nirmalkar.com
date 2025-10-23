@@ -4,10 +4,10 @@ import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import Seo from "../components/seo";
-import Layout from "../components/layout";
-import { ThemeContext } from "../context/themeProvider";
-import Modal from "../components/Modal";
+import Layout from '../components/layout';
+import Modal from '../components/Modal';
+import Seo from '../components/seo';
+import { ThemeContext } from '../context/themeProvider';
 
 interface AboutProps {
   data: any;

@@ -1,13 +1,13 @@
-import React from "react";
-import Layout from "../components/layout";
-import { ThemeContext } from "../context/themeProvider";
-import get from "lodash/get";
-import InfoCard from "../components/InfoCard";
-import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import TechIcons from "../components/TechIcon";
-import { technologies } from "../constants/workConstant";
-import Seo from "../components/seo";
+import { graphql } from 'gatsby';
+import type { GatsbyImage } from 'gatsby-plugin-image';
+import get from 'lodash/get';
+import React from 'react';
+import InfoCard from '../components/InfoCard';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import TechIcons from '../components/TechIcon';
+import { technologies } from '../constants/workConstant';
+import { ThemeContext } from '../context/themeProvider';
 type GatsbyImageFallback = {
   src: string;
   srcSet: string;
@@ -27,7 +27,7 @@ type GatsbyImageImages = {
 
 type GatsbyImage = {
   images: GatsbyImageImages;
-  layout: "fixed" | "fullWidth" | "constrained";
+  layout: 'fixed' | 'fullWidth' | 'constrained';
   width: number;
   height: number;
   placeholder: {
@@ -66,15 +66,16 @@ type WorkPropsType = {
 
 function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
-  const projects = get(props, "data.allContentfulProject.edges");
+  const projects = get(props, 'data.allContentfulProject.edges');
   return (
     <Layout>
-      <Seo title={"Work"} description={"This is the work page."} />
+      <Seo title={'Work'} description={'This is the work page.'} />
       <main className="work-container">
         <section className="project-container">
           <h3 className="project-heading">Projects</h3>
           {projects.map((project: { node: Project }, index: number) => (
             <InfoCard
+              key={project.node.id}
               {...{
                 title: project?.node.name,
                 image: project?.node?.Image[0],

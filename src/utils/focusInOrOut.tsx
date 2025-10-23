@@ -1,26 +1,30 @@
-type UseOutsideAlerterProps = {
-  ref: refs;
-  functToRun: any;
-  checkVal: string | object | boolean;
-};
-type refs = {
-  [string: string]: any;
-  stepInput?: any;
+// utils/useOutsideAlerter.ts
+import { useEffect } from 'react';
+
+export type UseOutsideAlerterProps = {
+  ref: React.RefObject<HTMLElement>;
+  functToRun: (val: boolean) => void;
+  checkVal: boolean;
 };
 
-export function UseOutsideAlerter(props: UseOutsideAlerterProps) {
-  const { ref, functToRun, checkVal } = props;
-  function handleClickOutside(event: any) {
-    if (ref.current && !ref.current.contains(event.target)) {
-      if (checkVal) {
-        functToRun(!checkVal);
+export function useOutsideAlerter({
+  ref,
+  functToRun,
+  checkVal,
+}: UseOutsideAlerterProps) {
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as Node;
+      if (ref.current && !ref.current.contains(target)) {
+        if (checkVal) {
+          functToRun(false);
+        }
       }
     }
-  }
-  // Bind the event listener
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => {
-    // Unbind the event listener on clean up
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, checkVal, functToRun]);
 }

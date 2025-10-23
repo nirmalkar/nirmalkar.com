@@ -1,21 +1,26 @@
-import React, { ReactNode, FC, useContext, useEffect } from "react";
-import Header from "./header";
-import Footer from "./footer";
-import { ThemeContext } from "../../context/themeProvider";
-import { ToggleContext } from "../../context/toggleProvider";
-import ToggleButton from "../ToggleButton";
-import HamburgerMenu from "../../assets/svg/HamburgerMenu";
-import { IoIosCloseCircleOutline } from "@react-icons/all-files/io/IoIosCloseCircleOutline";
-import { IoListCircleOutline } from "@react-icons/all-files/io5/IoListCircleOutline";
-import SideBar from "../SideBar";
+import { IoIosCloseCircleOutline } from '@react-icons/all-files/io/IoIosCloseCircleOutline';
+import { IoListCircleOutline } from '@react-icons/all-files/io5/IoListCircleOutline';
+import React, { useContext } from 'react';
+import type { ReactNode, FC } from 'react';
+import { ThemeContext } from '../../context/themeProvider';
+import { ToggleContext } from '../../context/toggleProvider';
+import SideBar from '../SideBar';
+import ToggleButton from '../ToggleButton';
+import Footer from './footer';
+import Header from './header';
 
 interface Props {
   children?: ReactNode;
 }
 const Layout: FC<Props> = (props: Props) => {
   const { theme, themeName, toggleTheme } = useContext(ThemeContext);
-  const { toggle, isToggled } = useContext(ToggleContext);
-  const { secondary, oppositeSecondary } = theme?.colors;
+  const toggleContext = useContext(ToggleContext);
+
+  if (!toggleContext) {
+    throw new Error('ToggleContext is undefined. Ensure the provider is set.');
+  }
+
+  const { toggle, isToggled } = toggleContext;
   const { children } = props;
 
   const toggleSidebar = () => {
@@ -29,9 +34,9 @@ const Layout: FC<Props> = (props: Props) => {
       style={{
         backgroundColor: theme.colors.primary,
         // backgroundImage: `radial-gradient(${secondary} 10%, transparent 11%), radial-gradient(${secondary} 10%, transparent 11%)`,
-        backgroundSize: "10px 10px",
-        backgroundPosition: "0 0, 30px 30px",
-        backgroundRepeat: "repeat",
+        backgroundSize: '10px 10px',
+        backgroundPosition: '0 0, 30px 30px',
+        backgroundRepeat: 'repeat',
       }}
     >
       <Header />

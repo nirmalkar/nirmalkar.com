@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import ShareIcon from "../../assets/svg/Share";
+import React, { useState } from 'react';
+import ShareIcon from '../../assets/svg/Share';
+import { ThemeContext } from '../../context/themeProvider';
 
 const Footer: React.FC = () => {
   const { theme } = React.useContext(ThemeContext);
   const [copyStatus, setCopyStatus] = useState(false);
   const copyWebsite = () => {
-    const href = typeof window !== "undefined" ? window.location.href : "";
+    const href = typeof window !== 'undefined' ? window.location.href : '';
     navigator.clipboard.writeText(href);
     setCopyStatus(true);
     setTimeout(() => {

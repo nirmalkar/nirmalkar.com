@@ -1,8 +1,6 @@
-import React from "react";
+import React from 'react';
 
-type SunProps = {};
-
-const Sun = (props: SunProps) => {
+const Sun = () => {
   return (
     <svg
       width="12"

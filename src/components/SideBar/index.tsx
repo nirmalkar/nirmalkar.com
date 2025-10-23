@@ -1,12 +1,11 @@
-import { Link } from "gatsby";
-import React, { useContext, useEffect, useRef } from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import { RiContactsLine } from "@react-icons/all-files/ri/RiContactsLine";
-import { IoPersonOutline } from "@react-icons/all-files/io5/IoPersonOutline";
-import { FaBlogger } from "@react-icons/all-files/fa/FaBlogger";
-import { IoHomeOutline } from "@react-icons/all-files/io5/IoHomeOutline";
-import { IoInformationCircleOutline } from "@react-icons/all-files/io5/IoInformationCircleOutline";
-import { FaLaptopCode } from "@react-icons/all-files/fa/FaLaptopCode";
+import { FaLaptopCode } from '@react-icons/all-files/fa/FaLaptopCode';
+import { IoHomeOutline } from '@react-icons/all-files/io5/IoHomeOutline';
+import { IoInformationCircleOutline } from '@react-icons/all-files/io5/IoInformationCircleOutline';
+import { IoPersonOutline } from '@react-icons/all-files/io5/IoPersonOutline';
+import { RiContactsLine } from '@react-icons/all-files/ri/RiContactsLine';
+import { Link } from 'gatsby';
+import React, { useContext, useEffect, useRef } from 'react';
+import { ThemeContext } from '../../context/themeProvider';
 
 type SideBarPropsType = { isVisible: boolean; toggleSidebar: () => void };
 
@@ -40,16 +39,16 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
 
   useEffect(() => {
     document.documentElement.style.setProperty(
-      "--primaryColor",
-      theme.colors.primary
+      '--primaryColor',
+      theme.colors.primary,
     );
     document.documentElement.style.setProperty(
-      "--oppositePrimaryColor",
-      theme.colors.oppositePrimary
+      '--oppositePrimaryColor',
+      theme.colors.oppositePrimary,
     );
     document.documentElement.style.setProperty(
-      "--secondaryLighterColor",
-      theme.colors.secondaryLighter
+      '--secondaryLighterColor',
+      theme.colors.secondaryLighter,
     );
   }, [theme]);
 

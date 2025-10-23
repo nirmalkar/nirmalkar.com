@@ -1,11 +1,11 @@
-import React from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import Icon from "../../assets/images/SocalIcons";
-import { social } from "../../constants/socialContants";
-interface SocialProps {}
+import type { FC } from 'react';
+import React from 'react';
+import Icon from '../../assets/images/SocalIcons';
+import { social } from '../../constants/socialContants';
+import { ThemeContext } from '../../context/themeProvider';
 
-const Social: React.FC<SocialProps> = () => {
-  const { theme, themeName, toggleTheme } = React.useContext(ThemeContext);
+const Social: FC = () => {
+  const { theme } = React.useContext(ThemeContext);
   const { secondary, oppositeSecondary } = theme?.colors;
   return (
     <div className="social-container">

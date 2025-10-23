@@ -9,6 +9,7 @@ interface ModalProps {
   bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
+  closeModal: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,7 +17,6 @@ const Modal: React.FC<ModalProps> = ({
   closeModal,
   imageData,
   bgColor,
-  showCloseBtn,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -27,11 +27,11 @@ const Modal: React.FC<ModalProps> = ({
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, closeModal]);
   return (

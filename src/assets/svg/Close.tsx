@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   bg?: string;
@@ -12,19 +12,26 @@ function CloseIcon({ bg, color, onClose, size, crossSize }: Props) {
   return (
     <div
       onClick={onClose}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClose?.();
+        }
+      }}
+      role="button"
+      tabIndex={0}
       style={{
-        borderRadius: "50%",
-        background: bg ?? "#fff",
+        borderRadius: '50%',
+        background: bg ?? '#fff',
         height: `${size ?? 20}px`,
         width: `${size ?? 20}px`,
-        display: "flex",
-        justifyContent: "center",
-        padding: "1px",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '1px',
+        alignItems: 'center',
       }}
     >
       <div
-        style={{ fontSize: `${crossSize ?? "15px"}px`, color: color ?? "#333" }}
+        style={{ fontSize: `${crossSize ?? '15px'}px`, color: color ?? '#333' }}
       >
         &#x2715;
       </div>

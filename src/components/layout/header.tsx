@@ -5,10 +5,10 @@ import Navigation from "../Navigation";
 
 const Header: React.FC = () => {
   const headerIconClick = () => {
-    const path = typeof window !== "undefined" ? window.location.pathname : "";
-    if (path !== "/") {
-      navigate("/");
-      playSound("linkSound");
+    const path = typeof window !== 'undefined' ? window.location.pathname : '';
+    if (path !== '/') {
+      navigate('/');
+      playSound('linkSound');
     }
   };
   return (
@@ -32,6 +32,13 @@ const Header: React.FC = () => {
       >
         <div
           onClick={headerIconClick}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              headerIconClick();
+            }
+          }}
+          role="button"
+          tabIndex={0}
           className="header-icon"
           style={{
             backgroundColor: "var(--about-stat-bg, rgba(255, 255, 255, 0.1))",
