@@ -38,14 +38,17 @@ const Layout: FC<Props> = (props: Props) => {
       <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
       <div className="toggle-button">
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
-        <div onClick={toggleSidebar} className="hamburger-container">
+        <div
+          onClick={toggleSidebar}
+          className={`hamburger-container ${isToggled ? "active" : ""}`}
+        >
           <IoIosCloseCircleOutline
-            size={30}
+            size={28}
             className={`icon ${isToggled ? "show" : "hide"}`}
             style={{ color: theme.colors.oppositePrimary }}
           />
           <IoListCircleOutline
-            size={30}
+            size={28}
             className={`icon ${isToggled ? "hide" : "show"}`}
             style={{ color: theme.colors.oppositePrimary }}
           />

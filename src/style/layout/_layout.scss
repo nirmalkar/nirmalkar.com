@@ -78,15 +78,20 @@ section {
 
   .hamburger-container {
     cursor: pointer;
-    padding: 0.75rem;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--about-bg, rgba(255, 255, 255, 0.08));
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 0.875rem;
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--about-bg, rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.18));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     position: relative;
     overflow: hidden;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &::before {
       content: "";
@@ -97,41 +102,81 @@ section {
       bottom: 0;
       background: linear-gradient(
         135deg,
-        var(--about-accent, rgba(255, 255, 255, 0.08)) 0%,
-        rgba(255, 255, 255, 0.03) 100%
+        var(--about-accent, rgba(255, 255, 255, 0.12)) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.02) 100%
       );
       opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 12px;
+      transition: opacity 0.4s ease;
+      border-radius: 14px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(
+        circle,
+        var(--about-accent, rgba(255, 255, 255, 0.15)) 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transition: all 0.4s ease;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
     }
 
     &:hover {
-      background: var(--about-stat-hover, rgba(255, 255, 255, 0.15));
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      border-color: var(--about-accent, rgba(255, 255, 255, 0.2));
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
 
       &::before {
         opacity: 1;
       }
+
+      &::after {
+        opacity: 1;
+        width: 120%;
+        height: 120%;
+      }
     }
 
     &:active {
-      transform: translateY(0);
+      transform: translateY(-1px) scale(1.02);
+      transition: all 0.1s ease;
     }
 
     .icon {
       position: absolute;
-      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       color: var(--about-text, #ffffff);
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+      transform-origin: center;
+      font-weight: 600;
     }
 
     .show {
       opacity: 1;
+      transform: scale(1) rotate(0deg);
     }
 
     .hide {
       opacity: 0;
+      transform: scale(0.8) rotate(180deg);
+    }
+
+    // Add subtle pulse animation when sidebar is open
+    &.active {
+      animation: gentle-pulse 2s ease-in-out infinite;
+
+      .icon {
+        filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.2));
+      }
     }
   }
 }
@@ -144,18 +189,35 @@ section {
     top: 2%;
   }
   .hamburger-container {
+    width: 44px;
+    height: 44px;
+    padding: 0.75rem;
+    border-radius: 12px;
+
     .icon {
       position: absolute;
-      transition: opacity 0.5s ease-in-out;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       right: 0;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
     }
 
     .show {
       opacity: 1;
+      transform: scale(1) rotate(0deg);
     }
 
     .hide {
       opacity: 0;
+      transform: scale(0.9) rotate(-180deg);
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.03);
+
+      &::after {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
@@ -168,7 +230,18 @@ section {
   }
 
   .hamburger-container {
-    display: none;
+    width: 46px;
+    height: 46px;
+    padding: 0.8rem;
+    border-radius: 13px;
+
+    .icon {
+      filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.12));
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.04);
+    }
   }
 }
 
@@ -180,7 +253,36 @@ section {
   }
 
   .hamburger-container {
-    display: none; // Hide hamburger on medium+ screens where desktop navigation is available
+    width: 50px;
+    height: 50px;
+    padding: 0.875rem;
+    border-radius: 15px;
+
+    .icon {
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+  }
+}
+
+@include respond-to(large) {
+  .hamburger-container {
+    display: none; // Hide hamburger on large+ screens where desktop navigation is available
+  }
+}
+
+@include respond-to(xlarge) {
+  .hamburger-container {
+    display: none;
+  }
+}
+
+@include respond-to(xxlarge) {
+  .hamburger-container {
+    display: none;
   }
 }
 
@@ -206,5 +308,17 @@ main.content {
     body {
       overflow: hidden;
     }
+  }
+}
+
+// Hamburger menu animations
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18), 0 0 0 12px var(--about-accent, rgba(255, 255, 255, 0.08));
+    transform: scale(1.02);
   }
 }
