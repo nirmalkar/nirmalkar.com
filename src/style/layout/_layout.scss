@@ -46,6 +46,16 @@ main {
   transition: all 0.3s ease !important;
 }
 
+/* Global overflow prevention */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 section {
   text-align: center;
   padding: 18px;
@@ -110,7 +120,7 @@ footer {
   .toggle-button {
     display: flex;
     position: absolute;
-    right: 15%;
+    right: 5%; // Adjusted for mobile
     top: 2%;
   }
   .hamburger-container {

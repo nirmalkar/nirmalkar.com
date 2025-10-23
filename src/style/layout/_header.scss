@@ -9,6 +9,7 @@ header {
   backdrop-filter: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
+  box-sizing: border-box;
 
   .header-icon {
     position: static;
@@ -37,9 +38,11 @@ header {
 
 @include respond-to(extraSmall) {
   header {
-    padding: 1.8rem;
-    width: 90%;
+    padding: 1.5rem 1rem; // Reduced padding for mobile
+    width: 95%; // Increased width but with better padding control
+    // max-width: 100%; // Prevent overflow
     background: transparent !important;
+    box-sizing: border-box;
 
     .header-icon {
       position: static;
