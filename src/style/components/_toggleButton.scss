@@ -44,8 +44,8 @@
   justify-content: center;
 
   svg {
-    width: 0.6rem;  // Updated to match 12px SVG
-    height: 0.6rem;  // Updated to match 12px SVG
+    width: 0.6rem; // Updated to match 12px SVG
+    height: 0.6rem; // Updated to match 12px SVG
     fill: #ffffff;
   }
 }
@@ -54,7 +54,7 @@
   background: var(--about-accent, rgba(255, 255, 255, 0.3));
 
   .toggle-ball {
-    transform: translate(1.5rem, -50%);  // Adjusted for new smaller width
+    transform: translate(1.5rem, -50%); // Adjusted for new smaller width
     background: var(--about-accent, rgba(255, 255, 255, 0.3));
     color: var(--about-text, #ffffff);
 
@@ -72,48 +72,48 @@
 // Responsive adjustments
 @include respond-to(extraSmall) {
   .toggle-label {
-    width: 2.5rem;  // Reduced from 3rem
-    height: 1.25rem;  // Reduced from 1.75rem
-    padding: 0.15rem;  // Reduced from 0.2rem
+    width: 2.5rem; // Reduced from 3rem
+    height: 1.25rem; // Reduced from 1.75rem
+    padding: 0.15rem; // Reduced from 0.2rem
   }
 
   .toggle-ball {
-    width: 0.95rem;  // Reduced from 1.25rem
-    height: 0.95rem;  // Reduced from 1.25rem
-    left: 0.15rem;  // Reduced from 0.2rem
+    width: 0.95rem; // Reduced from 1.25rem
+    height: 0.95rem; // Reduced from 1.25rem
+    left: 0.15rem; // Reduced from 0.2rem
 
     svg {
-      width: 0.5rem;  // Updated for 12px SVG
-      height: 0.5rem;  // Updated for 12px SVG
+      width: 0.5rem; // Updated for 12px SVG
+      height: 0.5rem; // Updated for 12px SVG
       fill: #ffffff;
     }
   }
 
   .toggle-checkbox:checked + .toggle-label .toggle-ball {
-    transform: translate(1.25rem, -50%);  // Adjusted for smaller mobile width
+    transform: translate(1.25rem, -50%); // Adjusted for smaller mobile width
   }
 }
 
 @include respond-to(small) {
   .toggle-label {
-    width: 2.75rem;  // Reduced from 3.25rem
-    height: 1.375rem;  // Reduced from 1.875rem
-    padding: 0.175rem;  // Reduced from 0.2rem
+    width: 2.75rem; // Reduced from 3.25rem
+    height: 1.375rem; // Reduced from 1.875rem
+    padding: 0.175rem; // Reduced from 0.2rem
   }
 
   .toggle-ball {
-    width: 1rem;  // Reduced from 1.375rem
-    height: 1rem;  // Reduced from 1.375rem
-    left: 0.175rem;  // Reduced from 0.2rem
+    width: 1rem; // Reduced from 1.375rem
+    height: 1rem; // Reduced from 1.375rem
+    left: 0.175rem; // Reduced from 0.2rem
 
     svg {
-      width: 0.55rem;  // Updated for 12px SVG
-      height: 0.55rem;  // Updated for 12px SVG
+      width: 0.55rem; // Updated for 12px SVG
+      height: 0.55rem; // Updated for 12px SVG
       fill: #ffffff;
     }
   }
 
   .toggle-checkbox:checked + .toggle-label .toggle-ball {
-    transform: translate(1.4rem, -50%);  // Adjusted for small screen width
+    transform: translate(1.4rem, -50%); // Adjusted for small screen width
   }
 }

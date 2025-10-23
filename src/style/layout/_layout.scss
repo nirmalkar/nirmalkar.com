@@ -89,15 +89,17 @@ section {
     overflow: hidden;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg,
+      background: linear-gradient(
+        135deg,
         var(--about-accent, rgba(255, 255, 255, 0.08)) 0%,
-        rgba(255, 255, 255, 0.03) 100%);
+        rgba(255, 255, 255, 0.03) 100%
+      );
       opacity: 0;
       transition: opacity 0.3s ease;
       border-radius: 12px;

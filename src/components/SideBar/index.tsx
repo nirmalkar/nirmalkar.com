@@ -26,15 +26,15 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
   useEffect(() => {
     if (isVisible) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isVisible]);
 
@@ -104,7 +104,7 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
                 }}
                 className={isVisible ? "animate-in" : ""}
               >
-                <Link to={item.to} onClick={toggleSidebar}>
+                <Link to={item.to} onClick={toggleSidebar} className="sidebar-link">
                   <span className="sidebar-icon">{item.icon}</span>
                   <span className="sidebar-label">{item.label}</span>
                 </Link>
