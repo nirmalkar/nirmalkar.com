@@ -78,23 +78,50 @@ section {
 
   .hamburger-container {
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background: var(--about-bg, rgba(255, 255, 255, 0.05));
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--about-bg, rgba(255, 255, 255, 0.08));
     backdrop-filter: blur(10px);
-    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
+    border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg,
+        var(--about-accent, rgba(255, 255, 255, 0.08)) 0%,
+        rgba(255, 255, 255, 0.03) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
 
     &:hover {
-      background: var(--about-stat-hover, rgba(255, 255, 255, 0.1));
-      transform: translateY(-1px);
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.15));
+      transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.2));
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
     }
 
     .icon {
       position: absolute;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--about-text, #ffffff);
     }
 
     .show {
@@ -146,5 +173,36 @@ section {
 @include respond-to(medium) {
   .toggle-button {
     right: 2%;
+    top: 1.5%;
+    gap: 1.25rem;
+  }
+
+  .hamburger-container {
+    display: none; // Hide hamburger on medium+ screens where desktop navigation is available
+  }
+}
+
+/* Sidebar integration */
+main.content {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.shifted {
+    transform: translateX(320px);
+
+    @include respond-to(extraSmall) {
+      transform: translateX(280px);
+    }
+
+    @include respond-to(small) {
+      transform: translateX(300px);
+    }
+  }
+}
+
+.sidebar-backdrop {
+  &.visible {
+    body {
+      overflow: hidden;
+    }
   }
 }

@@ -26,12 +26,15 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
   useEffect(() => {
     if (isVisible) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isVisible]);
 
@@ -50,56 +53,67 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
     );
   }, [theme]);
 
+  const navigationItems = [
+    {
+      to: "/",
+      icon: <IoHomeOutline size={24} />,
+      label: "Home",
+    },
+    {
+      to: "/work",
+      icon: <FaLaptopCode size={24} />,
+      label: "Work",
+    },
+    {
+      to: "/about",
+      icon: <IoPersonOutline size={24} />,
+      label: "About me",
+    },
+    {
+      to: "/contact",
+      icon: <RiContactsLine size={24} />,
+      label: "Contact",
+    },
+    {
+      to: "/info",
+      icon: <IoInformationCircleOutline size={24} />,
+      label: "Info",
+    },
+  ];
+
   return (
-    <div
-      ref={sidebarRef}
-      className={`sidebar ${isVisible ? "visible" : "hidden"}`}
-    >
-      <nav>
-        <ul onClick={toggleSidebar}>
-          <Link to="/">
-            <li>
-              <IoHomeOutline style={{ color: theme.colors.oppositePrimary }} />
-              Home
-            </li>
-          </Link>
-          {/* <Link to="/blog">
-            <li>
-              <FaBlogger style={{ color: theme.colors.oppositePrimary }} />
-              Blog
-            </li>
-          </Link> */}
-          <Link to="/work">
-            <li>
-              <FaLaptopCode style={{ color: theme.colors.oppositePrimary }} />
-              Work
-            </li>
-          </Link>
-          <Link to="/about">
-            <li>
-              <IoPersonOutline
-                style={{ color: theme.colors.oppositePrimary }}
-              />
-              About me
-            </li>
-          </Link>
-          <Link to="/contact">
-            <li>
-              <RiContactsLine style={{ color: theme.colors.oppositePrimary }} />
-              Contact
-            </li>
-          </Link>
-          <Link to="/info">
-            <li>
-              <IoInformationCircleOutline
-                style={{ color: theme.colors.oppositePrimary }}
-              />
-              Info
-            </li>
-          </Link>
-        </ul>
-      </nav>
-    </div>
+    <>
+      {/* Backdrop */}
+      <div
+        className={`sidebar-backdrop ${isVisible ? "visible" : "hidden"}`}
+        onClick={toggleSidebar}
+      />
+
+      {/* Sidebar */}
+      <div
+        ref={sidebarRef}
+        className={`sidebar ${isVisible ? "visible" : "hidden"}`}
+      >
+        <nav>
+          <ul>
+            {navigationItems.map((item, index) => (
+              <li
+                key={item.to}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                }}
+                className={isVisible ? "animate-in" : ""}
+              >
+                <Link to={item.to} onClick={toggleSidebar}>
+                  <span className="sidebar-icon">{item.icon}</span>
+                  <span className="sidebar-label">{item.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
 
