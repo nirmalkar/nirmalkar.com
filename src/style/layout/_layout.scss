@@ -146,9 +146,16 @@ section {
       }
     }
 
-    &:active {
-      transform: translateY(-1px) scale(1.02);
-      transition: all 0.1s ease;
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+    }
+
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     .icon {
@@ -207,7 +214,7 @@ section {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       right: 0;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
       width: 26px;
@@ -224,7 +231,19 @@ section {
 
     .hide {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.9) rotate(-180deg);
+      transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+    }
+
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
+    }
+
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     }
 
     &:hover {
@@ -270,12 +289,19 @@ section {
       transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 
-    .hide {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.85) rotate(-180deg);
+    &:focus {
+      outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
+      outline-offset: 2px;
+      background: var(--about-stat-hover, rgba(255, 255, 255, 0.18));
+      border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
     }
-  }
 
+    &:focus:not(:hover) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+  }
   @include respond-to(medium) {
     .toggle-button {
       right: 2%;
@@ -284,56 +310,25 @@ section {
     }
 
     .hamburger-container {
-      width: 50px;
-      height: 50px;
-      padding: 0.875rem;
-      border-radius: 15px;
-
-      .icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
-        width: 29px;
-        height: 29px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .show {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-      }
-
-      .hide {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8) rotate(180deg);
-      }
-
-      &:hover {
-        transform: translateY(-3px) scale(1.05);
-      }
+      display: none; // Hide hamburger on medium+ screens (mobile only)
     }
   }
 
   @include respond-to(large) {
     .hamburger-container {
-      display: none; // Hide hamburger on large+ screens where desktop navigation is available
+      display: none; // Redundant but kept for clarity
     }
   }
 
   @include respond-to(xlarge) {
     .hamburger-container {
-      display: none;
+      display: none; // Redundant but kept for clarity
     }
   }
 
   @include respond-to(xxlarge) {
     .hamburger-container {
-      display: none;
+      display: none; // Redundant but kept for clarity
     }
   }
 

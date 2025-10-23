@@ -362,14 +362,14 @@
 @include respond-to(large) {
   .intro-container {
     max-width: calc(100vw - 60px);
-    padding-top: 15%;
+    padding-top: 10%;
   }
 }
 
 @include respond-to(xlarge) {
   .intro-container {
     max-width: 1000px;
-    padding-top: 10%;
+    padding-top: 5%;
   }
 
   .intro-content {
