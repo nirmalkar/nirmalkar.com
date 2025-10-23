@@ -153,21 +153,29 @@ section {
 
     .icon {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       color: var(--about-text, #ffffff);
       filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
       transform-origin: center;
       font-weight: 600;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .show {
       opacity: 1;
-      transform: scale(1) rotate(0deg);
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 
     .hide {
       opacity: 0;
-      transform: scale(0.8) rotate(180deg);
+      transform: translate(-50%, -50%) scale(0.8) rotate(180deg);
     }
 
     // Add subtle pulse animation when sidebar is open
@@ -196,19 +204,27 @@ section {
 
     .icon {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       right: 0;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .show {
       opacity: 1;
-      transform: scale(1) rotate(0deg);
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 
     .hide {
       opacity: 0;
-      transform: scale(0.9) rotate(-180deg);
+      transform: translate(-50%, -50%) scale(0.9) rotate(-180deg);
     }
 
     &:hover {
@@ -236,89 +252,128 @@ section {
     border-radius: 13px;
 
     .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.12));
+      width: 27px;
+      height: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    &:hover {
-      transform: translateY(-2px) scale(1.04);
-    }
-  }
-}
-
-@include respond-to(medium) {
-  .toggle-button {
-    right: 2%;
-    top: 1.5%;
-    gap: 1.25rem;
-  }
-
-  .hamburger-container {
-    width: 50px;
-    height: 50px;
-    padding: 0.875rem;
-    border-radius: 15px;
-
-    .icon {
-      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
+    .show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 
-    &:hover {
-      transform: translateY(-3px) scale(1.05);
+    .hide {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.85) rotate(-180deg);
     }
   }
-}
 
-@include respond-to(large) {
-  .hamburger-container {
-    display: none; // Hide hamburger on large+ screens where desktop navigation is available
-  }
-}
-
-@include respond-to(xlarge) {
-  .hamburger-container {
-    display: none;
-  }
-}
-
-@include respond-to(xxlarge) {
-  .hamburger-container {
-    display: none;
-  }
-}
-
-/* Sidebar integration */
-main.content {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &.shifted {
-    transform: translateX(320px);
-
-    @include respond-to(extraSmall) {
-      transform: translateX(280px);
+  @include respond-to(medium) {
+    .toggle-button {
+      right: 2%;
+      top: 1.5%;
+      gap: 1.25rem;
     }
 
-    @include respond-to(small) {
-      transform: translateX(300px);
+    .hamburger-container {
+      width: 50px;
+      height: 50px;
+      padding: 0.875rem;
+      border-radius: 15px;
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
+        width: 29px;
+        height: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .show {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+
+      .hide {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) rotate(180deg);
+      }
+
+      &:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
     }
   }
-}
 
-.sidebar-backdrop {
-  &.visible {
-    body {
-      overflow: hidden;
+  @include respond-to(large) {
+    .hamburger-container {
+      display: none; // Hide hamburger on large+ screens where desktop navigation is available
     }
   }
-}
 
-// Hamburger menu animations
-@keyframes gentle-pulse {
-  0%, 100% {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    transform: scale(1);
+  @include respond-to(xlarge) {
+    .hamburger-container {
+      display: none;
+    }
   }
-  50% {
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18), 0 0 0 12px var(--about-accent, rgba(255, 255, 255, 0.08));
-    transform: scale(1.02);
+
+  @include respond-to(xxlarge) {
+    .hamburger-container {
+      display: none;
+    }
+  }
+
+  /* Sidebar integration */
+  main.content {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.shifted {
+      transform: translateX(320px);
+
+      @include respond-to(extraSmall) {
+        transform: translateX(280px);
+      }
+
+      @include respond-to(small) {
+        transform: translateX(300px);
+      }
+    }
+  }
+
+  .sidebar-backdrop {
+    &.visible {
+      body {
+        overflow: hidden;
+      }
+    }
+  }
+
+  // Hamburger menu animations
+  @keyframes gentle-pulse {
+    0%,
+    100% {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.18),
+        0 0 0 12px var(--about-accent, rgba(255, 255, 255, 0.08));
+      transform: scale(1.02);
+    }
   }
 }

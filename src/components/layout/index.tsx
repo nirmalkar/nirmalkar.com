@@ -43,12 +43,12 @@ const Layout: FC<Props> = (props: Props) => {
           className={`hamburger-container ${isToggled ? "active" : ""}`}
         >
           <IoIosCloseCircleOutline
-            size={28}
+            size={32}
             className={`icon ${isToggled ? "show" : "hide"}`}
             style={{ color: theme.colors.oppositePrimary }}
           />
           <IoListCircleOutline
-            size={28}
+            size={32}
             className={`icon ${isToggled ? "hide" : "show"}`}
             style={{ color: theme.colors.oppositePrimary }}
           />
