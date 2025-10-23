@@ -1,3 +1,8 @@
+.nav-container-light,
+.nav-container-dark {
+  display: none;
+}
+
 @include respond-to(small) {
   .nav-container-light,
   .nav-container-dark {

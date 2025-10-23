@@ -2,7 +2,7 @@
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
   text-align: center;
-  padding: 3% 0% 5% 0%; // Moved lower - increased from 1% to 3%
+  padding: 60px;
   font-weight: 300;
   width: 100%;
   max-width: 90vw;
@@ -10,17 +10,17 @@
 
   @media (min-width: 480px) {
     max-width: 90vw;
-    padding: 2.5% 0% 4% 0%; // Increased from 0.75% to 2.5%
+    padding: 2.5% 0% 4% 0%;
   }
 
   @media (min-width: 768px) {
     max-width: calc(100vw - 60px);
-    padding: 2% 0% 4% 0%; // Increased from 0.5% to 2%
+    padding: 2% 0% 4% 0%;
   }
 
   @media (min-width: 1024px) {
     max-width: calc(100vw - 80px);
-    padding: 2% 0% 4% 0%; // Increased from 0.5% to 2%
+    padding: 2% 0% 4% 0%;
   }
 
   @media (min-width: 1200px) {
@@ -55,16 +55,18 @@
   animation: introFadeIn 1s ease-out 0.2s both;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       var(--about-accent, rgba(255, 255, 255, 0.15)) 0%,
       rgba(255, 255, 255, 0.08) 50%,
-      rgba(255, 255, 255, 0.03) 100%);
+      rgba(255, 255, 255, 0.03) 100%
+    );
     opacity: 0.25;
     pointer-events: none;
     border-radius: 24px;
@@ -132,10 +134,10 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -8px;
     left: 50%;
@@ -166,7 +168,7 @@
   letter-spacing: 1px;
   font-weight: 700;
   color: var(--about-text, #ffffff);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
 
@@ -197,7 +199,7 @@
   font-size: 16px;
   line-height: 1.7;
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 2.5rem;
   max-width: 600px;
   margin-left: auto;
@@ -273,7 +275,7 @@
 @include respond-to(extraSmall) {
   .intro-container {
     max-width: 95vw;
-    padding: 2% 0% 3% 0%; // Moved lower - increased from 0.5% to 2%
+    padding: 15% 0% 3% 0%;
   }
 
   .intro-content {
@@ -319,7 +321,7 @@
 @include respond-to(small) {
   .intro-container {
     max-width: 90vw;
-    padding: 2.5% 0% 4% 0%; // Moved lower - increased from 0.75% to 2.5%
+    padding: 10% 0% 12% 0%;
   }
 
   .intro-content {
@@ -353,18 +355,21 @@
 @include respond-to(medium) {
   .intro-container {
     max-width: 85vw;
+    padding-top: 10%;
   }
 }
 
 @include respond-to(large) {
   .intro-container {
     max-width: calc(100vw - 60px);
+    padding-top: 15%;
   }
 }
 
 @include respond-to(xlarge) {
   .intro-container {
     max-width: 1000px;
+    padding-top: 10%;
   }
 
   .intro-content {
