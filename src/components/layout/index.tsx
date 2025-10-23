@@ -40,6 +40,7 @@ const Layout: FC<Props> = (props: Props) => {
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
         <div
           onClick={toggleSidebar}
+          id="hamburger"
           className={`hamburger-container ${isToggled ? "active" : ""}`}
         >
           <IoIosCloseCircleOutline

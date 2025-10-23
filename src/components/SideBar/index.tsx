@@ -104,7 +104,11 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
                 }}
                 className={isVisible ? "animate-in" : ""}
               >
-                <Link to={item.to} onClick={toggleSidebar} className="sidebar-link">
+                <Link
+                  to={item.to}
+                  onClick={toggleSidebar}
+                  className="sidebar-link"
+                >
                   <span className="sidebar-icon">{item.icon}</span>
                   <span className="sidebar-label">{item.label}</span>
                 </Link>
