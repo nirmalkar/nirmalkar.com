@@ -18,7 +18,10 @@ interface IntroDataType {
 
 const Intro: React.FC<IntroDataType> = (props) => {
   const { theme } = React.useContext(ThemeContext);
-  const { oppositeSecondary, oppositePrimary } = theme?.colors;
+  const { oppositeSecondary, oppositePrimary } = theme?.colors || {
+    oppositeSecondary: '#333333',
+    oppositePrimary: '#ffffff'
+  };
   const { bio, salutation, intro } = props.bioData;
 
   return (

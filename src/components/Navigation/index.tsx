@@ -83,9 +83,17 @@ const Links: FC<LinksProps> = ({ navLinks, theme }) => {
 
 const Nav: FC = () => {
   const { theme, themeName } = useContext(ThemeContext);
+  const themeWithFallbacks = theme || {
+    colors: {
+      oppositePrimary: '#333333',
+      oppositeSecondary: '#333333',
+      primary: '#ffffff',
+      secondary: '#f0f0f0'
+    }
+  };
   return (
     <div className={`nav-container-${themeName}`}>
-      <Links {...{ navLinks, themeName, theme }} />
+      <Links {...{ navLinks, themeName, theme: themeWithFallbacks }} />
     </div>
   );
 };

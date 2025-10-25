@@ -6,7 +6,10 @@ import { ThemeContext } from '../../context/themeProvider';
 
 const Social: FC = () => {
   const { theme } = React.useContext(ThemeContext);
-  const { secondary, oppositeSecondary } = theme?.colors;
+  const { secondary, oppositeSecondary } = theme?.colors || {
+    secondary: '#f0f0f0',
+    oppositeSecondary: '#333333'
+  };
   return (
     <div className="social-container">
       {social.map((social) => (

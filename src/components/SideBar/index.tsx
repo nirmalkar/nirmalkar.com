@@ -13,6 +13,14 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const { theme } = useContext(ThemeContext);
 
+  const themeWithFallbacks = theme || {
+    colors: {
+      primary: '#ffffff',
+      oppositePrimary: '#333333',
+      secondaryLighter: '#f0f0f0'
+    }
+  };
+
   const handleClickOutside = (event: MouseEvent) => {
     if (
       sidebarRef.current &&
@@ -40,17 +48,17 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       '--primaryColor',
-      theme.colors.primary,
+      themeWithFallbacks.colors.primary,
     );
     document.documentElement.style.setProperty(
       '--oppositePrimaryColor',
-      theme.colors.oppositePrimary,
+      themeWithFallbacks.colors.oppositePrimary,
     );
     document.documentElement.style.setProperty(
       '--secondaryLighterColor',
-      theme.colors.secondaryLighter,
+      themeWithFallbacks.colors.secondaryLighter,
     );
-  }, [theme]);
+  }, [themeWithFallbacks]);
 
   const navigationItems = [
     {
