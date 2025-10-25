@@ -39,7 +39,7 @@ const About: FC<AboutProps> = (props) => {
               </div>
 
               <div className="about-section about-bio">
-                {node.shortBio.raw && renderRichText(node.shortBio, options)}
+                {renderRichText(node.shortBio, options)}
               </div>
             </div>
 
