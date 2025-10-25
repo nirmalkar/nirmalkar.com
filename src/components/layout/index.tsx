@@ -3,7 +3,7 @@ import { IoListCircleOutline } from '@react-icons/all-files/io5/IoListCircleOutl
 import React, { useContext } from 'react';
 import type { ReactNode, FC } from 'react';
 import { ThemeContext } from '../../context/themeProvider';
-import { ToggleContext } from '../../context/toggleProvider';
+import { useToggle } from '../../context/toggleProvider';
 import SideBar from '../SideBar';
 import ToggleButton from '../ToggleButton';
 import Footer from './footer';
@@ -14,13 +14,7 @@ interface Props {
 }
 const Layout: FC<Props> = (props: Props) => {
   const { theme, themeName, toggleTheme } = useContext(ThemeContext);
-  const toggleContext = useContext(ToggleContext);
-
-  if (!toggleContext) {
-    throw new Error('ToggleContext is undefined. Ensure the provider is set.');
-  }
-
-  const { toggle, isToggled } = toggleContext;
+  const { toggle, isToggled } = useToggle();
   const { children } = props;
 
   const toggleSidebar = () => {

@@ -30,6 +30,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const theme = themes[themeName];
 
   useEffect(() => {
+    // Only access localStorage in browser environment
+    if (typeof window === 'undefined' || !window.localStorage) {
+      return;
+    }
+
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme && storedTheme in themes) {
       setThemeName(storedTheme as ThemeName);
@@ -37,6 +42,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    // Only set CSS custom properties in browser environment
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     // Set CSS custom properties based on the current theme
     const root = document.documentElement;
     const customProperties = {
@@ -67,6 +77,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, [themeName, theme.colors.oppositePrimary]);
 
   function getUserPreferredTheme() {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined') {
+      return 'light';
+    }
+
     if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -79,7 +94,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const toggleTheme = () => {
     const newThemeName = themeName === 'light' ? 'dark' : 'light';
     setThemeName(newThemeName);
-    localStorage.setItem('theme', newThemeName);
+
+    // Check if we're in a browser environment before using localStorage
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('theme', newThemeName);
+    }
   };
 
   return (

@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(
     `
-      {
+      query GetAllBlogPosts {
         allContentfulBlogPost {
           nodes {
             title

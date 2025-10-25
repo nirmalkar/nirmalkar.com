@@ -1,6 +1,8 @@
-import React, { ReactNode, useEffect, useRef } from "react";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import CloseIcon from "../../assets/svg/Close";
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import type { ReactNode } from 'react';
+import React, { useEffect, useRef } from 'react';
+import CloseIcon from '../../assets/svg/Close';
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,7 +11,6 @@ interface ModalProps {
   bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
-  closeModal: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -38,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({
     <div className="modal-container">
       {isOpen && (
         <div ref={modalRef} className="modal-overlay">
-          <div className="modal" style={{ background: bgColor ?? "" }}>
+          <div className="modal" style={{ background: bgColor ?? '' }}>
             {imageData && (
               <div className="image-container">
                 {(() => {

@@ -48,6 +48,7 @@ export interface BlogPost {
 
 export interface BlogPostQuery {
   contentfulBlogPost: {
+    slug: string;
     author: any;
     title: string;
     publishDate: string;
