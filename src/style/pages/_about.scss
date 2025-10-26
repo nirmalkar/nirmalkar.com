@@ -44,6 +44,8 @@
   background: var(--about-bg, rgba(255, 255, 255, 0.05));
   border-radius: 20px;
   padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid var(--about-border, rgba(255, 255, 255, 0.1));
@@ -59,14 +61,20 @@
 
   @media (min-width: 480px) {
     padding: 2rem 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   @media (min-width: 768px) {
     padding: 2.75rem 2.25rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 
   @media (min-width: 1024px) {
     padding: 3.25rem 2.75rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -292,6 +300,8 @@
 
   .about-content {
     padding: 1.25rem 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     border-radius: 16px;
   }
 
@@ -315,6 +325,8 @@
 
   .about-content {
     padding: 1.75rem 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .about-description {
@@ -327,11 +339,21 @@
   .about-container {
     max-width: 90vw;
   }
+
+  .about-content {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 @include respond-to(large) {
   .about-container {
     max-width: calc(100vw - 60px);
+  }
+
+  .about-content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -342,6 +364,8 @@
 
   .about-content {
     padding: 3.75rem 3.25rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
   }
 }
 
@@ -352,5 +376,7 @@
 
   .about-content {
     padding: 4.25rem 3.75rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 }
