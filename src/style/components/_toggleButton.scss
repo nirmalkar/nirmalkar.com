@@ -1,3 +1,7 @@
+.toggle-button-container {
+  display: inline-block;
+  position: relative;
+}
 .toggle-checkbox {
   opacity: 0;
   position: absolute;
@@ -115,5 +119,12 @@
 
   .toggle-checkbox:checked + .toggle-label .toggle-ball {
     transform: translate(1.4rem, -50%); // Adjusted for small screen width
+  }
+}
+@include respond-to(medium) {
+  .toggle-button-container {
+    display: inline-block;
+    position: relative;
+    top: 14px;
   }
 }
