@@ -12,14 +12,18 @@ import { FaReact } from '@react-icons/all-files/fa/FaReact';
 import { FaSass } from '@react-icons/all-files/fa/FaSass';
 import { FaVuejs } from '@react-icons/all-files/fa/FaVuejs';
 import { SiAdonisjs } from '@react-icons/all-files/si/SiAdonisjs';
+import { SiElectron } from '@react-icons/all-files/si/SiElectron';
 import { SiFirebase } from '@react-icons/all-files/si/SiFirebase';
 import { SiGraphql } from '@react-icons/all-files/si/SiGraphql';
 import { SiJavascript } from '@react-icons/all-files/si/SiJavascript';
+import { SiJenkins } from '@react-icons/all-files/si/SiJenkins';
 import { SiJest } from '@react-icons/all-files/si/SiJest';
 import { SiMaterialUi } from '@react-icons/all-files/si/SiMaterialUi';
 import { SiNextDotJs } from '@react-icons/all-files/si/SiNextDotJs';
+import { SiSocketDotIo } from '@react-icons/all-files/si/SiSocketDotIo';
 import { SiTailwindcss } from '@react-icons/all-files/si/SiTailwindcss';
 import { SiTypescript } from '@react-icons/all-files/si/SiTypescript';
+import { SiWebrtc } from '@react-icons/all-files/si/SiWebrtc';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/themeProvider';
 
@@ -48,6 +52,15 @@ function TechIcons({ name, size = 24, color }: TechIconsPropsType) {
       return <SiJavascript {...iconProps} />;
     case 'typescript':
       return <SiTypescript {...iconProps} />;
+    case 'electron':
+      return <SiElectron {...iconProps} />;
+    case 'jenkins':
+      return <SiJenkins {...iconProps} />;
+    case 'websocket':
+    case 'socketio':
+      return <SiSocketDotIo {...iconProps} />;
+    case 'webrtc':
+      return <SiWebrtc {...iconProps} />;
     case 'reactjs':
       return <FaReact {...iconProps} />;
     case 'vue':

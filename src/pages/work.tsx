@@ -74,12 +74,12 @@ function Work(props: WorkPropsType) {
       <main className="work-container">
         <section className="project-container">
           <h3 className="project-heading">Projects</h3>
-          {projects.map((project: { node: Project }, index: number) => (
+          {projects.map((project: { node: Project }, _index: number) => (
             <InfoCard
               key={project.node.id}
               {...{
                 title: project?.node.name,
-                image: project?.node?.Image[0],
+                image: project?.node?.Image,
                 description: project?.node.description.description,
                 clickable: true,
                 textColor: theme.colors.oppositePrimary,

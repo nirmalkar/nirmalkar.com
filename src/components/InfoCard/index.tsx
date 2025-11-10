@@ -1,7 +1,6 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import BlogIcons from '../../assets/svg/Blog';
-import { ThemeContext } from '../../context/themeProvider';
+import ImageSlider from '../ImageSlider';
 import TechIcon from '../TechIcon';
 
 interface GatsbyImage {
@@ -32,7 +31,7 @@ type CardProps = {
   bgColor?: string;
   textColor: string;
   clickable: boolean;
-  image?: { gatsbyImage: GatsbyImage };
+  image?: { gatsbyImage: GatsbyImage } | Array<{ gatsbyImage: GatsbyImage }>;
   onCardClick?: () => void;
   icons: string[];
 };
@@ -48,13 +47,12 @@ function Card({
   onCardClick,
   icons,
 }: CardProps) {
-  const { theme } = React.useContext(ThemeContext);
   return (
     <div
       key={title || name || description}
       className="work-card"
       style={{
-        cursor: clickable ? "pointer" : "",
+        cursor: clickable ? 'pointer' : '',
       }}
       role={clickable ? 'button' : undefined}
       tabIndex={clickable ? 0 : undefined}
@@ -70,22 +68,27 @@ function Card({
           {title}
         </div>
       )}
-      <div className="description" style={{ color: textColor }}>
-        <div className="card-content">
-          <div className="image">
-            {image && <GatsbyImage alt={title || "Project image"} image={image.gatsbyImage} />}
-          </div>
-          <div className="description">
-            {description}
-            <div className="card-description-icons">
-              {icons?.map((icon) => (
-                <div className="icon">
-                  <TechIcon name={icon} size={20} />
-                </div>
-              ))}
+      <div className="card-content" style={{ color: textColor }}>
+        <div className="content-row">
+          {image && (
+            <div className="image">
+              <ImageSlider
+                images={Array.isArray(image) ? image : [image]}
+                alt={title || 'Project image'}
+              />
             </div>
-          </div>
+          )}
+          <div className="description">{description}</div>
         </div>
+        {icons?.length > 0 && (
+          <div className="card-description-icons">
+            {icons.map((icon) => (
+              <div className="icon" key={icon}>
+                <TechIcon name={icon} size={20} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       {name && <BlogIcons {...{ size: 100, name, fill: textColor }} />}
     </div>
