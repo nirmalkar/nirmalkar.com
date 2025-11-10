@@ -8,17 +8,11 @@ interface ModalProps {
   isOpen: boolean;
   closeModal?: () => void;
   imageData?: IGatsbyImageData;
-  bgColor?: string;
   children?: ReactNode;
   showCloseBtn?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  closeModal,
-  imageData,
-  bgColor,
-}) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, closeModal, imageData }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({
     <div className="modal-container">
       {isOpen && (
         <div ref={modalRef} className="modal-overlay">
-          <div className="modal" style={{ background: bgColor ?? '' }}>
+          <div className="modal">
             {imageData && (
               <div className="image-container">
                 {(() => {
@@ -51,13 +45,7 @@ const Modal: React.FC<ModalProps> = ({
               </div>
             )}
             <div className="close-icon-container">
-              <CloseIcon
-                onClose={closeModal}
-                bg="#fff"
-                color="#333"
-                size={20}
-                crossSize={15}
-              />
+              <CloseIcon onClose={closeModal} size={26} crossSize={14} />
             </div>
           </div>
         </div>

@@ -67,6 +67,7 @@ type WorkPropsType = {
 function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
   const projects = get(props, 'data.allContentfulProject.edges');
+
   return (
     <Layout>
       <Seo title={'Work'} description={'This is the work page.'} />
@@ -90,8 +91,8 @@ function Work(props: WorkPropsType) {
         <section className="technologies-container">
           <h3 className="technologies-heading">Technologies</h3>
           <div className="technologies-icons">
-            {technologies.map((tech) => (
-              <div className="icon">
+            {technologies.map((tech, index) => (
+              <div className="icon" key={`tech-${tech}-${index}`}>
                 <TechIcons name={tech} />
               </div>
             ))}

@@ -29,22 +29,27 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
 .modal {
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   z-index: 1001;
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
   overflow: auto;
+  background: var(--about-bg, rgba(255, 255, 255, 0.12));
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
+  transition: all 0.3s ease;
 }
 
 .hidden {
@@ -53,28 +58,35 @@
 
 .image-container {
   margin-bottom: 20px;
-  height: 50vh;
-  width: 50vh;
-  max-width: 80vw;
-  max-height: 80vh;
+  height: 60vh;
+  width: 60vh;
+  max-width: 85vw;
+  max-height: 85vh;
 
   img {
-    border-radius: 8px;
+    border-radius: 16px;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
   }
 }
 
 .close-icon-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
   z-index: 1002;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &:focus {
-    outline: 2px solid #007acc;
+    outline: 2px solid var(--about-accent, rgba(255, 255, 255, 0.3));
     outline-offset: 2px;
   }
 }
