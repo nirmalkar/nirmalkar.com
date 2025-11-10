@@ -49,6 +49,8 @@ type Project = {
   description: Description;
   Image: Image[];
   technology: { tech_array: string[] };
+  from: string;
+  to: string;
 };
 
 type Data = {
@@ -66,7 +68,15 @@ type WorkPropsType = {
 
 function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
-  const projects = get(props, 'data.allContentfulProject.edges');
+  const projects = [...get(props.data, 'allContentfulProject.edges', [])].sort(
+    (a, b) => {
+      if (!a.node.to && b.node.to) return -1;
+      if (a.node.to && !b.node.to) return 1;
+      const dateA = new Date(a.node.from).getTime();
+      const dateB = new Date(b.node.from).getTime();
+      return dateB - dateA;
+    },
+  );
 
   return (
     <Layout>
@@ -81,6 +91,8 @@ function Work(props: WorkPropsType) {
                 title: project?.node.name,
                 image: project?.node?.Image,
                 description: project?.node.description.description,
+                from: project?.node.from,
+                to: project?.node.to,
                 clickable: true,
                 textColor: theme.colors.oppositePrimary,
                 icons: project?.node.technology.tech_array,
@@ -118,6 +130,8 @@ export const pageQuery = graphql`
           technology {
             tech_array
           }
+          from(formatString: "MMM YYYY")
+          to(formatString: "MMM YYYY")
           Image {
             gatsbyImage(
               layout: FULL_WIDTH

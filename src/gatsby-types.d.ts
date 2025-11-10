@@ -1641,6 +1641,7 @@ type ContentfulProject = ContentfulEntry & ContentfulReference & Node & {
   readonly contentful_id: Scalars['String'];
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly description: Maybe<contentfulProjectDescriptionTextNode>;
+  readonly from: Maybe<Scalars['Date']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
@@ -1649,11 +1650,28 @@ type ContentfulProject = ContentfulEntry & ContentfulReference & Node & {
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulProjectSys>;
   readonly technology: Maybe<contentfulProjectTechnologyJsonNode>;
+  readonly to: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
 type ContentfulProject_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProject_fromArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProject_toArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -1723,6 +1741,7 @@ type ContentfulProjectFieldSelector = {
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<contentfulProjectDescriptionTextNodeFieldSelector>;
+  readonly from: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
@@ -1731,6 +1750,7 @@ type ContentfulProjectFieldSelector = {
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulProjectSysFieldSelector>;
   readonly technology: InputMaybe<contentfulProjectTechnologyJsonNodeFieldSelector>;
+  readonly to: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -1744,6 +1764,7 @@ type ContentfulProjectFilterInput = {
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  readonly from: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -1752,6 +1773,7 @@ type ContentfulProjectFilterInput = {
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulProjectSysFilterInput>;
   readonly technology: InputMaybe<contentfulProjectTechnologyJsonNodeFilterInput>;
+  readonly to: InputMaybe<DateQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -1806,6 +1828,7 @@ type ContentfulProjectSortInput = {
   readonly contentful_id: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<contentfulProjectDescriptionTextNodeSortInput>;
+  readonly from: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
@@ -1814,6 +1837,7 @@ type ContentfulProjectSortInput = {
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulProjectSysSortInput>;
   readonly technology: InputMaybe<contentfulProjectTechnologyJsonNodeSortInput>;
+  readonly to: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };
 
@@ -3639,6 +3663,7 @@ type Query_contentfulProjectArgs = {
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   description: InputMaybe<contentfulProjectDescriptionTextNodeFilterInput>;
+  from: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -3647,6 +3672,7 @@ type Query_contentfulProjectArgs = {
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulProjectSysFilterInput>;
   technology: InputMaybe<contentfulProjectTechnologyJsonNodeFilterInput>;
+  to: InputMaybe<DateQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -5222,7 +5248,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type ProjectQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ProjectQueryQuery = { readonly allContentfulProject: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly description: { readonly id: string, readonly description: string | null } | null, readonly technology: { readonly tech_array: ReadonlyArray<string | null> | null } | null, readonly Image: ReadonlyArray<{ readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } }> } };
+type ProjectQueryQuery = { readonly allContentfulProject: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null, readonly from: string | null, readonly to: string | null, readonly description: { readonly id: string, readonly description: string | null } | null, readonly technology: { readonly tech_array: ReadonlyArray<string | null> | null } | null, readonly Image: ReadonlyArray<{ readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } }> } };
 
 type GetAllBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 

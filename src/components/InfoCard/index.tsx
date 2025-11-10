@@ -28,6 +28,8 @@ type CardProps = {
   name?: string;
   title?: string;
   description?: string;
+  from?: string;
+  to?: string;
   bgColor?: string;
   textColor: string;
   clickable: boolean;
@@ -40,6 +42,8 @@ function Card({
   name,
   title,
   description,
+  from,
+  to,
   image,
   bgColor,
   textColor,
@@ -63,11 +67,26 @@ function Card({
         }
       }}
     >
-      {title && (
-        <div className="title" style={{ color: textColor }}>
-          {title}
-        </div>
-      )}
+      <div className="card-header">
+        {title && (
+          <div className="title" style={{ color: textColor }}>
+            {title}
+          </div>
+        )}
+        {(from || to) && (
+          <div
+            className="date-range"
+            style={{
+              color: textColor,
+              opacity: 0.8,
+              fontSize: '0.9rem',
+              marginTop: '0.25rem',
+            }}
+          >
+            {from} - {to || 'Present'}
+          </div>
+        )}
+      </div>
       <div className="card-content" style={{ color: textColor }}>
         <div className="content-row">
           {image && (
