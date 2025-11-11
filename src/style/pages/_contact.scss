@@ -1,5 +1,5 @@
 .contact-container {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 0.5rem 0 2rem 0;
   width: 100%;
   margin: 0 auto;
@@ -23,7 +23,7 @@
         font-weight: 700;
         margin-bottom: 1rem;
         text-align: center;
-        font-family: "Poppins", sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
 
       .contact-subtitle {
@@ -34,7 +34,7 @@
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
-        font-family: "Poppins", sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
     }
 
@@ -56,7 +56,7 @@
         animation: contactFadeIn 1s ease-out 0.2s both;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -97,7 +97,7 @@
               font-size: 1rem;
               font-weight: 600;
               margin-bottom: 0.5rem;
-              font-family: "Poppins", sans-serif;
+              font-family: 'Poppins', sans-serif;
               text-align: left;
               margin-bottom: 10px;
             }
@@ -111,7 +111,7 @@
               background: var(--about-bg, rgba(255, 255, 255, 0.08));
               color: var(--about-text, #ffffff);
               font-size: 1rem;
-              font-family: "Poppins", sans-serif;
+              font-family: 'Poppins', sans-serif;
               outline: none;
               transition: all 0.3s ease;
               box-sizing: border-box;
@@ -143,7 +143,7 @@
             color: var(--about-text, #ffffff);
             font-size: 1rem;
             font-weight: 600;
-            font-family: "Poppins", sans-serif;
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
             box-sizing: border-box;
@@ -171,7 +171,7 @@
               font-weight: 500;
               margin-bottom: 1rem;
               text-align: center;
-              font-family: "Poppins", sans-serif;
+              font-family: 'Poppins', sans-serif;
             }
 
             .social-links {
@@ -196,7 +196,7 @@
                 overflow: hidden;
 
                 &::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   top: 0;
                   left: 0;
@@ -489,7 +489,7 @@
 @include respond-to(xlarge) {
   .contact-container {
     .contact-wrapper {
-      max-width: 1000px;
+      max-width: 650px;
 
       .contact-form-card {
         padding: 6rem;
@@ -505,7 +505,7 @@
 @include respond-to(xxlarge) {
   .contact-container {
     .contact-wrapper {
-      max-width: 1000px;
+      max-width: 850px;
 
       .contact-form-card {
         padding: 7rem;
