@@ -50,7 +50,9 @@ type Project = {
   Image: Image[];
   technology: { tech_array: string[] };
   from: string;
+  fromDate: string;
   to: string;
+  toDate: string;
 };
 
 type Data = {
@@ -70,10 +72,10 @@ function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
   const projects = [...get(props.data, 'allContentfulProject.edges', [])].sort(
     (a, b) => {
-      if (!a.node.to && b.node.to) return -1;
-      if (a.node.to && !b.node.to) return 1;
-      const dateA = new Date(a.node.from).getTime();
-      const dateB = new Date(b.node.from).getTime();
+      if (!a.node.toDate && b.node.toDate) return -1;
+      if (a.node.toDate && !b.node.toDate) return 1;
+      const dateA = new Date(a.node.fromDate).getTime();
+      const dateB = new Date(b.node.fromDate).getTime();
       return dateB - dateA;
     },
   );
@@ -131,7 +133,9 @@ export const pageQuery = graphql`
             tech_array
           }
           from(formatString: "MMM YYYY")
+          fromDate: from
           to(formatString: "MMM YYYY")
+          toDate: to
           Image {
             gatsbyImage(
               layout: FULL_WIDTH
