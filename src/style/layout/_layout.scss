@@ -13,11 +13,6 @@
   }
 }
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 0; /* Remove default padding - let pages control their own spacing */
   padding-bottom: 70px; /* Adjusted for fixed 60px footer */
 
@@ -94,7 +89,7 @@ section {
     justify-content: center;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -112,7 +107,7 @@ section {
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;

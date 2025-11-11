@@ -39,22 +39,33 @@ const Layout: FC<Props> = (props: Props) => {
         <ToggleButton currentTheme={themeName} onToggle={toggleTheme} />
         <div
           onClick={toggleSidebar}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleSidebar();
+            }
+          }}
           id="hamburger"
-          className={`hamburger-container ${isToggled ? "active" : ""}`}
+          className={`hamburger-container ${isToggled ? 'active' : ''}`}
+          role="button"
+          tabIndex={0}
+          aria-label={isToggled ? 'Close menu' : 'Open menu'}
+          aria-expanded={isToggled}
         >
           <IoIosCloseCircleOutline
             size={32}
-            className={`icon ${isToggled ? "show" : "hide"}`}
+            className={`icon ${isToggled ? 'show' : 'hide'}`}
             style={{ color: theme.colors.oppositePrimary }}
+            aria-hidden="true"
           />
           <IoListCircleOutline
             size={32}
-            className={`icon ${isToggled ? "hide" : "show"}`}
+            className={`icon ${isToggled ? 'hide' : 'show'}`}
             style={{ color: theme.colors.oppositePrimary }}
           />
         </div>
       </div>
-      <main className={`content ${isToggled ? "shifted" : ""}`}>
+      <main className={`content ${isToggled ? 'shifted' : ''}`}>
         <section>{children}</section>
       </main>
       <Footer />
