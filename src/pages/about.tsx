@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { FC } from "react";
-import { graphql } from "gatsby";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import React, { useState } from 'react';
+import type { FC } from 'react';
 
 import Layout from '../components/layout';
 import Modal from '../components/Modal';
 import Seo from '../components/seo';
-import { ThemeContext } from '../context/themeProvider';
 
 interface AboutProps {
   data: any;
@@ -15,7 +14,7 @@ interface AboutProps {
 
 const About: FC<AboutProps> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const node = props?.data?.allContentfulPerson?.edges[0].node;
+  const node = props?.data?.allContentfulPerson?.edges[1].node;
   const image = node.image.gatsbyImage;
   const options = {};
 
@@ -29,7 +28,7 @@ const About: FC<AboutProps> = (props) => {
 
   return (
     <Layout>
-      <Seo title={"About"} description={"This is about page for Nirmalkar"} />
+      <Seo title={'About'} description={'This is about page for Nirmalkar'} />
       <div className="about-container">
         <div className="about-content">
           <div className="about-grid">
@@ -46,7 +45,7 @@ const About: FC<AboutProps> = (props) => {
             <div className="about-image-section">
               <div
                 onClick={openModal}
-                onKeyDown={(e) => e.key === "Enter" && openModal()}
+                onKeyDown={(e) => e.key === 'Enter' && openModal()}
                 role="button"
                 tabIndex={0}
                 className="profile-picture"
