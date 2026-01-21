@@ -1,31 +1,30 @@
-import React from "react";
-import { ThemeContext } from "../../context/themeProvider";
-import Social from "../Social";
-
-interface Bio {
-  bio: string;
-}
-
-interface BioData {
-  bio: Bio;
-  salutation: string;
-  intro: string;
-}
+import React from 'react';
+import { ThemeContext } from '../../context/themeProvider';
+import Social from '../Social';
 
 interface IntroDataType {
-  bioData: BioData;
+  bioData: {
+    bio: { bio: string };
+    salutation: string;
+    intro: string;
+  };
 }
 
-const Intro: React.FC<IntroDataType> = (props) => {
+const Intro: React.FC<IntroDataType> = React.memo(({ bioData }) => {
   const { theme } = React.useContext(ThemeContext);
-  const { oppositeSecondary, oppositePrimary } = theme?.colors || {
+  const { oppositeSecondary } = theme?.colors || {
     oppositeSecondary: '#333333',
-    oppositePrimary: '#ffffff'
   };
-  const { bio, salutation, intro } = props.bioData;
+
+  const { bio, salutation, intro } = bioData;
+
+  const sectionStyle = React.useMemo(
+    () => ({ color: oppositeSecondary }),
+    [oppositeSecondary],
+  );
 
   return (
-    <section className="intro-container" style={{ color: oppositeSecondary }}>
+    <section className="intro-container" style={sectionStyle}>
       <div className="intro-content">
         <div className="intro-main">
           <span className="intro-salutation">{salutation}</span>
@@ -39,6 +38,8 @@ const Intro: React.FC<IntroDataType> = (props) => {
       </div>
     </section>
   );
-};
+});
+
+Intro.displayName = 'Intro';
 
 export default Intro;
