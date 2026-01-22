@@ -4,16 +4,11 @@ import Icon from '../../assets/images/SocalIcons';
 import { social } from '../../constants/socialContants';
 import { ThemeContext } from '../../context/themeProvider';
 
-const Social: FC = () => {
+const Social: FC = React.memo(() => {
   const { theme } = React.useContext(ThemeContext);
-  const { secondary, oppositeSecondary, primary } = theme?.colors || {
-    secondary: '#f0f0f0',
+  const { oppositeSecondary } = theme?.colors || {
     oppositeSecondary: '#333333',
-    primary: '#ffffff',
   };
-
-  const backgroundColor =
-    theme?.colors?.primary === '#ffffff' ? primary : secondary;
 
   return (
     <div className="social-container">
@@ -24,13 +19,14 @@ const Social: FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="social"
-          style={{ backgroundColor }}
         >
           <Icon fill={oppositeSecondary} name={social.name} />
         </a>
       ))}
     </div>
   );
-};
+});
+
+Social.displayName = 'Social';
 
 export default Social;

@@ -1,6 +1,6 @@
 .intro-container {
   margin: 0 auto;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   padding: 60px;
   font-weight: 300;
@@ -52,10 +52,10 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  animation: introFadeIn 1s ease-out 0.2s both;
+  animation: introFadeIn 0.6s ease-out 0.1s both;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -73,8 +73,8 @@
   }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--about-accent, rgba(255, 255, 255, 0.2));
     background: var(--about-bg, rgba(255, 255, 255, 0.15));
 
@@ -134,10 +134,10 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -8px;
     left: 50%;
@@ -168,7 +168,7 @@
   letter-spacing: 1px;
   font-weight: 700;
   color: var(--about-text, #ffffff);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
 
@@ -199,7 +199,7 @@
   font-size: 16px;
   line-height: 1.7;
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 2.5rem;
   max-width: 600px;
   margin-left: auto;
@@ -252,7 +252,7 @@
 @keyframes introFadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -285,7 +285,7 @@
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(6px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.12));
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
   }
 
   .intro-salutation {
@@ -378,7 +378,7 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(16px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.22));
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
   }
 }
 

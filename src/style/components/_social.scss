@@ -12,7 +12,7 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--about-bg, rgba(255, 255, 255, 0.12));
+    background: var(--social-bg);
     backdrop-filter: blur(8px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -39,7 +39,7 @@
       transform: translateY(-2px) scale(1.05);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       border-color: var(--about-accent, rgba(255, 255, 255, 0.25));
-      background: var(--about-bg, rgba(255, 255, 255, 0.18));
+      background: var(--social-hover-bg);
 
       &::before {
         opacity: 1;

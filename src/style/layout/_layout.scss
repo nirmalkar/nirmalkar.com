@@ -1,5 +1,10 @@
 .layout {
   min-height: 100vh;
+  background-color: var(--layout-bg);
+  background-size: var(--layout-bg-size);
+  background-position: var(--layout-bg-position);
+  background-repeat: var(--layout-bg-repeat);
+
   @include respond-to(small) {
   }
 

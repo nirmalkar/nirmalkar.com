@@ -1,0 +1,27 @@
+:root {
+  --layout-bg: #ffffff;
+  --layout-bg-size: 10px 10px;
+  --layout-bg-position: 0 0, 30px 30px;
+  --layout-bg-repeat: repeat;
+
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-inverse: #ffffff;
+
+  --social-bg: #f0f0f0;
+  --social-hover-bg: #e0e0e0;
+
+  --icon-color: #333333;
+}
+
+[data-theme='dark'] {
+  --layout-bg: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e4e2;
+  --text-inverse: #121212;
+
+  --social-bg: #222;
+  --social-hover-bg: #555;
+
+  --icon-color: #ffffff;
+}

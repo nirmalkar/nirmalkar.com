@@ -1,19 +1,20 @@
 import { IoIosCloseCircleOutline } from '@react-icons/all-files/io/IoIosCloseCircleOutline';
 import { IoListCircleOutline } from '@react-icons/all-files/io5/IoListCircleOutline';
-import React, { useContext } from 'react';
+import React, { useContext, lazy, Suspense } from 'react';
 import type { ReactNode, FC } from 'react';
 import { ThemeContext } from '../../context/themeProvider';
 import { useToggle } from '../../context/toggleProvider';
 import SideBar from '../SideBar';
 import ToggleButton from '../ToggleButton';
-import Footer from './footer';
 import Header from './header';
+
+const Footer = lazy(() => import('./footer'));
 
 interface Props {
   children?: ReactNode;
 }
-const Layout: FC<Props> = (props: Props) => {
-  const { theme, themeName, toggleTheme } = useContext(ThemeContext);
+const Layout: FC<Props> = React.memo((props: Props) => {
+  const { themeName, toggleTheme } = useContext(ThemeContext);
   const { toggle, isToggled } = useToggle();
   const { children } = props;
 
@@ -21,18 +22,15 @@ const Layout: FC<Props> = (props: Props) => {
     toggle();
   };
 
+  const iconStyle = React.useMemo(
+    () => ({
+      color: 'var(--icon-color)',
+    }),
+    [themeName],
+  );
+
   return (
-    <div
-      className="layout"
-      id="wrapper"
-      style={{
-        backgroundColor: theme.colors.primary,
-        // backgroundImage: `radial-gradient(${secondary} 10%, transparent 11%), radial-gradient(${secondary} 10%, transparent 11%)`,
-        backgroundSize: '10px 10px',
-        backgroundPosition: '0 0, 30px 30px',
-        backgroundRepeat: 'repeat',
-      }}
-    >
+    <div className="layout" id="wrapper">
       <Header />
       <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
       <div className="toggle-button">
@@ -55,22 +53,26 @@ const Layout: FC<Props> = (props: Props) => {
           <IoIosCloseCircleOutline
             size={32}
             className={`icon ${isToggled ? 'show' : 'hide'}`}
-            style={{ color: theme.colors.oppositePrimary }}
+            style={iconStyle}
             aria-hidden="true"
           />
           <IoListCircleOutline
             size={32}
             className={`icon ${isToggled ? 'hide' : 'show'}`}
-            style={{ color: theme.colors.oppositePrimary }}
+            style={iconStyle}
           />
         </div>
       </div>
       <main className={`content ${isToggled ? 'shifted' : ''}`}>
         <section>{children}</section>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="footer-placeholder" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
-};
+});
+
+Layout.displayName = 'Layout';
 
 export default Layout;

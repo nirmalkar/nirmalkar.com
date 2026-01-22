@@ -29,6 +29,23 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   );
   const theme = themes[themeName];
 
+  const contextValue = React.useMemo(
+    () => ({
+      theme,
+      themeName,
+      toggleTheme: () => {
+        const newThemeName = themeName === 'light' ? 'dark' : 'light';
+        setThemeName(newThemeName);
+
+        // Check if we're in a browser environment before using localStorage
+        if (typeof window !== 'undefined' && window.localStorage) {
+          localStorage.setItem('theme', newThemeName);
+        }
+      },
+    }),
+    [theme, themeName],
+  );
+
   useEffect(() => {
     // Only access localStorage in browser environment
     if (typeof window === 'undefined' || !window.localStorage) {
@@ -47,28 +64,37 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       return;
     }
 
-    // Set CSS custom properties based on the current theme
+    // Set data-theme attribute for CSS custom properties
     const root = document.documentElement;
+    root.setAttribute('data-theme', themeName);
+
+    // Set additional CSS custom properties based on the current theme
     const customProperties = {
-      '--about-bg': themeName === 'light'
-        ? 'rgba(229, 228, 226, 0.1)'
-        : 'rgba(34, 34, 34, 0.3)',
-      '--about-border': themeName === 'light'
-        ? 'rgba(18, 18, 18, 0.1)'
-        : 'rgba(229, 228, 226, 0.1)',
+      '--about-bg':
+        themeName === 'light'
+          ? 'rgba(229, 228, 226, 0.1)'
+          : 'rgba(34, 34, 34, 0.3)',
+      '--about-border':
+        themeName === 'light'
+          ? 'rgba(18, 18, 18, 0.1)'
+          : 'rgba(229, 228, 226, 0.1)',
       '--about-text': theme.colors.oppositePrimary,
-      '--about-text-secondary': themeName === 'light'
-        ? 'rgba(18, 18, 18, 0.8)'
-        : 'rgba(229, 228, 226, 0.9)',
-      '--about-accent': themeName === 'light'
-        ? 'rgba(18, 18, 18, 0.2)'
-        : 'rgba(229, 228, 226, 0.3)',
-      '--about-stat-bg': themeName === 'light'
-        ? 'rgba(229, 228, 226, 0.2)'
-        : 'rgba(34, 34, 34, 0.4)',
-      '--about-stat-hover': themeName === 'light'
-        ? 'rgba(229, 228, 226, 0.3)'
-        : 'rgba(34, 34, 34, 0.6)',
+      '--about-text-secondary':
+        themeName === 'light'
+          ? 'rgba(18, 18, 18, 0.8)'
+          : 'rgba(229, 228, 226, 0.9)',
+      '--about-accent':
+        themeName === 'light'
+          ? 'rgba(18, 18, 18, 0.2)'
+          : 'rgba(229, 228, 226, 0.3)',
+      '--about-stat-bg':
+        themeName === 'light'
+          ? 'rgba(229, 228, 226, 0.2)'
+          : 'rgba(34, 34, 34, 0.4)',
+      '--about-stat-hover':
+        themeName === 'light'
+          ? 'rgba(229, 228, 226, 0.3)'
+          : 'rgba(34, 34, 34, 0.6)',
     };
 
     Object.entries(customProperties).forEach(([property, value]) => {
@@ -91,18 +117,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return 'light';
   }
 
-  const toggleTheme = () => {
-    const newThemeName = themeName === 'light' ? 'dark' : 'light';
-    setThemeName(newThemeName);
-
-    // Check if we're in a browser environment before using localStorage
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('theme', newThemeName);
-    }
-  };
-
   return (
-    <ThemeContext.Provider value={{ theme, themeName, toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
