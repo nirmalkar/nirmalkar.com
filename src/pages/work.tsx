@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import type { GatsbyImage } from 'gatsby-plugin-image';
-import get from 'lodash/get';
-import React from 'react';
+import React, { useMemo } from 'react';
 import InfoCard from '../components/InfoCard';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -70,47 +69,50 @@ type WorkPropsType = {
 
 function Work(props: WorkPropsType) {
   const { theme } = React.useContext(ThemeContext);
-  const projects = [...get(props.data, 'allContentfulProject.edges', [])].sort(
-    (a, b) => {
+
+  const projects = useMemo(() => {
+    const projectEdges = props.data?.allContentfulProject?.edges || [];
+    return [...projectEdges].sort((a, b) => {
       if (!a.node.toDate && b.node.toDate) return -1;
       if (a.node.toDate && !b.node.toDate) return 1;
       const dateA = new Date(a.node.fromDate).getTime();
       const dateB = new Date(b.node.fromDate).getTime();
       return dateB - dateA;
-    },
-  );
+    });
+  }, [props.data?.allContentfulProject?.edges]);
+
+  const technologiesList = useMemo(() => {
+    return technologies.map((tech, index) => (
+      <div className="icon" key={`tech-${tech}-${index}`}>
+        <TechIcons name={tech} />
+      </div>
+    ));
+  }, []);
 
   return (
     <Layout>
-      <Seo title={'Work'} description={'This is the work page.'} />
+      <Seo title="Work" description="Explore my portfolio of projects" />
       <main className="work-container">
         <section className="project-container">
           <h3 className="project-heading">Projects</h3>
-          {projects.map((project: { node: Project }, _index: number) => (
-            <InfoCard
-              key={project.node.id}
-              {...{
-                title: project?.node.name,
-                image: project?.node?.Image,
-                description: project?.node.description.description,
-                from: project?.node.from,
-                to: project?.node.to,
-                clickable: true,
-                textColor: theme.colors.oppositePrimary,
-                icons: project?.node.technology.tech_array,
-              }}
-            />
-          ))}
+          {projects.map((project: { node: Project }) => {
+            const cardProps = {
+              title: project.node.name,
+              image: project.node.Image,
+              description: project.node.description.description,
+              from: project.node.from,
+              to: project.node.to,
+              clickable: true,
+              textColor: theme.colors.oppositePrimary,
+              icons: project.node.technology.tech_array,
+            };
+
+            return <InfoCard key={project.node.id} {...cardProps} />;
+          })}
         </section>
         <section className="technologies-container">
           <h3 className="technologies-heading">Technologies</h3>
-          <div className="technologies-icons">
-            {technologies.map((tech, index) => (
-              <div className="icon" key={`tech-${tech}-${index}`}>
-                <TechIcons name={tech} />
-              </div>
-            ))}
-          </div>
+          <div className="technologies-icons">{technologiesList}</div>
         </section>
       </main>
     </Layout>
