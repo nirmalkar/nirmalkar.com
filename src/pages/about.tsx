@@ -1,22 +1,54 @@
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import type {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from 'gatsby-source-contentful/rich-text';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { FC } from 'react';
 
 import Layout from '../components/layout';
 import Modal from '../components/Modal';
 import Seo from '../components/seo';
 
+interface PersonImage {
+  gatsbyImage?: IGatsbyImageData;
+}
+
+interface Person {
+  id: string;
+  name: string;
+  email: string;
+  description: string;
+  shortBio: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  image: PersonImage;
+}
+
+interface AboutQuery {
+  allContentfulPerson: {
+    edges: Array<{
+      node: Person;
+    }>;
+  };
+}
+
 interface AboutProps {
-  data: any;
+  data: AboutQuery;
 }
 
 const About: FC<AboutProps> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const node = props?.data?.allContentfulPerson?.edges[1].node;
-  const image = node.image.gatsbyImage;
-  const options = {};
+
+  const node = useMemo(() => {
+    return props?.data?.allContentfulPerson?.edges.find(
+      (edge: { node: { name: string } }) =>
+        edge.node.name === 'Hemant Nirmalkar',
+    )?.node;
+  }, [props?.data?.allContentfulPerson?.edges]);
+
+  const image = node?.image?.gatsbyImage;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -25,6 +57,14 @@ const About: FC<AboutProps> = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  if (!node) {
+    return (
+      <Layout>
+        <div>Loading...</div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -38,7 +78,7 @@ const About: FC<AboutProps> = (props) => {
               </div>
 
               <div className="about-section about-bio">
-                {renderRichText(node.shortBio, options)}
+                {renderRichText(node.shortBio)}
               </div>
             </div>
 
@@ -49,12 +89,15 @@ const About: FC<AboutProps> = (props) => {
                 role="button"
                 tabIndex={0}
                 className="profile-picture"
+                aria-label="View full size profile picture"
               >
-                <GatsbyImage
-                  className="about-picture"
-                  alt={node.name}
-                  image={image}
-                />
+                {image && (
+                  <GatsbyImage
+                    className="about-picture"
+                    alt={node.name}
+                    image={image}
+                  />
+                )}
               </div>
             </div>
           </div>

@@ -1,35 +1,36 @@
-@import "normalize";
-@import "utility";
-@import "abstracts/variables";
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "responsive";
+@import 'fonts';
+@import 'normalize';
+@import 'utility';
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'responsive';
 
-@import "base/reset";
-@import "base/typography";
+@import 'base/reset';
+@import 'base/typography';
 
-@import "components/navigation";
-@import "components/toggleButton";
-@import "components/social";
-@import "components/intro";
-@import "components/linkSelect";
-@import "components/myJourney.scss";
-@import "components/card";
-@import "components/articlePreview";
-@import "components/modal";
-@import "components/sidebar";
-@import "components/filter";
+@import 'components/navigation';
+@import 'components/toggleButton';
+@import 'components/social';
+@import 'components/intro';
+@import 'components/linkSelect';
+@import 'components/myJourney.scss';
+@import 'components/card';
+@import 'components/articlePreview';
+@import 'components/modal';
+@import 'components/sidebar';
+@import 'components/filter';
 
-@import "layout/index";
+@import 'layout/index';
 
-@import "Icon/close";
+@import 'Icon/close';
 
-@import "pages/home";
-@import "pages/about";
-@import "pages/contact";
-@import "pages/blog";
-@import "pages/work";
-@import "pages/404";
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/blog';
+@import 'pages/work';
+@import 'pages/404';
 
-@import "themes/theme";
-@import "themes/admin";
+@import 'themes/theme';
+@import 'themes/admin';
