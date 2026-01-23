@@ -19,6 +19,7 @@ const Social: FC = React.memo(() => {
           target="_blank"
           rel="noopener noreferrer"
           className="social"
+          aria-label={`Visit ${social.name} profile`}
         >
           <Icon fill={oppositeSecondary} name={social.name} />
         </a>
