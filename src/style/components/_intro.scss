@@ -42,7 +42,8 @@
 
 .intro-content {
   background: var(--about-bg, rgba(255, 255, 255, 0.12));
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid var(--about-border, rgba(255, 255, 255, 0.15));
   border-radius: 24px;
   padding: 2.5rem 1.75rem;
@@ -52,7 +53,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  animation: introFadeIn 0.6s ease-out 0.1s both;
+  animation: introFadeIn 0.3s ease-out 0s both;
 
   &::before {
     content: '';
@@ -248,11 +249,10 @@
   }
 }
 
-// Keyframe animations
 @keyframes introFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -284,13 +284,12 @@
     background: var(--about-bg, rgba(255, 255, 255, 0.1));
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.12));
-    animation-delay: 0.05s;
   }
 
   .intro-salutation {
     font-size: 18px;
-    animation-delay: 0.3s;
     color: var(--about-text-secondary, rgba(255, 255, 255, 0.8));
 
     &::after {
@@ -301,7 +300,6 @@
   .intro-title {
     font-size: 28px;
     line-height: 1.4;
-    animation-delay: 0.5s;
     color: var(--about-text, #ffffff);
   }
 
@@ -309,12 +307,11 @@
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 2rem;
-    animation-delay: 0.7s;
     color: var(--about-text-secondary, rgba(255, 255, 255, 0.9));
   }
 
   .intro-social {
-    animation-delay: 0.9s;
+    padding-top: 1rem;
   }
 }
 
@@ -330,25 +327,23 @@
     background: var(--about-bg, rgba(255, 255, 255, 0.12));
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.14));
-    animation-delay: 0.15s;
   }
 
   .intro-title {
     font-size: 36px;
-    animation-delay: 0.6s;
     color: var(--about-text, #ffffff);
   }
 
   .intro-description {
     font-size: 16px;
     margin-bottom: 2.5rem;
-    animation-delay: 0.8s;
     color: var(--about-text-secondary, rgba(255, 255, 255, 0.9));
   }
 
   .intro-social {
-    animation-delay: 1s;
+    padding-top: 1.5rem;
   }
 }
 
@@ -377,8 +372,8 @@
     background: var(--about-bg, rgba(255, 255, 255, 0.2));
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--about-border, rgba(255, 255, 255, 0.22));
-    animation-delay: 0.05s;
   }
 }
 

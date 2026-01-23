@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeContext } from '../../context/themeProvider';
 import Social from '../Social';
 
 interface IntroDataType {
@@ -11,20 +10,10 @@ interface IntroDataType {
 }
 
 const Intro: React.FC<IntroDataType> = React.memo(({ bioData }) => {
-  const { theme } = React.useContext(ThemeContext);
-  const { oppositeSecondary } = theme?.colors || {
-    oppositeSecondary: '#333333',
-  };
-
   const { bio, salutation, intro } = bioData;
 
-  const sectionStyle = React.useMemo(
-    () => ({ color: oppositeSecondary }),
-    [oppositeSecondary],
-  );
-
   return (
-    <section className="intro-container" style={sectionStyle}>
+    <section className="intro-container">
       <div className="intro-content">
         <div className="intro-main">
           <span className="intro-salutation">{salutation}</span>
