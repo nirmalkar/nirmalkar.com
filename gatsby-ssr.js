@@ -18,5 +18,23 @@ export const onRenderBody = ({ setHeadComponents }) => {
       key="theme-script"
       dangerouslySetInnerHTML={{ __html: themeScript }}
     />,
+    // Google Fonts optimization with preconnect
+    <link
+      key="preconnect-google-fonts"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />,
+    <link
+      key="preconnect-fonts-gstatic"
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="anonymous"
+    />,
+    // Google Fonts stylesheet
+    <link
+      key="google-fonts"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Abril+Fatface:wght@400&display=swap"
+      rel="stylesheet"
+    />,
   ]);
 };
