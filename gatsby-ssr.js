@@ -33,8 +33,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
     // Google Fonts stylesheet
     <link
       key="google-fonts"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Abril+Fatface:wght@400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Abril+Fatface:wght@400&display=swap"
       rel="stylesheet"
+      media="print"
+      onLoad="this.media='all'"
     />,
   ]);
 };
