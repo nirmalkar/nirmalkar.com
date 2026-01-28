@@ -13,17 +13,16 @@ const Intro: React.FC<IntroDataType> = React.memo(({ bioData }) => {
   const { bio, salutation, intro } = bioData;
 
   return (
-    <section className="intro-container">
+    <section className="intro-container" aria-label="Introduction">
       <div className="intro-content">
         <div className="intro-main">
-          <span className="intro-salutation">{salutation}</span>
-          <br />
-          <span className="intro-title">{intro}</span>
+          <h1 className="intro-salutation">{salutation}</h1>
+          <p className="intro-title">{intro}</p>
         </div>
         <div className="intro-description">{bio.bio}</div>
-        <div className="intro-social">
+        <nav className="intro-social" aria-label="Social media links">
           <Social />
-        </div>
+        </nav>
       </div>
     </section>
   );

@@ -64,12 +64,7 @@ const Links: FC<LinksProps> = ({ navLinks, theme }) => {
                   <DownAero size={13} color={oppositePrimary} />
                 </div>
                 {showMoreOptions && (
-                  <LinkSelect
-                    paths={[
-                      { name: 'About Me', path: '/about' },
-                      { name: 'Info', path: '/info' },
-                    ]}
-                  />
+                  <LinkSelect paths={[{ name: 'About Me', path: '/about' }]} />
                 )}
               </span>
             )}
@@ -88,8 +83,8 @@ const Nav: FC = () => {
       oppositePrimary: '#333333',
       oppositeSecondary: '#333333',
       primary: '#ffffff',
-      secondary: '#f0f0f0'
-    }
+      secondary: '#f0f0f0',
+    },
   };
   return (
     <div className={`nav-container-${themeName}`}>

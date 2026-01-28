@@ -31,6 +31,26 @@ const Layout: FC<Props> = React.memo((props: Props) => {
 
   return (
     <div className="layout" id="wrapper">
+      <a
+        href="#main-content"
+        className="skip-link"
+        style={{
+          position: 'absolute',
+          top: '-40px',
+          left: '6px',
+          background: 'var(--about-bg, rgba(255, 255, 255, 0.9))',
+          color: 'var(--about-text, #000000)',
+          padding: '8px',
+          textDecoration: 'none',
+          borderRadius: '4px',
+          zIndex: 1000,
+          transition: 'top 0.3s',
+        }}
+        onFocus={(e) => (e.target.style.top = '6px')}
+        onBlur={(e) => (e.target.style.top = '-40px')}
+      >
+        Skip to main content
+      </a>
       <Header />
       <SideBar isVisible={isToggled} toggleSidebar={toggleSidebar} />
       <div className="toggle-button">
@@ -63,7 +83,12 @@ const Layout: FC<Props> = React.memo((props: Props) => {
           />
         </div>
       </div>
-      <main className={`content ${isToggled ? 'shifted' : ''}`}>
+      <main
+        id="main-content"
+        className={`content ${isToggled ? 'shifted' : ''}`}
+        role="main"
+        aria-label="Main content"
+      >
         <section>{children}</section>
       </main>
       <Suspense fallback={<div className="footer-placeholder" />}>

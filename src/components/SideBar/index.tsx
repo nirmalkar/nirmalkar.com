@@ -1,6 +1,5 @@
 import { FaLaptopCode } from '@react-icons/all-files/fa/FaLaptopCode';
 import { IoHomeOutline } from '@react-icons/all-files/io5/IoHomeOutline';
-import { IoInformationCircleOutline } from '@react-icons/all-files/io5/IoInformationCircleOutline';
 import { IoPersonOutline } from '@react-icons/all-files/io5/IoPersonOutline';
 import { RiContactsLine } from '@react-icons/all-files/ri/RiContactsLine';
 import { Link } from 'gatsby';
@@ -17,8 +16,8 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
     colors: {
       primary: '#ffffff',
       oppositePrimary: '#333333',
-      secondaryLighter: '#f0f0f0'
-    }
+      secondaryLighter: '#f0f0f0',
+    },
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -32,16 +31,16 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
 
   useEffect(() => {
     if (isVisible) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "unset";
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "unset";
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isVisible]);
 
@@ -62,29 +61,24 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
 
   const navigationItems = [
     {
-      to: "/",
+      to: '/',
       icon: <IoHomeOutline size={24} />,
-      label: "Home",
+      label: 'Home',
     },
     {
-      to: "/work",
+      to: '/work',
       icon: <FaLaptopCode size={24} />,
-      label: "Work",
+      label: 'Work',
     },
     {
-      to: "/about",
+      to: '/about',
       icon: <IoPersonOutline size={24} />,
-      label: "About me",
+      label: 'About me',
     },
     {
-      to: "/contact",
+      to: '/contact',
       icon: <RiContactsLine size={24} />,
-      label: "Contact",
-    },
-    {
-      to: "/info",
-      icon: <IoInformationCircleOutline size={24} />,
-      label: "Info",
+      label: 'Contact',
     },
   ];
 
@@ -92,14 +86,21 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
     <>
       {/* Backdrop */}
       <div
-        className={`sidebar-backdrop ${isVisible ? "visible" : "hidden"}`}
+        className={`sidebar-backdrop ${isVisible ? 'visible' : 'hidden'}`}
         onClick={toggleSidebar}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            toggleSidebar();
+          }
+        }}
+        role="button"
+        tabIndex={isVisible ? 0 : -1}
       />
 
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`sidebar ${isVisible ? "visible" : "hidden"}`}
+        className={`sidebar ${isVisible ? 'visible' : 'hidden'}`}
       >
         <nav>
           <ul>
@@ -109,7 +110,7 @@ const SideBar = ({ isVisible, toggleSidebar }: SideBarPropsType) => {
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
-                className={isVisible ? "animate-in" : ""}
+                className={isVisible ? 'animate-in' : ''}
               >
                 <Link
                   to={item.to}
